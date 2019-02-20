@@ -1,0 +1,41 @@
+spring:
+  profiles:
+    active: dev
+
+## 最大轮询次数
+maxPollingCount: 6
+## 最大同步订单次数
+maxSyncOrderCount: 4
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  config-location: classpath:/mybatis-config.xml
+
+logging:
+  config: classpath:logback.xml
+
+dubbo:
+  scan:
+    base-packages: com.luckwine.pgw.service
+  application:
+    name: luckwine-pgw
+  protocol:
+    status: server
+  registry:
+    check: true
+    file: .dubbo/luckwine_pgw_registry
+    client: curator
+    protocol: zookeeper
+  provider:
+    validation: true
+    filter: dubboLogFilter
+    timeout: 6000
+    version: 1.0.0
+    retries: 0
+
+management:
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+

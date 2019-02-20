@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <beans profile="default,mock">
+        <import resource="mock-beans.xml"/>
+        <bean id="mockHelper" class="com.luckwine.oss.module.mock.base.MockHelper">
+            <property name="currentProfile" value="default"/>
+        </bean>
+    </beans>
+
+    <beans profile="local">
+        <bean id="mockHelper" class="com.luckwine.oss.module.mock.base.MockHelper">
+            <property name="currentProfile" value="local"/>
+        </bean>
+    </beans>
+
+    <beans profile="dubbo">
+        <bean id="mockHelper" class="com.luckwine.oss.module.mock.base.MockHelper">
+            <property name="currentProfile" value="dubbo"/>
+        </bean>
+    </beans>
+
+</beans>

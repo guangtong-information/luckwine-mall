@@ -1,0 +1,21 @@
+@startuml
+title: 支付单稽核
+start
+repeat
+  : 查询**待稽核支付单**
+  1.2天前~截止当前时间5分钟前
+  2.支付单状态为: **创建**
+  3.小于最大轮询次数;
+  :调用**供应商接口**获取状态;
+if (获取到最终状态) then (yes)
+  if(支付成功) then (yes)
+  : 更新并且同步通知订单;
+  else (no)
+  :更新,然后任务结束;
+  endif
+else (no)
+  : 任务结束等待下次轮询;
+endif
+repeat while(等待下次任务(5分钟一次))
+stop
+@enduml

@@ -1,0 +1,25 @@
+#Web服务器本地访问端口
+server:
+  port: 8006
+
+spring:
+  datasource:
+     driver-class-name: com.mysql.jdbc.Driver
+     url: jdbc:mysql://127.0.0.1:3306/luckwine-synthesize?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+     username: root
+     password: Aa123456
+     type: com.alibaba.druid.pool.DruidDataSource
+
+dubbo:
+  protocol:
+    port: 28036
+  registry:
+    address: 127.0.0.1:2181
+
+#玄武短信配置
+sms:
+  cmHost: ip:port
+  wsHost: ip:port
+  username: xxx
+  password: xxx
+  active: false

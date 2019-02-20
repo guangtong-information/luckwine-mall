@@ -1,0 +1,23 @@
+@startuml
+luckwine_portal_web -> luckwine_portal_service: 下单请求
+luckwine_portal_service --> luckwine_trade: 请求转发
+
+luckwine_trade -> luckwine_goods: 获取商品信息
+luckwine_trade <-- luckwine_goods: 返回结果
+
+luckwine_trade -> luckwine_marketing: 获取优惠券信息
+luckwine_trade <-- luckwine_marketing: 返回结果
+
+luckwine_trade -> luckwine_pgw: 支付信息
+luckwine_pgw -> alipay: 外系统调用
+luckwine_pgw <-- alipay: 返回结果
+luckwine_trade <-- luckwine_pgw: 返回结果
+
+luckwine_trade -> luckwine_bgw: 物流信息
+luckwine_bgw -> 物流平台: 外系统调用
+luckwine_bgw <-- 物流平台: 返回结果
+luckwine_trade <-- luckwine_bgw: 返回结果
+
+luckwine_portal_service <-- luckwine_trade: 返回结果
+luckwine_portal_web <-- luckwine_portal_service: 返回结果
+@enduml

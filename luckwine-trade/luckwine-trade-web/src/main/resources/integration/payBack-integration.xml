@@ -1,0 +1,32 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xsi:schemaLocation="http://www.springframework.org/schema/integration
+		http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration
+		http://www.springframework.org/schema/integration/spring-integration-3.0.xsd">
+
+    <int:channel id="payBackChannel"/>
+
+    <!--========================= 支付回调 =========================-->
+    <int:chain input-channel="payBackChannel" output-channel="convertResultChannel">
+        <!-- 校验订单 -->
+        <int:service-activator ref="validateOrderFlow" method="payBackalidate"/>
+        <!-- 校验资金流水 -->
+        <int:service-activator ref="validateOrderFlow" method="capitalStatementValidate"/>
+        <!--  更新支付状态  -->
+        <int:service-activator ref="payBackFlow" method="updateAllStatus"/>
+        <!--  入账  -->
+        <int:service-activator ref="payBackFlow" method="accountDeposit"/>
+        <!--  记录收款支付流水信息 -->
+        <int:service-activator ref="payBackFlow" method="insertCapitalStatement"/>
+        <!-- (异步)发送短信 -->
+        <!-- todo -->
+        <!-- 结果组装 -->
+        <int:service-activator ref="payBackFlow" method="converResult"/>
+    </int:chain>
+    <!--========================= 支付回调 =========================-->
+
+</beans>

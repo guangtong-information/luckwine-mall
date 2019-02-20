@@ -1,0 +1,48 @@
+@startuml
+title: 1.下单
+portal -> trade: 交易下单请求
+activate trade
+trade -> goods: 1.获取商品信息
+goods --> trade
+trade -> goods: 2.减库存
+goods --> trade
+trade -> marketing: 3.验证优惠券
+marketing --> trade:
+trade --> trade
+note right:  4.计算价格,订单入库
+trade --> portal:返回下单信息
+deactivate trade
+
+newpage 2.发起支付
+
+portal -> trade: 发起支付
+activate trade
+trade --> trade: 1.校验订单状态
+trade -> pgw: 2.生成资金流水,发起支付
+activate pgw
+pgw -> thirdPay :1.发起支付
+thirdPay --> pgw
+pgw --> pgw: 2.生成支付单
+pgw --> trade
+trade --> trade
+note right:  3.更新资金流水状态
+trade --> portal: 返回支付表单
+deactivate pgw
+deactivate trade
+
+
+
+newpage 3.支付
+user -> thirdPay: 支付
+thirdPay --> pgw: 回调支付结果
+activate pgw
+pgw --> pgw: 更新支付单状态
+pgw --> trade: 回调订单支付结果
+activate trade
+trade --> trade: 更新订单支付结果
+trade --> pgw
+deactivate trade
+pgw --> thirdPay
+deactivate pgw
+@enduml
+

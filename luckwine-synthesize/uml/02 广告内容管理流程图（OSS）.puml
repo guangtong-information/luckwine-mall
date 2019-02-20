@@ -1,0 +1,7 @@
+@startuml
+luckwine_oss_web -> luckwine_oss_service: 广告内容管理请求
+luckwine_oss_service --> luckwine_synthesize: 调用综合域广告内容管理接口
+
+luckwine_oss_service <-- luckwine_synthesize: 返回结果
+luckwine_oss_web <-- luckwine_oss_service: 返回结果
+@enduml

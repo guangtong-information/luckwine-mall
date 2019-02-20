@@ -1,0 +1,15 @@
+dubbo:
+  registry:
+    address: 127.0.0.1:2181
+spring:
+  datasource:
+      url: jdbc:mysql://127.0.0.1:3306/luckwine-trade?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=true
+      username: root
+      password: Aa123456
+
+#酒缘网自营店铺
+store: 88888888
+#流水号：环境标志位
+env: 2
+#酒缘网收款大账号
+recAcct: 1001811040141026993481002

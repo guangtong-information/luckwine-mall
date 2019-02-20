@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:reg="http://www.dangdang.com/schema/ddframe/reg"
+       xmlns:job="http://www.dangdang.com/schema/ddframe/job"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.dangdang.com/schema/ddframe/reg
+                        http://www.dangdang.com/schema/ddframe/reg/reg.xsd
+                        http://www.dangdang.com/schema/ddframe/job
+                        http://www.dangdang.com/schema/ddframe/job/job.xsd
+                        ">
+    <!--配置作业注册中心 -->
+    <reg:zookeeper id="regCenter" server-lists="${dubbo.registry.address}"
+                   namespace="pgw-pay-order-job"
+                   base-sleep-time-milliseconds="1000"
+                   max-sleep-time-milliseconds="3000"
+                   max-retries="1"   />
+
+
+
+    <job:simple id="payOrderAuditJob" class="com.luckwine.pgw.job.PayOrderAuditJob"
+                registry-center-ref="regCenter"
+                sharding-total-count="2"
+                cron="0 0/5 * * * ? "
+                sharding-item-parameters="0=ALIPAY,1=ALLINPAY"
+                failover="true" description="支付单稽核"
+                overwrite="true"/>
+
+
+    <job:simple id="payOrderSyncOrderJob" class="com.luckwine.pgw.job.PayOrderSyncOrderJob"
+                registry-center-ref="regCenter"
+                sharding-total-count="1"
+                cron="0 0/10 * * * ? "  description="订单同步稽核"
+                overwrite="true"/>
+
+
+    <job:simple id="payOrderVerifyBillJob" class="com.luckwine.pgw.job.PayOrderVerifyBillJob"
+                registry-center-ref="regCenter"
+                sharding-total-count="2"
+                cron="0 0 5 * * ? "
+                sharding-item-parameters="0=ALIPAY,1=ALLINPAY"
+                failover="true" description="支付单对账"
+                overwrite="true"/>
+
+</beans>

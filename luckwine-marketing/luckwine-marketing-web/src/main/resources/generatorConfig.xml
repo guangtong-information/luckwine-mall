@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <classPathEntry location="D:\repo\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar"/>
+
+    <context id="mysql">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://rm-wz9w6sgg78t2319s5mo.mysql.rds.aliyuncs.com:3306/luckwine-marketing?useSSL=false"
+                        userId="luckwine_mkt"
+                        password="Aa123456@zx"/>
+
+        <javaModelGenerator targetPackage="com.luckwine.marketing.entity" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!--generatexml-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources/">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator targetPackage="com.luckwine.marketing.dao" targetProject="src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- generate Mapper -->
+        <table schema="" tableName="marketing_scheme" domainObjectName="MarketingScheme"
+               enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"
+        >
+        </table>
+
+        <table schema="" tableName="marketing_scheme_obj" domainObjectName="MarketingSchemeObj"
+               enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"
+        >
+        </table>
+        <table schema="" tableName="marketing_coupon" domainObjectName="MarketingCoupon"
+               enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"
+        >
+        </table>
+
+        <table schema="" tableName="marketing_expenses" domainObjectName="MarketingExpenses"
+               enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"
+        >
+        </table>
+
+    </context>
+
+    <!--java -jar mybatis-generator-core-1.3.2.jar -configfile generatorConfig.xml -overwrite-->
+
+</generatorConfiguration>

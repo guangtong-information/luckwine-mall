@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+ * @Description 客户收货地址
+ * @Author yewenqing 叶文清
+ * @Date 2018/9/26 20:42
+ * @Version 1.0
+-->
+<mapper namespace="com.luckwine.customer.dao.CustGoodsAddrMapper">
+
+</mapper>

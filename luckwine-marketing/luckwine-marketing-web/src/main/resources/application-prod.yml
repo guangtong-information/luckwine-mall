@@ -1,0 +1,19 @@
+#Web服务器本地访问端口
+server:
+  port: 8004
+
+#数据源配置 MyBatisConfig.class
+spring:
+  datasource:
+     driver-class-name: com.mysql.jdbc.Driver
+     url: jdbc:mysql://luckwine-mysql:3306/luckwine-marketing?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+     username: root
+     password: Aa123456
+     type: com.alibaba.druid.pool.DruidDataSource
+
+
+dubbo:
+  protocol:
+    port: 28034
+  registry:
+    address: luckwine-zookeeper:2181

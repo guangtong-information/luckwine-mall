@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luckwine.acct.dao.AcctAbilityMapper">
+    <resultMap id="BaseResultMap" type="com.luckwine.acct.model.base.AcctAbility">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="acct_code" jdbcType="VARCHAR" property="acctCode"/>
+        <result column="ability_code" jdbcType="VARCHAR" property="abilityCode"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+
+    <delete id="deleteByAcctCodeList" parameterType="java.lang.String">
+        delete from acct_ability where acct_code in
+        <foreach collection="acctCodeList" item="acctCode" index="index" separator="," open="(" close=")">
+            #{acctCode}
+        </foreach>
+    </delete>
+
+    <insert id="batchInsert">
+        insert into acct_ability (acct_code, ability_code)
+        values
+        <foreach collection="acctCodeList" item="acctCode" index="index" separator="," open="" close="">
+            <foreach collection="abilityCodeList" item="abilityCode" index="index" separator="," open="" close="">
+                (#{acctCode,jdbcType=VARCHAR}, #{abilityCode,jdbcType=VARCHAR})
+            </foreach>
+        </foreach>
+    </insert>
+    
+    <select id="selectDepositByAcctCode" parameterType="java.lang.String" resultType="Integer">
+        select 1  from acct_ability where acct_code=#{acctCode,jdbcType=VARCHAR} and ability_code='0003';
+    </select>
+</mapper>

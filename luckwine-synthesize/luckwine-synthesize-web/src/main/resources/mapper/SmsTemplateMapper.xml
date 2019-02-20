@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luckwine.synthesize.dao.SmsTemplateMapper">
+
+  <!--<resultMap id="BaseResultMap" type="com.luckwine.synthesize.dao.SmsTemplateMapper">-->
+
+    <!--<id column="sms_id" jdbcType="VARCHAR" property="smsId" />-->
+    <!--<result column="biz_name" jdbcType="VARCHAR" property="bizName" />-->
+    <!--<result column="content" jdbcType="VARCHAR" property="content" />-->
+    <!--<result column="create_time" jdbcType="TIMESTAMP" property="createTime" />-->
+    <!--<result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />-->
+    <!--<result column="sms_code" jdbcType="CHAR" property="smsCode" />-->
+  <!--</resultMap>-->
+  <!--<sql id="Base_Column_List">-->
+
+    <!--sms_id, biz_name, content, create_time, update_time, sms_code-->
+  <!--</sql>-->
+  <!--<select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">-->
+
+    <!--select -->
+    <!--<include refid="Base_Column_List" />-->
+    <!--from sms_template-->
+    <!--where sms_id = #{smsId,jdbcType=VARCHAR}-->
+  <!--</select>-->
+  <!--<delete id="deleteByPrimaryKey" parameterType="java.lang.String">-->
+
+    <!--delete from sms_template-->
+    <!--where sms_id = #{smsId,jdbcType=VARCHAR}-->
+  <!--</delete>-->
+  <!--<insert id="insert" parameterType="com.luckwine.synthesize.model.base.SmsTemplate">-->
+
+    <!--insert into sms_template (sms_id, biz_name, content, -->
+      <!--create_time, update_time, sms_code-->
+      <!--)-->
+    <!--values (#{smsId,jdbcType=VARCHAR}, #{bizName,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, -->
+      <!--#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{smsCode,jdbcType=CHAR}-->
+      <!--)-->
+  <!--</insert>-->
+  <!--<insert id="insertSelective" parameterType="com.luckwine.synthesize.model.base.SmsTemplate">-->
+
+    <!--insert into sms_template-->
+    <!--<trim prefix="(" suffix=")" suffixOverrides=",">-->
+      <!--<if test="smsId != null">-->
+        <!--sms_id,-->
+      <!--</if>-->
+      <!--<if test="bizName != null">-->
+        <!--biz_name,-->
+      <!--</if>-->
+      <!--<if test="content != null">-->
+        <!--content,-->
+      <!--</if>-->
+      <!--<if test="createTime != null">-->
+        <!--create_time,-->
+      <!--</if>-->
+      <!--<if test="updateTime != null">-->
+        <!--update_time,-->
+      <!--</if>-->
+      <!--<if test="smsCode != null">-->
+        <!--sms_code,-->
+      <!--</if>-->
+    <!--</trim>-->
+    <!--<trim prefix="values (" suffix=")" suffixOverrides=",">-->
+      <!--<if test="smsId != null">-->
+        <!--#{smsId,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="bizName != null">-->
+        <!--#{bizName,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="content != null">-->
+        <!--#{content,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="createTime != null">-->
+        <!--#{createTime,jdbcType=TIMESTAMP},-->
+      <!--</if>-->
+      <!--<if test="updateTime != null">-->
+        <!--#{updateTime,jdbcType=TIMESTAMP},-->
+      <!--</if>-->
+      <!--<if test="smsCode != null">-->
+        <!--#{smsCode,jdbcType=CHAR},-->
+      <!--</if>-->
+    <!--</trim>-->
+  <!--</insert>-->
+  <!--<update id="updateByPrimaryKeySelective" parameterType="com.luckwine.synthesize.model.base.SmsTemplate">-->
+
+    <!--update sms_template-->
+    <!--set-->
+      <!--<if test="bizName != null">-->
+        <!--biz_name = #{bizName,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="content != null">-->
+        <!--content = #{content,jdbcType=VARCHAR},-->
+      <!--</if>-->
+      <!--<if test="createTime != null">-->
+        <!--create_time = #{createTime,jdbcType=TIMESTAMP},-->
+      <!--</if>-->
+      <!--<if test="smsCode != null">-->
+        <!--sms_code = #{smsCode,jdbcType=CHAR},-->
+      <!--</if>-->
+
+        <!--update_time = #{updateTime,jdbcType=TIMESTAMP}-->
+
+    <!--where sms_id = #{smsId,jdbcType=VARCHAR}-->
+
+  <!--</update>-->
+
+  <!--<update id="updateByPrimaryKey" parameterType="com.luckwine.synthesize.model.base.SmsTemplate">-->
+
+    <!--update sms_template-->
+    <!---->
+    <!--set -->
+      <!--<if test="b"></if>-->
+      <!--biz_name = #{bizName,jdbcType=VARCHAR},-->
+    <!---->
+      <!--content = #{content,jdbcType=VARCHAR},-->
+      <!---->
+      <!--create_time = #{createTime,jdbcType=TIMESTAMP},-->
+      <!---->
+      <!--sms_code = #{smsCode,jdbcType=CHAR},-->
+      <!---->
+      <!--update_time = #{updateTime,jdbcType=TIMESTAMP}-->
+      <!---->
+      <!---->
+      <!---->
+    <!--where sms_id = #{smsId,jdbcType=VARCHAR}-->
+  <!--</update>-->
+</mapper>

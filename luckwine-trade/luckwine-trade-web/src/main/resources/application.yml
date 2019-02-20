@@ -1,0 +1,92 @@
+# 配置文件加密因子key
+jasypt:
+  encryptor:
+    password: luckwine_trade
+
+#Web服务器本地访问端口
+server:
+  port: 8007
+
+#数据源配置 MyBatisConfig.class
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/luckwine-trade?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: root
+    password: Aa123456
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  config-location: classpath:/mybatis-config.xml
+
+# dubbo最新配置，整合了注册中心配置
+dubbo:
+  scan:
+    base-packages: com.luckwine.trade
+  application:
+    name: luckwine-trade
+  protocol:
+    port: 28037
+    status: server
+  registry:
+    address: 127.0.0.1:2181
+    timeout: 6000
+    check: true
+    file: ./.dubbo/luckwine_trade_registry
+    protocol: zookeeper
+  provider:
+    version: 1.0.0
+    timeout: 6000
+    filter: dubboLogFilter
+    validation: false
+  consumer:
+    version: 1.0.0
+    timeout: 6000
+    filter: dubboLogFilter,dubboValidationFilter,-validation
+    check: false
+
+#日志相关
+logging:
+  config: classpath:logback.xml
+
+#springboot管理相关，结合pringboot actuator一起使用
+management:
+  info:
+    git:
+      mode: full
+    build:
+      enabled: true
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    db:
+      enabled: true
+    #    redis:
+    #      enabled: true
+    diskspace:
+      enabled: true
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      enabled: true
+      show-details: always
+    info:
+      enabled: true
+
+#酒缘网自营店铺
+store: 88888888
+
+#流水号：环境标志位
+env: 0
+
+#酒缘网收款大账号
+recAcct: 1001811040141026993481002

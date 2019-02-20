@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <classPathEntry location="E:\mysql-connector-java-5.1.38.jar"/>
+
+    <context id="mysql">
+        <commentGenerator type="org.mybatis.generator.internal.HairyCommentGenerator">
+            <property name="javaFileEncoding" value="UTF-8"/>
+            <property name="suppressAllComments" value="false" />
+            <property name="suppressDate" value="true" />
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://rm-wz9w6sgg78t2319s5mo.mysql.rds.aliyuncs.com:3306/luckwine-trade?useSSL=false"
+                        userId="luckwine_trade"
+                        password="Aa123456@zx" />
+
+        <javaModelGenerator targetPackage="com.luckwine.trade.entity" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!--generatexml-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources/">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- generate Mapper -->
+        <javaClientGenerator targetPackage="com.luckwine.trade.dao" targetProject="src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table schema="" tableName="trade_main_order" domainObjectName="tradeMainOrder"
+               enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"
+        >
+        </table>
+
+        <table schema="" tableName="trade_sub_order" domainObjectName="tradeSubOrder"
+               enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"
+        >
+        </table>
+
+        <table schema="" tableName="trade_goods_order" domainObjectName="tradeGoodsOrder"
+               enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"
+                >
+        </table>
+
+        <table schema="" tableName="trade_capital_statement" domainObjectName="tradeCapitalStatement"
+               enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"
+        >
+        </table>
+
+        <table schema="" tableName="trade_cart" domainObjectName="tradeCart"
+               enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"
+        >
+        </table>
+
+        <table schema="" tableName="trade_logistics_addr" domainObjectName="tradeLogisticsAddr"
+               enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"
+        >
+        </table>
+    </context>
+
+    <!--java -jar mybatis-generator-core-1.3.2.jar -configfile generatorConfig.xml -overwrite-->
+
+</generatorConfiguration>

@@ -1,0 +1,78 @@
+# 配置文件加密因子key
+jasypt:
+  encryptor:
+    password: luckwine_acct
+
+#Web服务器本地访问端口
+server:
+  port: 8008
+
+#数据源配置 MyBatisConfig.class
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/luckwine-acct?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: Aa123456
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  config-location: classpath:/mybatis-config.xml
+
+# dubbo最新配置，整合了注册中心配置
+dubbo:
+  application:
+    name: luckwine-acct
+    version: 1.0.0
+  protocol:
+    port: 28038
+    status: server
+  registry:
+    address: zookeeper://127.0.0.1:2181
+    timeout: 6000
+    version: 1.0.0
+    check: true
+    file: ./.dubbo/luckwine_acct_registry
+  scan:
+    base-packages: com.luckwine.acct
+  provider:
+    version: 1.0.0
+    timeout: 6000
+    #加载dubbo日志打印过滤器
+    filter: dubboLogFilter
+    validation: true
+
+#日志相关
+logging:
+  config: classpath:logback.xml
+
+#springboot管理相关，结合pringboot actuator一起使用
+management:
+  info:
+    git:
+      mode: full
+    build:
+      enabled: true
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    db:
+      enabled: true
+    #    redis:
+    #      enabled: true
+    diskspace:
+      enabled: true
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      enabled: true
+      show-details: always
+    info:
+      enabled: true

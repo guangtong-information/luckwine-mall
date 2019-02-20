@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luckwine.goods.dao.SkuMapper">
+
+    <update id="updateDeductionStockById" parameterType="com.luckwine.goods.model.base.Sku">
+        update sku set
+          quantity = quantity - #{quantity},
+          update_time = #{updateTime}
+        where id = #{id} and quantity - #{quantity} > 0
+    </update>
+
+    <update id="updateAddStockById" parameterType="com.luckwine.goods.model.base.Sku">
+        update sku set
+          quantity = quantity + #{quantity},
+          update_time = #{updateTime}
+        where id = #{id}
+    </update>
+
+</mapper>

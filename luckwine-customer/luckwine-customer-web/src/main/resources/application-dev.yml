@@ -1,0 +1,46 @@
+server:
+  port: 8002
+
+spring:
+  # 数据源
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/luckwine-customer?characterEncoding=utf-8&useSSL=false
+    username: root
+    # ·加密 可到common-utils中找到JasyptUtil加解密工具类生成加密结果 格式为ENC(加密结果)
+    password: Aa123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    logSlowSql: true
+    druid:
+      stat-view-servlet:
+        # 默认true 内置监控页面首页/druid/index.html
+        enabled: true
+        url-pattern: /druid/*
+        # 允许清空统计数据
+        reset-enable: true
+        login-username: root
+        login-password: Aa123456
+        # IP白名单 多个逗号分隔
+        allow:
+        # IP黑名单
+        deny:
+
+  # Redis
+  redis:
+    host: 127.0.0.1
+    password:
+    # 数据库索引 默认0
+    database: 1
+    port: 6379
+    timeout: 3000
+
+dubbo:
+  protocol:
+    port: 28032
+    #charset: GBK   #Telnet测试时使用
+  registry:
+    address: zookeeper://127.0.0.1:2181
+
+
+
+

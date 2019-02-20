@@ -1,0 +1,2 @@
+dubboLogFilter=com.luckwine.parent.filter.DubboLogFilter
+dubboValidationFilter=com.luckwine.parent.filter.DubboValidationFilter

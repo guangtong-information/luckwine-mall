@@ -1,0 +1,40 @@
+# maven ignore
+target/
+*.jar
+!lib/*.jar
+!.mvn/wrapper/*
+*.war
+*.zip
+*.tar
+*.tar.gz
+.dubbo
+
+# eclipse ignore
+.settings/
+.project
+.classpath
+
+# idea ignore
+.idea/
+*.ipr
+*.iml
+*.iws
+
+# temp ignore
+*.log*
+*.cache
+*.diff
+*.patch
+*.tmp
+
+# system ignore
+.DS_Store
+Thumbs.db
+
+node_modules/
+node/
+**/package-lock.json
+
+luckwine-oss-web/dist
+luckwine-oss-web/node
+luckwine-oss-web/node-modules

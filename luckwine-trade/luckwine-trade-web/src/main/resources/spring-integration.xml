@@ -1,0 +1,53 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xsi:schemaLocation="http://www.springframework.org/schema/integration
+		http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration
+		http://www.springframework.org/schema/integration/spring-integration-3.0.xsd">
+
+
+    <int:channel id="paramValidateChannel"/>
+    <int:channel id="requestRouterChannel"/>
+    <int:channel id="convertResultChannel"/>
+    <int:channel id="defaultErrorChannel"/>
+    <int:channel id="requestOutputChannel"/>
+
+    <!-- 全局拦截器 -->
+    <int:channel-interceptor ref="interceptTradeChannel" pattern="*Channel" order="1"/>
+
+    <!-- 交易网关 -->
+    <int:gateway id="tradeGateway" service-interface="com.luckwine.trade.integration.gateway.TradeGateWay"
+                 default-request-channel="paramValidateChannel"
+                 default-reply-channel="requestOutputChannel"
+                 error-channel="defaultErrorChannel"/>
+
+    <!-- 请求参数校验 -->
+    <int:service-activator ref="paramValidateService"
+                           input-channel="paramValidateChannel"
+                           output-channel="requestRouterChannel" method="validate"/>
+
+    <!-- 请求路由 -->
+    <int:router input-channel="requestRouterChannel" ref="requestRouter" method="route"/>
+
+    <!-- ################## 下单流 ########################### -->
+    <import resource="classpath:/integration/createOrder-integration.xml"/>
+
+    <!-- ################## 唤起收银台 ########################### -->
+    <import resource="classpath:/integration/payOrder-integration.xml"/>
+
+    <!-- ################## 支付回调 ########################### -->
+    <import resource="classpath:/integration/payBack-integration.xml"/>
+
+    <!-- 结果转换器 end -->
+    <int:service-activator ref="convertResultService"
+                           input-channel="convertResultChannel"
+                           output-channel="requestOutputChannel" method="outPutResponse"/>
+
+    <!--异常处理-->
+    <int:chain input-channel="defaultErrorChannel" output-channel="requestOutputChannel">
+        <int:service-activator ref="defaultExceptionService" method="lastExceptionConvert"/>
+    </int:chain>
+</beans>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luckwine.pgw.dao.PayOrderMapper">
+
+
+    <select id="selectPayOrders" parameterType="java.lang.String" resultType="String">
+        SELECT  CONCAT( supplier_code, ":", pay_order_no ,":", supplier_order_no, ":", amount )
+        FROM `pay_order`
+         where status = 'SUCCESS' and DATE_FORMAT(pay_time,'%Y-%m-%d')=#{date,jdbcType=VARCHAR}
+    </select>
+</mapper>

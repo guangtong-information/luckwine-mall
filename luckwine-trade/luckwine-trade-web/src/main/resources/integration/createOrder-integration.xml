@@ -1,0 +1,56 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xsi:schemaLocation="http://www.springframework.org/schema/integration
+		http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration
+		http://www.springframework.org/schema/integration/spring-integration-3.0.xsd">
+
+    <int:channel id="consumeOrderChannel"/>
+    <int:channel id="createConsumeOrderChannel"/>
+    <int:channel id="rechargeOrderChannel"/>
+    <int:channel id="createRechargeOrderChannel"/>
+
+    <!--========================= 消费下单 =========================-->
+    <!-- 消费交易下单准备 -->
+    <int:chain input-channel="consumeOrderChannel" output-channel="createConsumeOrderChannel">
+        <!-- 下单前的金额计算，实体数据组合(主单、子单、商品单、物流单) -->
+        <int:service-activator ref="preOrderFlow" method="orderConsumeCalculation"/>
+        <!-- 使用优惠券 -->
+        <int:service-activator ref="preOrderFlow" method="userCoupons"/>
+        <!-- 商品库存减少 -->
+        <int:service-activator ref="preOrderFlow" method="reduceGoodsStocks"/>
+    </int:chain>
+
+    <!-- 消费订单创建 -->
+    <int:chain input-channel="createConsumeOrderChannel" output-channel="convertResultChannel">
+        <!-- 创建订单：主单、子单、商品单、物流单 -->
+        <int:service-activator ref="createOrderFlow" method="createConsumeOrder"/>
+        <!-- 删除购物车 -->
+        <!-- todo -->
+        <!-- 结果组装 -->
+        <int:service-activator ref="convertResultService" method="convertCreateOrderResult"/>
+    </int:chain>
+    <!--========================= 消费下单 =========================-->
+
+
+    <!--========================= 充值下单 =========================-->
+    <!-- 充值交易下单准备 -->
+    <int:chain input-channel="rechargeOrderChannel" output-channel="createRechargeOrderChannel">
+        <!-- 下单前的金额计算，实体数据组合(主单) -->
+        <int:service-activator ref="preOrderFlow" method="orderRechargeCalculation"/>
+    </int:chain>
+
+    <!-- 充值订单创建 -->
+    <int:chain input-channel="createRechargeOrderChannel" output-channel="convertResultChannel">
+        <!-- 创建订单 -->
+        <int:service-activator ref="createOrderFlow" method="createRechargeOrder"/>
+        <!-- 结果组装 -->
+        <int:service-activator ref="convertResultService" method="convertCreateOrderResult"/>
+    </int:chain>
+    <!--========================= 充值下单 =========================-->
+
+
+</beans>

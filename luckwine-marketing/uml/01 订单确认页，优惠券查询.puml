@@ -1,0 +1,40 @@
+@startuml
+luckwine_oss_web -> luckwine_oss_service: 请求转发
+luckwine_oss_service --> luckwine_marketing: 查询可用的优惠券列表
+
+note right
+1、营销方案的种类
+1.1、营销方案大的分类：卡劵（优惠券）、优惠（平台政策）
+1.2、卡劵类型包括：通用类型（全品类）优惠券、商品优惠券、商品类型优惠券
+1.3、优惠类型包括：通用类型（全品类）优惠、商品优惠、商品类型优惠
+1.4、随机立减是一种特殊类型的优惠
+
+2、卡劵和优惠的区别
+2.1、卡劵，不管是通用、商品还是商品类型，都需要用户主动获取，消费的时候抵扣
+2.2、优惠，也称为平台政策，复杂的还会结合营销，忽略。。。
+2.3、简单一点，优惠可以针对一类商品或者全场，实现满减或瞒折的功能，和卡劵最大的区别在于不需要用户主动申领
+2.4、卡劵不一般不允许迭加使用
+2.5、优惠和卡劵一般也不会迭加使用
+
+3、本期需求范围
+3.1、只做全场通用类型卡券（优惠券）
+3.2、优惠（平台政策）不实现
+3.3、商品优惠券、商品分类优惠券不实现
+3.4、一个商品只能使用一张优惠券
+3.5、一个订单可以使用多张优惠券
+3.6、优惠券不可以冲正
+
+4、补充1：商品优惠券、商品分类优惠券如何实现
+4.1、根据商品的SKUID和商品类型，marketing_scheme_obj关联marketing_coupon，最终返回“未使用”的优惠券列表
+
+end note
+
+luckwine_marketing --> luckwine_goods: 获取商品信息，例如价格、分类等
+luckwine_marketing <-- luckwine_goods: 返回
+
+luckwine_marketing --> luckwine_marketing:查询可用的优惠券
+
+luckwine_oss_service <-- luckwine_marketing: 返回
+luckwine_oss_web <-- luckwine_oss_service: 返回
+
+@enduml

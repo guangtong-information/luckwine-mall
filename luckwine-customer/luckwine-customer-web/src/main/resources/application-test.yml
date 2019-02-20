@@ -1,0 +1,29 @@
+
+server:
+  port: 8002
+
+spring:
+  # 数据源
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/luckwine-customer?characterEncoding=utf-8&useSSL=false
+    username: root
+    # Jasypt加密 可到common-utils中找到JasyptUtil加解密工具类生成加密结果 格式为ENC(加密结果)
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    logSlowSql: true
+  # Redis
+  redis:
+    host: 127.0.0.1
+    password:
+    # 数据库索引 默认0
+    database: 1
+    port: 6379
+    timeout: 3000
+
+dubbo:
+  protocol:
+    port: 28032
+  registry:
+    address: zookeeper://127.0.0.1:2181
+

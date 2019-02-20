@@ -1,0 +1,15 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>支付宝沙箱PC版页面支付</title>
+</head>
+<body>
+<form name="punchout_form" method="post" action="https://openapi.alipaydev.com/gateway.do?charset=utf-8&method=alipay.trade.page.pay&sign=nRuGcs8RStF%2Fwt6R7ck7U80xEyUgQbgTR759Vyhl4fmT1jB4xzM0Kn741%2FSrCWLSV70%2ByYyeehQsPYcMRf6R%2BJlBCcQiTLBpIoOePNdlDAq1s0UXlJx%2FzijSlBDor258Onqcs66C62pMgAPNMSSj3B3YufGj9%2FPt3JhB%2BTR%2FbTQ8AczMi89es07lDbcV%2BRm1MpLKpX4Kn8K%2FsOZlBWCwW1Zp8DoiOZZyHNYW87bEAlF98HjNyR4p5rGW2lMRMClB0CE1dw7VZmlrBdNnaQarSVlt%2FbPe55tWD8ezOohiCACcN6QIMIY2bQGB2H8j1uUFD6n5v24XTEl0eo52wxXc9Q%3D%3D&return_url=http%3A%2F%2F47.106.219.117%3A8014%2Fpgw%2Fdemo%2Fok&notify_url=http%3A%2F%2F47.106.219.117%3A8014%2Fpgw%2Fcallback%2Falipay&version=1.0&app_id=2016091500518912&sign_type=RSA2&timestamp=2018-11-25+11%3A40%3A19&alipay_sdk=alipay-sdk-java-3.3.87.ALL&format=json">
+    <input type="hidden" name="biz_content" value="{&quot;out_trade_no&quot;:&quot;3001811251140194904190004&quot;,&quot;total_amount&quot;:10000.00,&quot;subject&quot;:&quot;酒缘网_消费&quot;,&quot;timeout_express&quot;:&quot;15m&quot;,&quot;product_code&quot;:&quot;FAST_INSTANT_TRADE_PAY&quot;,&quot;body&quot;:&quot;酒缘网平台的支付宝交易业务&quot;}">
+    <input type="submit" value="立即支付" style="display:none" >
+</form>
+<script>document.forms[0].submit();</script>
+</body>
+</html>

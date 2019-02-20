@@ -1,0 +1,15 @@
+@startuml
+luckwine_oss_web -> luckwine_oss_service: 请求转发
+luckwine_oss_service --> luckwine_marketing: 查询当前用户，优惠券（未使用、已使用、已过期）列表
+
+luckwine_oss_service <-- luckwine_marketing: 返回
+luckwine_oss_web <-- luckwine_oss_service: 返回
+
+newpage
+
+luckwine_oss_web -> luckwine_oss_service: 请求转发
+luckwine_oss_service --> luckwine_marketing: 校验优惠券序列号，并激活（可用，且未被激活）
+
+luckwine_oss_service <-- luckwine_marketing: 返回
+luckwine_oss_web <-- luckwine_oss_service: 返回
+@enduml

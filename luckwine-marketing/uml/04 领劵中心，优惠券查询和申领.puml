@@ -1,0 +1,16 @@
+@startuml
+luckwine_oss_web -> luckwine_oss_service: 请求转发
+luckwine_oss_service --> luckwine_marketing: 查询所有可用的营销政策列表
+note right:统计每个营销政策领取量，并返回，用于前台领取量进度的展示
+
+luckwine_oss_service <-- luckwine_marketing: 返回
+luckwine_oss_web <-- luckwine_oss_service: 返回
+
+newpage
+
+luckwine_oss_web -> luckwine_oss_service: 请求转发
+luckwine_oss_service --> luckwine_marketing: 随机激活一个优惠券给当前用户
+
+luckwine_oss_service <-- luckwine_marketing: 返回
+luckwine_oss_web <-- luckwine_oss_service: 返回
+@enduml

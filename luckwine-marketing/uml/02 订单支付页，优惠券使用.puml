@@ -1,0 +1,38 @@
+@startuml
+luckwine_oss_web -> luckwine_oss_service: 请求转发
+luckwine_oss_service --> luckwine_trade: 下单
+
+luckwine_trade --> luckwine_marketing: 请求发送
+luckwine_marketing --> luckwine_goods: 验证优惠券是否可用
+luckwine_marketing <-- luckwine_goods: 返回
+luckwine_marketing --> luckwine_marketing: 消费优惠券
+luckwine_trade <-- luckwine_marketing: 返回
+
+note right
+营销模块
+1、消费之前，需再次验证，优惠券是否可用
+1.1、优惠券属于当前下单用户
+1.2、优惠券状态为未使用
+1.3、优惠劵的使用条件满足：商品金额达到使用条件
+1.4、同一个方案的优惠券，不可以叠加使用
+
+2、消费完，记录营销流水
+
+补充说明：订单模块
+1、生成营销资金源的资金流水记录
+2、优惠金额拆分到商品单中
+3、商品单最好也记录一下营销流水号
+4、全场优惠券或者商品类型优惠券，需将优惠金额拆分到商品单
+5、指定商品的优惠券不存在优惠金额拆分
+6、订单取消或者支付失败，理论上优惠券还需要冲正（本期不实现）
+end note
+
+luckwine_trade --> luckwine_acct_luckwine_pgw: 扣费
+luckwine_trade <-- luckwine_acct_luckwine_pgw: 返回
+
+luckwine_trade --> luckwine_bgw: 物流
+luckwine_trade <-- luckwine_bgw: 返回
+
+luckwine_oss_service <-- luckwine_trade: 返回
+luckwine_oss_web <-- luckwine_oss_service: 返回
+@enduml

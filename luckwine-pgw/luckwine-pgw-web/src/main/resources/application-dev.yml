@@ -1,0 +1,45 @@
+
+orderEnv: 1
+
+server:
+  port: 8009
+
+jasypt:
+  encryptor:
+    password: luckwine_pgw
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/luckwine-pgw?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: Aa123456
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  redis:
+    host: 127.0.0.1
+
+
+dubbo:
+  registry:
+    address: 127.0.0.1:2181
+  protocol:
+    port: 28039
+  provider:
+    version: 1.0.0
+
+
+alipay:
+  appId:
+  serverUrl:
+  ## 应用私钥
+  privateKey:
+  ## 支付宝的公钥
+  publicKey:
+  charset: utf-8
+  signType: RSA2
+  format: json
+  returnUrl:
+  notifyUrl:
+  timeoutExpress : 15m

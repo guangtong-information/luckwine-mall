@@ -1,0 +1,46 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xsi:schemaLocation="http://www.springframework.org/schema/integration
+		http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration
+		http://www.springframework.org/schema/integration/spring-integration-3.0.xsd">
+
+    <int:channel id="balancePayChannel"/>
+
+    <!--========================= 余额支付 =========================-->
+    <int:chain input-channel="balancePayChannel" output-channel="convertResultChannel">
+        <!-- 支付前公共验证 -->
+        <int:service-activator ref="validateOrderFlow" method="payOrderValidate"/>
+        <!-- 余额支付特殊校验 -->
+        <int:service-activator ref="validateOrderFlow" method="balanceValidate"/>
+        <!-- 组装资金流水实体 -->
+        <int:service-activator ref="payOrderFlow" method="initBalanceCapitalStatement"/>
+        <!-- 插入资金流水 -->
+        <int:service-activator ref="payOrderFlow" method="insertCapitalStatement"/>
+        <!-- 余额消费 -->
+        <int:service-activator ref="payOrderFlow" method="accountConsume"/>
+        <!-- 余额支付可以马上支付回调 -->
+        <int:service-activator ref="payOrderFlow" method="accountPayBack"/>
+        <!-- 结果组装 -->
+        <int:service-activator ref="convertResultService" method="convertPayOrderResult"/>
+    </int:chain>
+    <!--========================= 余额支付 =========================-->
+
+    <!--========================= 支付宝支付 =========================-->
+    <int:chain input-channel="alipayChannel" output-channel="convertResultChannel">
+        <!-- 支付前公共验证 -->
+        <int:service-activator ref="validateOrderFlow" method="payOrderValidate"/>
+        <!-- 组装资金流水实体 -->
+        <int:service-activator ref="payOrderFlow" method="initAlipayCapitalStatement"/>
+        <!-- 插入资金流水 -->
+        <int:service-activator ref="payOrderFlow" method="insertCapitalStatement"/>
+        <!-- 支付宝消费 -->
+        <int:service-activator ref="payOrderFlow" method="alipayConsume"/>
+        <!-- 结果组装 -->
+        <int:service-activator ref="convertResultService" method="convertPayOrderResult"/>
+    </int:chain>
+    <!--========================= 支付宝支付 =========================-->
+</beans>

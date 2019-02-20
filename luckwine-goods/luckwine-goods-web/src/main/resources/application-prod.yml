@@ -1,0 +1,30 @@
+server:
+  port: 8001
+
+jasypt:
+  encryptor:
+    password: luckwine_goods
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/luckwine-goods?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=true
+    username: root
+    password: Aa123456
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  redis:
+    host: 127.0.0.1
+
+  elasticsearch:
+    rest:
+      uris: http://127.0.0.1:9200
+
+dubbo:
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  protocol:
+    port: 28031
+  provider:
+    version: 1.0.0
