@@ -1,0 +1,69 @@
+spring:
+  profiles:
+    active: dev
+
+# 配置文件加密因子key
+jasypt:
+  encryptor:
+    password: luckwine-bgw
+
+# dubbo最新配置，整合了注册中心配置
+dubbo:
+  application:
+    name: luckwine-bgw
+    version: 1.0.0
+    qos-enable: false
+  protocol:
+    port: 28035
+  registry:
+    address: zookeeper://127.0.0.1:2181
+    timeout: 6000
+    version: 1.0.0
+    check: true
+    protocol: zookeeper
+    file: ./.dubbo/luckwine-bgw_registry
+  scan:
+    base-packages: com.luckwine.bgw
+  consumer:
+    version: 1.0
+    timeout: 6000
+    filter: dubboLogFilter,dubboValidationFilter,-validation
+    check: false
+  provider:
+    version: 1.0.0
+    timeout: 6000
+    #    加载dubbo日志打印过滤器
+    filter: dubboLogFilter,dubboValidationFilter,-validation
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  config-location: classpath:/mybatis-config.xml
+
+#springboot管理相关，结合pringboot actuator一起使用
+management:
+  info:
+    git:
+      mode: full
+    build:
+      enabled: true
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    db:
+      enabled: true
+    #    redis:
+    #      enabled: true
+    diskspace:
+      enabled: true
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      enabled: true
+      show-details: always
+    info:
+      enabled: true

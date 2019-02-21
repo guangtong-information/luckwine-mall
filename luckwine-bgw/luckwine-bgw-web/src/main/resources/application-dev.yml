@@ -1,0 +1,30 @@
+#Web服务器本地访问端口
+server:
+  port: 8005
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/luckwine-bgw?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: root
+    password: Aa123456
+    type: com.alibaba.druid.pool.DruidDataSource
+
+dubbo:
+  protocol:
+    port: 28035
+  registry:
+    address: 127.0.0.1:2181
+
+#快递鸟接口访问账号和地址
+kdapi:
+  ebusinessid:
+  apikey:
+  #电子面单、电子面单取消
+  eorderurl:
+  #预约取件、预约取件取消
+  orderurl:
+  #即时查询、智选物流
+  ebusinessorderurl:
+  #轨迹订阅
+  subscribeurl:
