@@ -98,7 +98,7 @@ CREATE TABLE `acct_asyn_money`  (
   `acct_code` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `amount` decimal(17, 2) NOT NULL,
   `create_time` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
-  `update_time` timestamp(0) NOT NULL ON UPDATE CURRENT_TIMESTAMP(0),
+  `update_time` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
   `stat` int(1) NOT NULL DEFAULT 0 COMMENT '状态：0.金额未写入 1.金额已写入',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '异步计算余额' ROW_FORMAT = Dynamic;

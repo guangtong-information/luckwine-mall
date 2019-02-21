@@ -3,7 +3,7 @@ dubbo:
     address: 127.0.0.1:2181
 spring:
   datasource:
-      url: jdbc:mysql://127.0.0.1:3306/luckwine-trade?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=true
+      url: jdbc:mysql://127.0.0.1:3306/luckwine-trade?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
       username: root
       password: Aa123456
 

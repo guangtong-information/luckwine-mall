@@ -20,6 +20,7 @@
         <module>luckwine-synthesize</module>
         <module>luckwine-marketing</module>
         <module>luckwine-trade</module>
+        <module>luckwine-bgw</module>
     </modules>
 
     <properties>

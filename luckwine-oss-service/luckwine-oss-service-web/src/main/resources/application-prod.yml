@@ -9,7 +9,7 @@ server:
 spring:
   # 数据源
   datasource:
-    url: jdbc:mysql://luckwine-mysql:3306/luckwine-oss?characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://luckwine-mysql:3306/luckwine-oss?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
     username: root
     # ·加密 可到common-utils中找到JasyptUtil加解密工具类生成加密结果 格式为ENC(加密结果)
     password: Aa123456
