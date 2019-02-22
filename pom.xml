@@ -21,6 +21,7 @@
         <module>luckwine-marketing</module>
         <module>luckwine-trade</module>
         <module>luckwine-bgw</module>
+        <module>luckwine-portal-service</module>
     </modules>
 
     <properties>

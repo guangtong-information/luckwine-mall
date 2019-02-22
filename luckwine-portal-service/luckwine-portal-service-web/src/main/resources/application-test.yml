@@ -1,0 +1,19 @@
+# 配置文件加密key
+jasypt:
+  encryptor:
+    password: howell
+
+server:
+  port: 9999
+
+spring:
+  redis:
+    host: 127.0.0.1
+  #Elasticsearch
+  data:
+    elasticsearch:
+      cluster-nodes: 127.0.0.1:9300
+
+dubbo:
+  registry:
+    address: zookeeper://172.18.22.237:2181

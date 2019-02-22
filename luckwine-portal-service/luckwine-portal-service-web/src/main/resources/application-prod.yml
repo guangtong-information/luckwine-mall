@@ -1,0 +1,22 @@
+server:
+  port: 8888
+
+spring:
+  # Redis
+  redis:
+    host: luckwine-redis
+  #Elasticsearch
+  data:
+    elasticsearch:
+      cluster-nodes: luckwine-elasticsearch:9300
+
+portal:
+  elasticsearch:
+    nodeClient: luckwine-elasticsearch:9200
+  # 日志记录方式 true使用Elasticsearch记录 false记录至数据库中
+  logRecord:
+    es: true
+
+dubbo:
+  registry:
+    address: zookeeper://luckwine-zookeeper:2181
