@@ -1,0 +1,70 @@
+# Copyright (c) 2014, 2016, Oracle and/or its affiliates. All rights reserved.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; version 2 of the License.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+
+#
+# The MySQL  Server configuration file.
+#
+# For explanations see
+# http://dev.mysql.com/doc/mysql/en/server-system-variables.html
+
+[mysqld]
+pid-file        = /var/run/mysqld/mysqld.pid
+socket          = /var/run/mysqld/mysqld.sock
+datadir         = /var/lib/mysql
+
+#sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+
+sql_mode=STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+
+#log-error      = /var/log/mysql/error.log
+# By default we only accept connections from localhost
+#bind-address   = 127.0.0.1
+# Disabling symbolic-links is recommended to prevent assorted security risks
+symbolic-links=0
+lower_case_table_names=1
+default-time_zone = '+8:00'
+
+innodb_ft_max_token_size = 84
+innodb_ft_min_token_size = 3
+innodb_large_prefix = OFF
+innodb_lock_wait_timeout = 50
+innodb_max_dirty_pages_pct = 75
+innodb_old_blocks_pct = 37
+innodb_old_blocks_time = 1000
+innodb_online_alter_log_max_size = 134217728
+innodb_open_files = 3000
+innodb_print_all_deadlocks = OFF
+innodb_purge_batch_size = 300
+innodb_purge_threads = 1
+innodb_read_ahead_threshold = 56
+innodb_read_io_threads = 30
+innodb_rollback_on_timeout = OFF
+innodb_stats_method = nulls_equal
+innodb_stats_on_metadata = OFF
+innodb_stats_sample_pages = 8
+innodb_strict_mode = OFF
+innodb_table_locks = ON
+innodb_thread_concurrency = 0
+innodb_thread_sleep_delay = 10000
+innodb_write_io_threads = 30
+max_connect_errors = 100
+max_length_for_sort_data = 1024
+max_prepared_stmt_count = 16382
+max_write_lock_count = 102400
+query_alloc_block_size = 8192
+query_cache_limit = 1048576
+query_cache_size = 3145728
+query_cache_type = 0
+query_prealloc_size = 8192

@@ -13,6 +13,8 @@
 
  Date: 17/02/2019 21:41:53
 */
+CREATE DATABASE `luckwine-customer` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+use `luckwine-customer`;
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
