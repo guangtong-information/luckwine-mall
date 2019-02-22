@@ -1,8 +1,8 @@
 {
-  "name": "OSS-web",
+  "name": "luckwine-oss",
   "version": "1.0.0",
   "description": "运营管理系统(OSS)",
-  "author": "Howell <1726474652@qq.com>",
+  "author": "Howell <th15817161961@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",

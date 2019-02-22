@@ -1,0 +1,90 @@
+.footer {
+  background: #fff;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  .bg_box{
+    height: 270px;
+    width: 100%;
+    margin-bottom: 50px;
+    background-color: #333333;
+    .msg-box{
+      padding-top: 40px;
+      height: 40px;
+      line-height: 40px;
+      display: -webkit-inline-box;
+    }
+    input{
+      -webkit-appearance: textfield;
+      -webkit-rtl-ordering: logical;
+      cursor: text;
+      padding: 1px;
+      border-width: 1px;
+      border-style: inset;
+      border-color: initial;
+      border-image: initial;
+      left: 0px;
+      top: 0px;
+      width: 224px;
+      height: 29px;
+      background-color: #333333;
+      font-family: '微软雅黑';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 13px;
+      text-decoration: none;
+      color: #999999;
+      text-align: left;
+    }
+    img{
+      height: 40px;
+    }
+    .phone{
+      margin-left: 10px;
+      font-size: 28px;
+      font-family: '微软雅黑 Bold', '微软雅黑 Regular', '微软雅黑';
+      font-weight: 700;
+      font-style: normal;
+      color: #CC3333;
+    }
+    .phone_tag{
+      margin-left: 10px;
+      font-family: '微软雅黑';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 13px;
+      color: #FFFFFF;
+    }
+    .q_box{
+      table{
+        width: 100%;
+        color: white;
+      }
+      td, th{
+        padding-top: 15px;
+        text-align: center;
+      }
+      th{
+        font-weight: bold;
+        font-size: 16px
+      }
+    }
+  }
+}
+
+.tag {
+  display: flex;
+  justify-content: center;
+  a {
+    height: 14px;
+    padding: 0 10px;
+    line-height: 14px;
+  }
+  a + a {
+    border-left: 1px solid #666;
+  }
+}
+
+.cop {
+  text-align: center;
+  margin: 10px 0;
+}
