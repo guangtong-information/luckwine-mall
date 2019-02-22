@@ -1,6 +1,5 @@
-
 server:
-  port: 8002
+  port: 8030
 
 spring:
   # 数据源
@@ -25,7 +24,7 @@ spring:
 
 dubbo:
   protocol:
-    port: 28032
+    port: 28038
   registry:
     address: zookeeper://luckwine-zookeeper:2181
 

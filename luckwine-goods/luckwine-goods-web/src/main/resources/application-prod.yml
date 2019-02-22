@@ -1,5 +1,5 @@
 server:
-  port: 8001
+  port: 8030
 
 jasypt:
   encryptor:
@@ -25,6 +25,6 @@ dubbo:
   registry:
     address: zookeeper://luckwine-zookeeper:2181
   protocol:
-    port: 28031
+    port: 28038
   provider:
     version: 1.0.0

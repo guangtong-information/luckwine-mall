@@ -5,7 +5,7 @@ jasypt:
 
 #Web服务器本地访问端口
 server:
-  port: 8008
+  port: 8030
 
 #数据源配置 MyBatisConfig.class
 spring:

@@ -21,20 +21,18 @@ web_json=(
 'luckwine-portal-web'
 'luckwine-oss-web'
 )
-
-log_dir="";
+rootPath="";
 
 #切到项目根路径
 function gotodir() {
     filepath=$(cd "$(dirname "$0")"; pwd)
-    cd $filepath/../../;
-    rootpath=$(pwd)
-    log_dir=$rootpath"/devops/logs";
-    mkdir -p $log_dir;
+    cd $filepath"/../../";
+    rootPath=$(pwd);
 }
 
 #项目编译
 function build() {
+    echo $(pwd)
     mvn clean install -DskipTests;
 }
 
@@ -66,9 +64,11 @@ function traversing() {
 function buildJavaDockerImages() {
     filename="$1"
     cp -r devops/docker-file/java-app/*  $filename/target/;
-    cd $filename/target;
-    exec docker build -t $filename . >$log_dir/$filename".log"&
-    gotodir
+    cd $rootPath"/"$filename/target;
+    #exec docker build -t $filename . >$log_dir/$filename".log"&
+    docker rmi -f $filename;
+    docker build -t $filename .;
+    cd $rootPath;
 }
 
 # 构建java应用docker image
@@ -76,12 +76,14 @@ function buildWebDockerImages() {
     filename="$1"
     cp -r devops/docker-file/nginx-app/*  $filename/target/;
     cp -r $filename/dist  $filename/target/;
-    cd $filename/target;
-    exec docker build -t $filename . >$log_dir/$filename".log"&
-    gotodir
+    cd $rootPath"/"$filename/target;
+    #exec docker build -t $filename . >$log_dir/$filename".log"&
+    docker rmi -f $filename;
+    docker build -t $filename .;
+    cd $rootPath;
 }
 
 
 gotodir
-#build
+build
 traversing

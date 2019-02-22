@@ -1,5 +1,5 @@
 server:
-  port: 8888
+  port: 8030
 
 spring:
   # Redis
@@ -18,5 +18,7 @@ portal:
     es: true
 
 dubbo:
+  protocol:
+    port: 28038
   registry:
     address: zookeeper://luckwine-zookeeper:2181

@@ -1,6 +1,6 @@
 #Web服务器本地访问端口
 server:
-  port: 8004
+  port: 8030
 
 #数据源配置 MyBatisConfig.class
 spring:
@@ -11,9 +11,8 @@ spring:
      password: Aa123456
      type: com.alibaba.druid.pool.DruidDataSource
 
-
 dubbo:
   protocol:
-    port: 28034
+    port: 28038
   registry:
     address: luckwine-zookeeper:2181

@@ -1,4 +1,9 @@
+server:
+  port: 8030
+
 dubbo:
+  protocol:
+    port: 28038
   registry:
     address: luckwine-zookeeper:2181
 

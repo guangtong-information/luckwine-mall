@@ -14,15 +14,11 @@ db_json=(
 'luckwine-synthesize'
 'luckwine-trade'
 )
-log_dir="";
 
 #切到项目根路径
 function gotodir() {
     filepath=$(cd "$(dirname "$0")"; pwd)
     cd $filepath/../../;
-    rootpath=$(pwd)
-    log_dir=$rootpath"/devops/logs";
-    mkdir -p $log_dir;
 }
 
 #目录遍历
@@ -50,8 +46,9 @@ function copySqlFile() {
 
 function build() {
     cd  target/mysql/;
-    exec docker build -t luckwine-mysql .>$log_dir"/luckwine-mysql.log"&
-    gotodir;
+    #exec docker build -t luckwine-mysql .>$log_dir"/luckwine-mysql.log"&
+    docker rmi -f luckwine-mysql;
+    docker build -t luckwine-mysql .;
 }
 
 gotodir

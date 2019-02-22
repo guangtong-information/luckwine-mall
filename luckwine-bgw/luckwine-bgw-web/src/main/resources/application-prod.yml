@@ -1,6 +1,6 @@
 #Web服务器本地访问端口
 server:
-  port: 8005
+  port: 8030
 
 spring:
   datasource:
@@ -12,7 +12,7 @@ spring:
 
 dubbo:
   protocol:
-    port: 28035
+    port: 28038
   registry:
     address: luckwine-zookeeper:2181
 
