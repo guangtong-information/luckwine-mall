@@ -94,7 +94,6 @@ services:
     ports:
       - 28038
       - 8030
-
   luckwine-marketing:
     image: luckwine-marketing:latest
     container_name: luckwine-marketing
@@ -158,4 +157,50 @@ services:
       - /data/docker/luckwine-trade:/data
     ports:
       - 28038
+      - 8030
+  luckwine-oss-service:
+    image: luckwine-oss-service:latest
+    container_name: luckwine-oss-service
+    restart: always
+    environment:
+      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms512m -Xmx512m -Dspring.profiles.active=prod
+    depends_on:
+      - luckwine-mysql
+      - luckwine-zookeeper
+      - luckwine-redis
+      - luckwine-elasticsearch
+    volumes:
+      - /data/docker/luckwine-oss-service:/data
+    ports:
+      - 8030
+  luckwine-portal-service:
+    image: luckwine-portal-service:latest
+    container_name: luckwine-portal-service
+    restart: always
+    environment:
+      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms512m -Xmx512m -Dspring.profiles.active=prod
+    depends_on:
+      - luckwine-mysql
+      - luckwine-zookeeper
+      - luckwine-redis
+      - luckwine-elasticsearch
+    volumes:
+      - /data/docker/luckwine-portal-service:/data
+    ports:
+      - 8030
+  luckwine-oss-web:
+    image: luckwine-oss-web:latest
+    container_name: luckwine-oss-web
+    restart: always
+    depends_on:
+      - luckwine-oss-service
+    ports:
+      - 8030
+  luckwine-portal-web:
+    image: luckwine-portal-web:latest
+    container_name: luckwine-portal-web
+    restart: always
+    depends_on:
+      - luckwine-portal-service
+    ports:
       - 8030
