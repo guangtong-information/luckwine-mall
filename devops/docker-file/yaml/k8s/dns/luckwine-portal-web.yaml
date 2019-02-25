@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: luckwine-portal-web
+  namespace: prod
+spec:
+  ports:
+    - name: luckwine-portal-web
+      port: 8030
+      targetPort: 8030
+      nodePort: 30004
+      protocol: TCP
+  selector:
+    app: luckwine-portal-web
+  type: NodePort
