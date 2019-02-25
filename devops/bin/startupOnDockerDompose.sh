@@ -14,6 +14,7 @@ function gotodir() {
 function build() {
     cd $rootPath"/devops/bin";
     source buildAppImage.sh;
+    cd $rootPath"/devops/bin";
     source buildMysqlImages.sh;
 }
 
