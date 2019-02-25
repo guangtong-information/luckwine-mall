@@ -1,0 +1,29 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: luckwine-redis
+  namespace: prod
+spec:
+  ports:
+    - protocol: TCP
+      port: 6379
+      targetPort: 6379
+      name: luckwine-redis-6379
+    - protocol: TCP
+      port: 26379
+      targetPort: 26379
+      name: luckwine-redis-26379
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: luckwine-redis
+  namespace: prod
+subsets:
+  - addresses:
+      - ip: 目标IP地址
+    ports:
+      - port: 6379
+        name: luckwine-redis-6379
+      - port: 26379
+        name: luckwine-redis-26379

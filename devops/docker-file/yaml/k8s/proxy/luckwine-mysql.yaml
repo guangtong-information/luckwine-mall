@@ -1,0 +1,21 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: luckwine-mysql
+  namespace: prod
+spec:
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: luckwine-mysql
+  namespace: prod
+subsets:
+  - addresses:
+      - ip: 目标IP地址
+    ports:
+      - port: 3306
