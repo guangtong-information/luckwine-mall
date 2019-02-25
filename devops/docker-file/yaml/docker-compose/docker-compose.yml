@@ -195,7 +195,7 @@ services:
     depends_on:
       - luckwine-oss-service
     ports:
-      - 8030
+      - 8010:8030
   luckwine-portal-web:
     image: luckwine-portal-web:latest
     container_name: luckwine-portal-web
@@ -203,4 +203,4 @@ services:
     depends_on:
       - luckwine-portal-service
     ports:
-      - 8030
+      - 8020:8030
