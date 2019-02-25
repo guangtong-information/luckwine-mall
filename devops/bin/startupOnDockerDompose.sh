@@ -16,5 +16,17 @@ function build() {
     source $rootPath"/devops/bin/"buildMysqlImages.sh;
 }
 
+function stop() {
+    cd $rootPath"/devops/docker-file/yaml/docker-compose";
+    docker-compose down
+}
+
+function start() {
+    cd $rootPath"/devops/docker-file/yaml/docker-compose";
+    docker-compose up -d
+}
+
 gotodir
 build
+stop
+start
