@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: luckwine-bgw-deployment
+  namespace: prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: luckwine-bgw
+  template:
+    metadata:
+      labels:
+        app: luckwine-bgw
+    spec:
+      hostAliases:
+        - ip: "127.0.0.1"
+          hostnames:
+            - "www.abc.com"
+      containers:
+        - name: luckwine-bgw
+          image: luckwine-bgw:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 28038
+            - containerPort: 8030
+          env:
+            - name: JAVA_OPTIONS
+              value: -Duser.timezone=GMT+8 -Xms2048m -Xmx4096m -Dspring.profiles.active=prod
+          volumeMounts:
+            - name: luckwine-volume
+              mountPath: /data/applog
+      volumes:
+        - name: luckwine-volume
+          hostPath:
+            path: /data/docker/luckwine-bgw

@@ -7,3 +7,8 @@
  ```
 kubectl  delete -f $PROJECT.yaml
  ```
+ 
+idea kubernetes plugin
+ ```
+https://plugins.jetbrains.com/plugin/10485-kubernetes
+ ```
