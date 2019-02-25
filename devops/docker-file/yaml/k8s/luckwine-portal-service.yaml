@@ -1,30 +1,26 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: ReplicationController
 metadata:
-  name: luckwine-acct-deployment
+  name: luckwine-portal-service-replicationController
   namespace: prod
-  labels:
-    app: luckwine-acct
 spec:
-  replicas: 1
+  replicas: 2
   selector:
-    matchLabels:
-      app: luckwine-acct
+    app: luckwine-portal-service
   template:
     metadata:
       labels:
-        app: luckwine-acct
+        app: luckwine-portal-service
     spec:
       hostAliases:
         - ip: "127.0.0.1"
           hostnames:
             - "www.abc.com"
       containers:
-        - name: luckwine-acct
-          image: luckwine-acct:latest
+        - name: luckwine-portal-service
+          image: luckwine-portal-service:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 28038
             - containerPort: 8030
           env:
             - name: JAVA_OPTIONS
@@ -35,4 +31,4 @@ spec:
       volumes:
         - name: luckwine-volume
           hostPath:
-            path: /data/docker/luckwine-acct
+            path: /data/docker/luckwine-portal-service
