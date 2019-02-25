@@ -35,7 +35,7 @@ services:
     image: luckwine-acct:latest
     container_name: luckwine-acct
     environment:
-      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms512m -Xmx512m -Dspring.profiles.active=prod
+      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
     depends_on:
       - luckwine-mysql
       - luckwine-zookeeper
@@ -51,7 +51,7 @@ services:
     container_name: luckwine-bgw
     restart: always
     environment:
-      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms512m -Xmx512m -Dspring.profiles.active=prod
+      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
     depends_on:
       - luckwine-mysql
       - luckwine-zookeeper
@@ -67,7 +67,7 @@ services:
     container_name: luckwine-customer
     restart: always
     environment:
-      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms512m -Xmx512m -Dspring.profiles.active=prod
+      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
     depends_on:
       - luckwine-mysql
       - luckwine-zookeeper
@@ -83,7 +83,7 @@ services:
     container_name: luckwine-goods
     restart: always
     environment:
-      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms512m -Xmx512m -Dspring.profiles.active=prod
+      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
     depends_on:
       - luckwine-mysql
       - luckwine-zookeeper
@@ -99,7 +99,7 @@ services:
     container_name: luckwine-marketing
     restart: always
     environment:
-      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms512m -Xmx512m -Dspring.profiles.active=prod
+      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
     depends_on:
       - luckwine-mysql
       - luckwine-zookeeper
@@ -115,7 +115,7 @@ services:
     container_name: luckwine-pgw
     restart: always
     environment:
-      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms512m -Xmx512m -Dspring.profiles.active=prod
+      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
     depends_on:
       - luckwine-mysql
       - luckwine-zookeeper
@@ -131,7 +131,7 @@ services:
     container_name: luckwine-synthesize
     restart: always
     environment:
-      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms512m -Xmx512m -Dspring.profiles.active=prod
+      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
     depends_on:
       - luckwine-mysql
       - luckwine-zookeeper
@@ -147,7 +147,7 @@ services:
     container_name: luckwine-trade
     restart: always
     environment:
-      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms512m -Xmx512m -Dspring.profiles.active=prod
+      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
     depends_on:
       - luckwine-mysql
       - luckwine-zookeeper
@@ -163,7 +163,7 @@ services:
     container_name: luckwine-oss-service
     restart: always
     environment:
-      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms512m -Xmx512m -Dspring.profiles.active=prod
+      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
     depends_on:
       - luckwine-mysql
       - luckwine-zookeeper
@@ -178,7 +178,7 @@ services:
     container_name: luckwine-portal-service
     restart: always
     environment:
-      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms512m -Xmx512m -Dspring.profiles.active=prod
+      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
     depends_on:
       - luckwine-mysql
       - luckwine-zookeeper
