@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: luckwine-acct-deployment
+  namespace: prod
+  labels:
+    app: luckwine-acct
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: luckwine-acct
+  template:
+    metadata:
+      labels:
+        app: luckwine-acct
+    spec:
+      hostAliases:
+        - ip: "127.0.0.1"
+          hostnames:
+            - "www.abc.com"
+      containers:
+        - name: luckwine-acct
+          image: luckwine-acct:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 28038
+            - containerPort: 8030
+          env:
+            - name: JAVA_OPTIONS
+              value: -Duser.timezone=GMT+8 -Xms2048m -Xmx4096m -Dspring.profiles.active=prod
+          volumeMounts:
+            - name: luckwine-volume
+              mountPath: /data/applog
+      volumes:
+        - name: luckwine-volume
+          hostPath:
+            path: /data/applogs
