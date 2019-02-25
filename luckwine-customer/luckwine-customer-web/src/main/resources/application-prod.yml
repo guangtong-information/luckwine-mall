@@ -26,6 +26,6 @@ dubbo:
   protocol:
     port: 28038
   registry:
-    address: luckwine-zookeeper:2181
+    address: zookeeper://luckwine-zookeeper:2181
 
 
