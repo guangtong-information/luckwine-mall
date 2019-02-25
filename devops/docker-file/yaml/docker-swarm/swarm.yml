@@ -1,0 +1,223 @@
+version: '3'
+services:
+  luckwine-mysql:
+    image: luckwine-mysql:latest
+    container_name: luckwine-mysql
+    deploy:
+      replicas: 1
+    volumes:
+      - /data/docker/luckwine-db:/var/lib/mysql
+    ports:
+      - 3306:3306
+  luckwine-redis:
+    image: redis:latest
+    container_name: luckwine-redis
+    deploy:
+      replicas: 1
+    ports:
+      - 6379
+  luckwine-zookeeper:
+    image: zookeeper:latest
+    container_name: luckwine-zookeeper
+    deploy:
+      replicas: 1
+    ports:
+      - 2181:2181
+      - 2888
+      - 3888
+  luckwine-elasticsearch:
+    image: elasticsearch:6.4.0
+    container_name: luckwine-elasticsearch
+    deploy:
+      replicas: 1
+    environment:
+      -  discovery.type=single-node
+    ports:
+      - 9200
+      - 9300
+  luckwine-acct:
+    image: luckwine-acct:latest
+    container_name: luckwine-acct
+    deploy:
+      replicas: 1
+    environment:
+      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
+    depends_on:
+      - luckwine-mysql
+      - luckwine-zookeeper
+      - luckwine-redis
+      - luckwine-elasticsearch
+    volumes:
+      - /data/docker/luckwine-acct:/data
+    ports:
+      - 28038
+      - 8030
+  luckwine-bgw:
+    image: luckwine-bgw:latest
+    container_name: luckwine-bgw
+    deploy:
+      replicas: 1
+    environment:
+      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
+    depends_on:
+      - luckwine-mysql
+      - luckwine-zookeeper
+      - luckwine-redis
+      - luckwine-elasticsearch
+    volumes:
+      - /data/docker/luckwine-bgw:/data
+    ports:
+      - 28038
+      - 8030
+  luckwine-customer:
+    image: luckwine-customer:latest
+    container_name: luckwine-customer
+    deploy:
+      replicas: 1
+    environment:
+      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
+    depends_on:
+      - luckwine-mysql
+      - luckwine-zookeeper
+      - luckwine-redis
+      - luckwine-elasticsearch
+    volumes:
+      - /data/docker/luckwine-customer:/data
+    ports:
+      - 28038
+      - 8030
+  luckwine-goods:
+    image: luckwine-goods:latest
+    container_name: luckwine-goods
+    deploy:
+      replicas: 1
+    environment:
+      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
+    depends_on:
+      - luckwine-mysql
+      - luckwine-zookeeper
+      - luckwine-redis
+      - luckwine-elasticsearch
+    volumes:
+      - /data/docker/luckwine-goods:/data
+    ports:
+      - 28038
+      - 8030
+  luckwine-marketing:
+    image: luckwine-marketing:latest
+    container_name: luckwine-marketing
+    deploy:
+      replicas: 1
+    environment:
+      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
+    depends_on:
+      - luckwine-mysql
+      - luckwine-zookeeper
+      - luckwine-redis
+      - luckwine-elasticsearch
+    volumes:
+      - /data/docker/luckwine-marketing:/data
+    ports:
+      - 28038
+      - 8030
+  luckwine-pgw:
+    image: luckwine-pgw:latest
+    container_name: luckwine-pgw
+    deploy:
+      replicas: 1
+    environment:
+      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
+    depends_on:
+      - luckwine-mysql
+      - luckwine-zookeeper
+      - luckwine-redis
+      - luckwine-elasticsearch
+    volumes:
+      - /data/docker/luckwine-pgw:/data
+    ports:
+      - 28038
+      - 8030
+  luckwine-synthesize:
+    image: luckwine-synthesize:latest
+    container_name: luckwine-synthesize
+    deploy:
+      replicas: 1
+    environment:
+      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
+    depends_on:
+      - luckwine-mysql
+      - luckwine-zookeeper
+      - luckwine-redis
+      - luckwine-elasticsearch
+    volumes:
+      - /data/docker/luckwine-synthesize:/data
+    ports:
+      - 28038
+      - 8030
+  luckwine-trade:
+    image: luckwine-trade:latest
+    container_name: luckwine-trade
+    deploy:
+      replicas: 1
+    environment:
+      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
+    depends_on:
+      - luckwine-mysql
+      - luckwine-zookeeper
+      - luckwine-redis
+      - luckwine-elasticsearch
+    volumes:
+      - /data/docker/luckwine-trade:/data
+    ports:
+      - 28038
+      - 8030
+  luckwine-oss-service:
+    image: luckwine-oss-service:latest
+    container_name: luckwine-oss-service
+    deploy:
+      replicas: 1
+    environment:
+      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
+    depends_on:
+      - luckwine-mysql
+      - luckwine-zookeeper
+      - luckwine-redis
+      - luckwine-elasticsearch
+    volumes:
+      - /data/docker/luckwine-oss-service:/data
+    ports:
+      - 8030
+  luckwine-portal-service:
+    image: luckwine-portal-service:latest
+    container_name: luckwine-portal-service
+    deploy:
+      replicas: 2
+    environment:
+      - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
+    depends_on:
+      - luckwine-mysql
+      - luckwine-zookeeper
+      - luckwine-redis
+      - luckwine-elasticsearch
+    volumes:
+      - /data/docker/luckwine-portal-service:/data
+    ports:
+      - 8030
+  luckwine-oss-web:
+    image: luckwine-oss-web:latest
+    container_name: luckwine-oss-web
+    deploy:
+      replicas: 1
+    depends_on:
+      - luckwine-oss-service
+    ports:
+      - 8010:8030
+  luckwine-portal-web:
+    image: luckwine-portal-web:latest
+    container_name: luckwine-portal-web
+    deploy:
+      replicas: 1
+    depends_on:
+      - luckwine-portal-service
+    ports:
+      - 8020:8030
