@@ -8,3 +8,8 @@
 ```
 mvn clean install -DskipTests
 ```
+
+### 3. 避免扫描node_modules,dist
+```
+右键Make Directory is --> Excluede 
+```
