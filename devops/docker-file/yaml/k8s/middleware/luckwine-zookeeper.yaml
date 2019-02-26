@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: luckwine-zookeeper
+  namespace: prod
+spec:
+  ports:
+    - name: luckwine-zookeeper
+      port: 2181
+      targetPort: 2181
+      nodePort: 30022
+      protocol: TCP
+  selector:
+    app: luckwine-zookeeper
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: luckwine-zookeeper
+  namespace: prod
+spec:
+  selector:
+    matchLabels:
+      app: luckwine-zookeeper
+  replicas: 1 # by default is 1
+  serviceName: luckwine-zookeeper
+  template:
+    metadata:
+      labels:
+        app: luckwine-zookeeper
+    spec:
+      containers:
+        - name: luckwine-zookeeper
+          image: zookeeper:latest
+          ports:
+            - containerPort: 2181
+              name: luckwine-zookeeper
