@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: luckwine-es
+  namespace: prod
+spec:
+  ports:
+    - name: luckwine-es-9200
+      port: 9200
+      targetPort: 9200
+      nodePort: 30026
+      protocol: TCP
+    - name: luckwine-es-9300
+      port: 9300
+      targetPort: 9300
+      nodePort: 30027
+      protocol: TCP
+  selector:
+    app: luckwine-es
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: luckwine-es
+  namespace: prod
+spec:
+  selector:
+    matchLabels:
+      app: luckwine-es # has to match .spec.template.metadata.labels
+  replicas: 1 # by default is 1
+  serviceName: luckwine-es
+  template:
+    metadata:
+      labels:
+        app: luckwine-es # has to match .spec.selector.matchLabels
+    spec:
+      containers:
+        - name: luckwine-es
+          image: elasticsearch:latest
+          ports:
+            - containerPort: 9200
+              name: luckwine-es-9200
+            - containerPort: 9300
+              name: luckwine-es-9300
+          volumeMounts:
+            - name: data
+              mountPath: /data/elastic/data
+      volumes:
+        - name: data
+          hostPath:
+            path: /data/docker/luckwine-elasticsearch
+      nodeSelector:
+        hostName: test-31-159
