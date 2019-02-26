@@ -46,3 +46,6 @@ spec:
         - name: data
           hostPath:
             path: /data/docker/luckwine-mysql/db
+      nodeSelector:
+        name: test-31-159
+
