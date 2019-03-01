@@ -22,9 +22,9 @@ services:
       - 2181:2181
       - 2888
       - 3888
-  luckwine-elasticsearch:
+  luckwine-es:
     image: elasticsearch:6.4.0
-    container_name: luckwine-elasticsearch
+    container_name: luckwine-es
     restart: always
     environment:
       -  discovery.type=single-node
@@ -40,7 +40,7 @@ services:
       - luckwine-mysql
       - luckwine-zk
       - luckwine-redis
-      - luckwine-elasticsearch
+      - luckwine-es
     volumes:
       - /data/docker/luckwine-acct:/data
     ports:
@@ -56,7 +56,7 @@ services:
       - luckwine-mysql
       - luckwine-zk
       - luckwine-redis
-      - luckwine-elasticsearch
+      - luckwine-es
     volumes:
       - /data/docker/luckwine-bgw:/data
     ports:
@@ -72,7 +72,7 @@ services:
       - luckwine-mysql
       - luckwine-zk
       - luckwine-redis
-      - luckwine-elasticsearch
+      - luckwine-es
     volumes:
       - /data/docker/luckwine-customer:/data
     ports:
@@ -88,7 +88,7 @@ services:
       - luckwine-mysql
       - luckwine-zk
       - luckwine-redis
-      - luckwine-elasticsearch
+      - luckwine-es
     volumes:
       - /data/docker/luckwine-goods:/data
     ports:
@@ -104,7 +104,7 @@ services:
       - luckwine-mysql
       - luckwine-zk
       - luckwine-redis
-      - luckwine-elasticsearch
+      - luckwine-es
     volumes:
       - /data/docker/luckwine-marketing:/data
     ports:
@@ -120,7 +120,7 @@ services:
       - luckwine-mysql
       - luckwine-zk
       - luckwine-redis
-      - luckwine-elasticsearch
+      - luckwine-es
     volumes:
       - /data/docker/luckwine-pgw:/data
     ports:
@@ -136,7 +136,7 @@ services:
       - luckwine-mysql
       - luckwine-zk
       - luckwine-redis
-      - luckwine-elasticsearch
+      - luckwine-es
     volumes:
       - /data/docker/luckwine-synthesize:/data
     ports:
@@ -152,7 +152,7 @@ services:
       - luckwine-mysql
       - luckwine-zk
       - luckwine-redis
-      - luckwine-elasticsearch
+      - luckwine-es
     volumes:
       - /data/docker/luckwine-trade:/data
     ports:
@@ -168,7 +168,7 @@ services:
       - luckwine-mysql
       - luckwine-zk
       - luckwine-redis
-      - luckwine-elasticsearch
+      - luckwine-es
     volumes:
       - /data/docker/luckwine-oss-service:/data
     ports:
@@ -183,7 +183,7 @@ services:
       - luckwine-mysql
       - luckwine-zk
       - luckwine-redis
-      - luckwine-elasticsearch
+      - luckwine-es
     volumes:
       - /data/docker/luckwine-portal-service:/data
     ports:

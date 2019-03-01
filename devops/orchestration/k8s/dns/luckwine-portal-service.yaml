@@ -8,7 +8,7 @@ spec:
     - name: luckwine-portal-service
       port: 8030
       targetPort: 8030
-      nodePort: 30001
+      nodePort: 30002
       protocol: TCP
   selector:
     app: luckwine-portal-service

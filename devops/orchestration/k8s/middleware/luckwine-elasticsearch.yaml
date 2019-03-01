@@ -52,7 +52,7 @@ spec:
       volumes:
         - name: data
           hostPath:
-            path: /data/docker/luckwine-elasticsearch
+            path: /data/docker/luckwine-es
 #      nodeSelector:
 #        hostName: test-31-159
 

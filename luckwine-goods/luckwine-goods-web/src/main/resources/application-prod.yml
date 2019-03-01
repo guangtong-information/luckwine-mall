@@ -19,7 +19,7 @@ spring:
 
   elasticsearch:
     rest:
-      uris: http://luckwine-elasticsearch:9200
+      uris: http://luckwine-es:9200
 
 dubbo:
   registry:
