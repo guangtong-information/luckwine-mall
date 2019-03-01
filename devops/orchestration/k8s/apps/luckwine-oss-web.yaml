@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: luckwine-oss-web-replicationController
+  name: luckwine-oss-web
   namespace: prod
 spec:
   replicas: 2
