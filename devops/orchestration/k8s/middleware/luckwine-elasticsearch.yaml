@@ -5,12 +5,12 @@ metadata:
   namespace: prod
 spec:
   ports:
-    - name: luckwine-es-9200
+    - name: lw-es-9200
       port: 9200
       targetPort: 9200
       nodePort: 30026
       protocol: TCP
-    - name: luckwine-es-9300
+    - name: lw-es-9300
       port: 9300
       targetPort: 9300
       nodePort: 30027
@@ -43,9 +43,9 @@ spec:
               value: "-Xms1g -Xmx1g"
           ports:
             - containerPort: 9200
-              name: luckwine-es-9200
+              name: lw-es-9200
             - containerPort: 9300
-              name: luckwine-es-9300
+              name: lw-es-9300
           volumeMounts:
             - name: data
               mountPath: /data/elastic/data
