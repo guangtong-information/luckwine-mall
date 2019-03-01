@@ -19,12 +19,12 @@ function build() {
 }
 
 function stop() {
-    cd $rootPath"/devops/docker-file/yaml/docker-compose";
+    cd $rootPath"/devops/orchestration/docker-compose";
     docker-compose down
 }
 
 function start() {
-    cd $rootPath"/devops/docker-file/yaml/docker-compose";
+    cd $rootPath"/devops/orchestration/docker-compose";
     docker-compose up -d
 }
 
