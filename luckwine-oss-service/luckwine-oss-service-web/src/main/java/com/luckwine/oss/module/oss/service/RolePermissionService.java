@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * 角色权限接口
- * @author Exrick
+ * @author Howell
  */
 public interface RolePermissionService extends OSSBaseService<RolePermission,String> {
 

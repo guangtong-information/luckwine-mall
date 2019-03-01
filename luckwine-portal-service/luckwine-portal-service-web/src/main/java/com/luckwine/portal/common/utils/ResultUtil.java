@@ -4,7 +4,7 @@ package com.luckwine.portal.common.utils;
 import com.luckwine.portal.common.vo.Result;
 
 /**
- * @author Exrick
+ * @author Howell
  */
 public class ResultUtil<T> {
 

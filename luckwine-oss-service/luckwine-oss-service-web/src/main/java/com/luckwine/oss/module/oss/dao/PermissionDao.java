@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * 权限数据处理层
- * @author Exrick
+ * @author Howell
  */
 public interface PermissionDao extends OSSBaseDao<Permission,String> {
 

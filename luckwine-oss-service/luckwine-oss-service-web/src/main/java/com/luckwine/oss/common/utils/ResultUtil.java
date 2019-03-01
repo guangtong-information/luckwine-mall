@@ -4,7 +4,7 @@ package com.luckwine.oss.common.utils;
 import com.luckwine.oss.common.vo.Result;
 
 /**
- * @author Exrick
+ * @author Howell
  */
 public class ResultUtil<T> {
 

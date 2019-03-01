@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * 权限接口
- * @author Exrick
+ * @author Howell
  */
 public interface PermissionService extends OSSBaseService<Permission,String> {
 

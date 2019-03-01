@@ -11,7 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * @author Exrick
+ * @author Howell
  */
 @Data
 @Entity

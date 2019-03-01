@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * 角色权限数据处理层
- * @author Exrick
+ * @author Howell
  */
 public interface RolePermissionDao extends OSSBaseDao<RolePermission,String> {
 
