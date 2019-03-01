@@ -1,31 +1,34 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: luckwine-portal-web-replicationController
+  name: luckwine-oss-service-replicationController
   namespace: prod
 spec:
   replicas: 2
   selector:
-    app: luckwine-portal-web
+    app: luckwine-oss-service
   template:
     metadata:
       labels:
-        app: luckwine-portal-web
+        app: luckwine-oss-service
     spec:
       hostAliases:
         - ip: "127.0.0.1"
           hostnames:
             - "www.abc.com"
       containers:
-        - name: luckwine-portal-web
-          image: luckwine-portal-web:latest
-          imagePullPolicy: Always
+        - name: luckwine-oss-service
+          image: luckwine-oss-service:latest
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8030
+          env:
+            - name: JAVA_OPTIONS
+              value: -Duser.timezone=GMT+8 -Xms2048m -Xmx4096m -Dspring.profiles.active=prod
           volumeMounts:
             - name: luckwine-volume
               mountPath: /data/applog
       volumes:
         - name: luckwine-volume
           hostPath:
-            path: /data/docker/luckwine-volume
+            path: /data/docker/luckwine-oss-service

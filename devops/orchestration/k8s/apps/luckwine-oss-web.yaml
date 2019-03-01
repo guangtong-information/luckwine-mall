@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: luckwine-oss-web-replicationController
+  namespace: prod
+spec:
+  replicas: 2
+  selector:
+    app: luckwine-oss-web
+  template:
+    metadata:
+      labels:
+        app: luckwine-oss-web
+    spec:
+      hostAliases:
+        - ip: "127.0.0.1"
+          hostnames:
+            - "www.abc.com"
+      containers:
+        - name: luckwine-oss-web
+          image: luckwine-oss-web:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8030
+          volumeMounts:
+            - name: luckwine-volume
+              mountPath: /data/applog
+      volumes:
+        - name: luckwine-volume
+          hostPath:
+            path: /data/docker/luckwine-oss-web

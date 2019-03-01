@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: luckwine-oss-web
+  namespace: prod
+spec:
+  ports:
+    - name: luckwine-oss-web
+      port: 8030
+      targetPort: 8030
+      nodePort: 30004
+      protocol: TCP
+  selector:
+    app: luckwine-oss-web
+  type: NodePort
