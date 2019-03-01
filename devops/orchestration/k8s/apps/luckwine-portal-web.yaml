@@ -4,7 +4,7 @@ metadata:
   name: luckwine-portal-web
   namespace: prod
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     app: luckwine-portal-web
   template:

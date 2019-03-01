@@ -4,7 +4,7 @@ metadata:
   name: luckwine-oss-service
   namespace: prod
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     app: luckwine-oss-service
   template:
