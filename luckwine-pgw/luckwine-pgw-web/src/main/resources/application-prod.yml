@@ -23,7 +23,7 @@ spring:
 
 dubbo:
   registry:
-    address: luckwine-zookeeper:2181
+    address: luckwine-zk:2181
   protocol:
     port: 28038
   provider:

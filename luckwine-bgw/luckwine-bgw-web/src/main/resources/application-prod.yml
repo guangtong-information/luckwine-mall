@@ -14,7 +14,7 @@ dubbo:
   protocol:
     port: 28038
   registry:
-    address: luckwine-zookeeper:2181
+    address: luckwine-zk:2181
 
 #快递鸟接口访问账号和地址
 kdapi:

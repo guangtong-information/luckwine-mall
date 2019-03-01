@@ -26,4 +26,4 @@ oss:
 
 dubbo:
   registry:
-    address: zookeeper://luckwine-zookeeper:2181
+    address: zookeeper://luckwine-zk:2181

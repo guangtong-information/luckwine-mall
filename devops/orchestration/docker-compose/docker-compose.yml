@@ -14,9 +14,9 @@ services:
     restart: always
     ports:
       - 6379
-  luckwine-zookeeper:
+  luckwine-zk:
     image: zookeeper:latest
-    container_name: luckwine-zookeeper
+    container_name: luckwine-zk
     restart: always
     ports:
       - 2181:2181
@@ -38,7 +38,7 @@ services:
       - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
     depends_on:
       - luckwine-mysql
-      - luckwine-zookeeper
+      - luckwine-zk
       - luckwine-redis
       - luckwine-elasticsearch
     volumes:
@@ -54,7 +54,7 @@ services:
       - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
     depends_on:
       - luckwine-mysql
-      - luckwine-zookeeper
+      - luckwine-zk
       - luckwine-redis
       - luckwine-elasticsearch
     volumes:
@@ -70,7 +70,7 @@ services:
       - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
     depends_on:
       - luckwine-mysql
-      - luckwine-zookeeper
+      - luckwine-zk
       - luckwine-redis
       - luckwine-elasticsearch
     volumes:
@@ -86,7 +86,7 @@ services:
       - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
     depends_on:
       - luckwine-mysql
-      - luckwine-zookeeper
+      - luckwine-zk
       - luckwine-redis
       - luckwine-elasticsearch
     volumes:
@@ -102,7 +102,7 @@ services:
       - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
     depends_on:
       - luckwine-mysql
-      - luckwine-zookeeper
+      - luckwine-zk
       - luckwine-redis
       - luckwine-elasticsearch
     volumes:
@@ -118,7 +118,7 @@ services:
       - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
     depends_on:
       - luckwine-mysql
-      - luckwine-zookeeper
+      - luckwine-zk
       - luckwine-redis
       - luckwine-elasticsearch
     volumes:
@@ -134,7 +134,7 @@ services:
       - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
     depends_on:
       - luckwine-mysql
-      - luckwine-zookeeper
+      - luckwine-zk
       - luckwine-redis
       - luckwine-elasticsearch
     volumes:
@@ -150,7 +150,7 @@ services:
       - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
     depends_on:
       - luckwine-mysql
-      - luckwine-zookeeper
+      - luckwine-zk
       - luckwine-redis
       - luckwine-elasticsearch
     volumes:
@@ -166,7 +166,7 @@ services:
       - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
     depends_on:
       - luckwine-mysql
-      - luckwine-zookeeper
+      - luckwine-zk
       - luckwine-redis
       - luckwine-elasticsearch
     volumes:
@@ -181,7 +181,7 @@ services:
       - JAVA_OPTIONS=-Duser.timezone=GMT+8 -Xms256m -Xmx256m -Dspring.profiles.active=prod
     depends_on:
       - luckwine-mysql
-      - luckwine-zookeeper
+      - luckwine-zk
       - luckwine-redis
       - luckwine-elasticsearch
     volumes:
