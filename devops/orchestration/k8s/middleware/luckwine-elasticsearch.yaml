@@ -53,8 +53,8 @@ spec:
         - name: data
           hostPath:
             path: /data/docker/luckwine-elasticsearch
-      nodeSelector:
-        hostName: test-31-159
+#      nodeSelector:
+#        hostName: test-31-159
 
 #在宿主机执行：sudo sysctl -w vm.max_map_count=262144
 #docker 命令增加参数：  -e ES_JAVA_OPTS="-Xms1g -Xmx1g"
