@@ -20,7 +20,7 @@ spec:
       containers:
         - name: luckwine-bgw
           image: luckwine-bgw:latest
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 28038
             - containerPort: 8030
