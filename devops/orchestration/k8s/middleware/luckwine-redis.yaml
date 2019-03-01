@@ -9,12 +9,12 @@ spec:
       port: 6379
       targetPort: 6379
       nodePort: 30024
-      name: luckwine-redis-6379
+      name: lw-redis-6379
     - protocol: TCP
       port: 26379
       targetPort: 26379
       nodePort: 30025
-      name: luckwine-redis-26379
+      name: lw-redis-26379
   selector:
     app: luckwine-redis
   type: NodePort
@@ -40,6 +40,6 @@ spec:
           image: redis:latest
           ports:
             - containerPort: 6379
-              name: luckwine-redis-6379
+              name: lw-redis-6379
             - containerPort: 26379
-              name: luckwine-redis-26379
+              name: lw-redis-26379
