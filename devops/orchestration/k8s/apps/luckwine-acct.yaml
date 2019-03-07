@@ -13,6 +13,8 @@ spec:
       labels:
         app: luckwine-acct
     spec:
+      securityContext:
+        runAsNonRoot: true
       hostAliases:
         - ip: "127.0.0.1"
           hostnames:
