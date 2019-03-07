@@ -20,9 +20,9 @@ spec:
         - name: luckwine-portal-web
           image: luckwine-portal-web:latest
           imagePullPolicy: IfNotPresent
-          securityContext:
-            readOnlyRootFilesystem: true
-            runAsNonRoot: true
+#          securityContext:
+#            readOnlyRootFilesystem: true
+#            runAsNonRoot: true
           ports:
             - containerPort: 8030
           volumeMounts:

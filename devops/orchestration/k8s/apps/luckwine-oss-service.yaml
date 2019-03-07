@@ -20,9 +20,9 @@ spec:
         - name: luckwine-oss-service
           image: luckwine-oss-service:latest
           imagePullPolicy: IfNotPresent
-          securityContext:
-            readOnlyRootFilesystem: true
-            runAsNonRoot: true
+#          securityContext:
+#            readOnlyRootFilesystem: true
+#            runAsNonRoot: true
           ports:
             - containerPort: 8030
           env:
