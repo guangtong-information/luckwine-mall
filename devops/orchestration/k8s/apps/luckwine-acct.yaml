@@ -13,8 +13,6 @@ spec:
       labels:
         app: luckwine-acct
     spec:
-      securityContext:
-        runAsNonRoot: true
       hostAliases:
         - ip: "127.0.0.1"
           hostnames:
@@ -23,6 +21,9 @@ spec:
         - name: luckwine-acct
           image: luckwine-acct:latest
           imagePullPolicy: IfNotPresent
+          securityContext:
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
           ports:
             - containerPort: 28038
             - containerPort: 8030
