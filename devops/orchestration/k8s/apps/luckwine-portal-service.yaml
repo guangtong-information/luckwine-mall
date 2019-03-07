@@ -20,6 +20,9 @@ spec:
         - name: luckwine-portal-service
           image: luckwine-portal-service:latest
           imagePullPolicy: IfNotPresent
+          securityContext:
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
           ports:
             - containerPort: 8030
           env:

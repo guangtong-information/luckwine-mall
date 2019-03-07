@@ -21,6 +21,9 @@ spec:
         - name: luckwine-goods
           image: luckwine-goods:latest
           imagePullPolicy: IfNotPresent
+          securityContext:
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
           ports:
             - containerPort: 28038
             - containerPort: 8030
