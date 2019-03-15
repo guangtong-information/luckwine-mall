@@ -13,7 +13,7 @@
 ```
 ### 2. 打包
 ```
-mvn clean install -DskipTests
+c
 ```
 
 ### 3. 避免扫描node_modules,dist
