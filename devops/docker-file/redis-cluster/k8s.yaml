@@ -1,0 +1,248 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-slave1
+  namespace: cluster
+spec:
+  ports:
+    - name: redis-slave1-6379
+      port: 6379
+      targetPort: 6379
+  selector:
+    app: redis-slave1
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-slave2
+  namespace: cluster
+spec:
+  ports:
+    - name: redis-slave2-6379
+      port: 6379
+      targetPort: 6379
+  selector:
+    app: redis-slave2
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-slave3
+  namespace: cluster
+spec:
+  ports:
+    - name: redis-slave3-6379
+      port: 6379
+      targetPort: 6379
+  selector:
+    app: redis-slave3
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-sentinel1
+  namespace: cluster
+spec:
+  ports:
+    - name: redis-sentinel1-26379
+      port: 26379
+      targetPort: 26379
+  selector:
+    app: redis-sentinel1
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-sentinel2
+  namespace: cluster
+spec:
+  ports:
+    - name: redis-sentinel2-26379
+      port: 26379
+      targetPort: 26379
+  selector:
+    app: redis-sentinel2
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-sentinel3
+  namespace: cluster
+spec:
+  ports:
+    - name: redis-sentinel3-26379
+      port: 26379
+      targetPort: 26379
+  selector:
+    app: redis-sentinel3
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: redis-slave1
+  namespace: cluster
+spec:
+  selector:
+    matchLabels:
+      app: redis-slave1
+  replicas: 1 # by default is 1
+  serviceName: redis-slave1
+  template:
+    metadata:
+      labels:
+        app: redis-slave1
+    spec:
+      containers:
+        - name: redis-slave1
+          image: redis-cluster-slave:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 6379
+              name: redis-slave1-6379
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: redis-slave2
+  namespace: cluster
+spec:
+  selector:
+    matchLabels:
+      app: redis-slave2
+  replicas: 1 # by default is 1
+  serviceName: redis-slave2
+  template:
+    metadata:
+      labels:
+        app: redis-slave2
+    spec:
+      containers:
+        - name: redis-slave2
+          image: redis-cluster-slave:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 6379
+              name: redis-slave2-6379
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: redis-slave3
+  namespace: cluster
+spec:
+  selector:
+    matchLabels:
+      app: redis-slave3
+  replicas: 1 # by default is 1
+  serviceName: redis-slave3
+  template:
+    metadata:
+      labels:
+        app: redis-slave3
+    spec:
+      containers:
+        - name: redis-slave3
+          image: redis-cluster-slave:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 6379
+              name: redis-slave3-6379
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: redis-sentinel1
+  namespace: cluster
+spec:
+  selector:
+    matchLabels:
+      app: redis-sentinel1
+  replicas: 1 # by default is 1
+  serviceName: redis-sentinel1
+  template:
+    metadata:
+      labels:
+        app: redis-sentinel1
+    spec:
+      containers:
+        - name: redis-sentinel1
+          image: redis-cluster-sentinel:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 26379
+              name: redis-sentinel1-26379
+          env:
+            - name: Monitor
+              value: "redis-slave1 6379 2"
+            - name: KnownSlave
+              value: "redis-slave2 redis-slave3"
+            - name: KnownSentinel
+              value: "redis-sentinel2 redis-sentinel3"
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: redis-sentinel2
+  namespace: cluster
+spec:
+  selector:
+    matchLabels:
+      app: redis-sentinel2
+  replicas: 1 # by default is 1
+  serviceName: redis-sentinel2
+  template:
+    metadata:
+      labels:
+        app: redis-sentinel2
+    spec:
+      containers:
+        - name: redis-sentinel2
+          image: redis-cluster-sentinel:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 26379
+              name: redis-sentinel2-26379
+          env:
+            - name: Monitor
+              value: "redis-slave1 6379 2"
+            - name: KnownSlave
+              value: "redis-slave2 redis-slave3"
+            - name: KnownSentinel
+              value: "redis-sentinel1 redis-sentinel3"
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: redis-sentinel3
+  namespace: cluster
+spec:
+  selector:
+    matchLabels:
+      app: redis-sentinel3
+  replicas: 1 # by default is 1
+  serviceName: redis-sentinel3
+  template:
+    metadata:
+      labels:
+        app: redis-sentinel3
+    spec:
+      containers:
+        - name: redis-sentinel3
+          image: redis-cluster-sentinel:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 26379
+              name: redis-sentinel3-26379
+          env:
+            - name: Monitor
+              value: "redis-slave1 6379 2"
+            - name: KnownSlave
+              value: "redis-slave2 redis-slave3"
+            - name: KnownSentinel
+              value: "redis-sentinel1 redis-sentinel2"

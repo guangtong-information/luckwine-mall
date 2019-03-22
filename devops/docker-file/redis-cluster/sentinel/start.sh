@@ -3,11 +3,14 @@ cd /etc/redis/
 
 if [[ ! -f "/etc/redis/sentinel.conf" ]]; then
     CONFIG="/etc/redis/sentinel.conf"
+
+    echo "sentinel monitor mymaster $Monitor" >> "$CONFIG"
+
     for server in $KnownSlave; do
-        echo "$server" >> "$CONFIG"
+        echo "sentinel known-slave mymaster  $server 6379" >> "$CONFIG"
     done
     for server in $KnownSentinel; do
-        echo "$server" >> "$CONFIG"
+        echo "sentinel known-sentinel mymaster $server 26379" >> "$CONFIG"
     done
 fi
 
