@@ -1,7 +1,5 @@
 FROM redis
 EXPOSE 6379
-ADD redis.conf /etc/redis/redis.conf
-ADD start.sh /etc/redis/start.sh
-RUN chmod +x /etc/redis/start.sh
-ENTRYPOINT ["/etc/redis/start.sh"]
-CMD ["redis-server","/etc/redis/redis.conf"]
+RUN mkdir -p /usr/local/etc/redis
+COPY redis.conf /usr/local/etc/redis/redis.conf
+CMD [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
