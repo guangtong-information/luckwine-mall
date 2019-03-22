@@ -5,7 +5,7 @@ metadata:
   namespace: cluster
 spec:
   ports:
-    - name: redis-slave1-6379
+    - name: slave1-6379
       port: 6379
       targetPort: 6379
   selector:
@@ -19,7 +19,7 @@ metadata:
   namespace: cluster
 spec:
   ports:
-    - name: redis-slave2-6379
+    - name: slave2-6379
       port: 6379
       targetPort: 6379
   selector:
@@ -33,7 +33,7 @@ metadata:
   namespace: cluster
 spec:
   ports:
-    - name: redis-slave3-6379
+    - name: slave3-6379
       port: 6379
       targetPort: 6379
   selector:
@@ -47,7 +47,7 @@ metadata:
   namespace: cluster
 spec:
   ports:
-    - name: redis-sentinel1-26379
+    - name: sentinel1-26379
       port: 26379
       targetPort: 26379
   selector:
@@ -61,7 +61,7 @@ metadata:
   namespace: cluster
 spec:
   ports:
-    - name: redis-sentinel2-26379
+    - name: sentinel2-26379
       port: 26379
       targetPort: 26379
   selector:
@@ -75,7 +75,7 @@ metadata:
   namespace: cluster
 spec:
   ports:
-    - name: redis-sentinel3-26379
+    - name: sentinel3-26379
       port: 26379
       targetPort: 26379
   selector:
@@ -104,7 +104,7 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 6379
-              name: redis-slave1-6379
+              name: slave1-6379
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -128,7 +128,7 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 6379
-              name: redis-slave2-6379
+              name: slave2-6379
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -152,7 +152,7 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 6379
-              name: redis-slave3-6379
+              name: slave3-6379
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -176,7 +176,7 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 26379
-              name: redis-sentinel1-26379
+              name: sentinel1-26379
           env:
             - name: Monitor
               value: "redis-slave1 6379 2"
@@ -207,7 +207,7 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 26379
-              name: redis-sentinel2-26379
+              name: sentinel2-26379
           env:
             - name: Monitor
               value: "redis-slave1 6379 2"
@@ -238,7 +238,7 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 26379
-              name: redis-sentinel3-26379
+              name: sentinel3-26379
           env:
             - name: Monitor
               value: "redis-slave1 6379 2"
