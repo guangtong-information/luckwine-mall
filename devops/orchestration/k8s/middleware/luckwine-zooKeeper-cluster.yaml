@@ -2,16 +2,18 @@ apiVersion: v1
 kind: Service
 metadata:
   name: zoo1
+  namespace: cluster
 spec:
   ports:
     - name: zoo1-2181
       port: 2181
       targetPort: 2181
-      protocol: TCP
     - name: zoo1-2888
       port: 2888
       targetPort: 2888
-      protocol: TCP
+    - name: zoo1-3888
+      port: 3888
+      targetPort: 3888
   selector:
     app: zoo1
   type: NodePort
@@ -20,16 +22,18 @@ apiVersion: v1
 kind: Service
 metadata:
   name: zoo2
+  namespace: cluster
 spec:
   ports:
     - name: zoo2-2181
       port: 2181
       targetPort: 2181
-      protocol: TCP
     - name: zoo2-2888
       port: 2888
       targetPort: 2888
-      protocol: TCP
+    - name: zoo2-3888
+      port: 3888
+      targetPort: 3888
   selector:
     app: zoo2
   type: NodePort
@@ -38,16 +42,18 @@ apiVersion: v1
 kind: Service
 metadata:
   name: zoo3
+  namespace: cluster
 spec:
   ports:
     - name: zoo3-2181
       port: 2181
       targetPort: 2181
-      protocol: TCP
     - name: zoo3-2888
       port: 2888
       targetPort: 2888
-      protocol: TCP
+    - name: zoo3-3888
+      port: 3888
+      targetPort: 3888
   selector:
     app: zoo3
   type: NodePort
@@ -56,6 +62,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: zoo1
+  namespace: cluster
 spec:
   selector:
     matchLabels:
@@ -67,6 +74,7 @@ spec:
       labels:
         app: zoo1
     spec:
+      hostname: zoo1
       containers:
         - name: zoo1
           image: zookeeper:latest
@@ -75,16 +83,19 @@ spec:
               name: zoo1-2181
             - containerPort: 2888
               name: zoo1-2888
+            - containerPort: 3888
+              name: zoo1-3888
           env:
             - name: ZOO_MY_ID
-              value: 1
+              value: "1"
             - name: ZOO_SERVERS
-              value: server.1=0.0.0.0:2888:3888 server.2=zoo2:2888:3888 server.3=zoo3:2888:3888
+              value: "server.1=0.0.0.0:2888:3888 server.2=zoo2:2888:3888 server.3=zoo3:2888:3888"
 ---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: zoo2
+  namespace: cluster
 spec:
   selector:
     matchLabels:
@@ -96,6 +107,7 @@ spec:
       labels:
         app: zoo2
     spec:
+      hostname: zoo2
       containers:
         - name: zoo2
           image: zookeeper:latest
@@ -104,16 +116,19 @@ spec:
               name: zoo2-2181
             - containerPort: 2888
               name: zoo2-2888
+            - containerPort: 3888
+              name: zoo2-3888
           env:
             - name: ZOO_MY_ID
-              value: 2
+              value: "2"
             - name: ZOO_SERVERS
-              value: server.1=zoo1:2888:3888 server.2=0.0.0.0:2888:3888 server.3=zoo3:2888:3888
+              value: "server.1=zoo1:2888:3888 server.2=0.0.0.0:2888:3888 server.3=zoo3:2888:3888"
 ---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: zoo3
+  namespace: cluster
 spec:
   selector:
     matchLabels:
@@ -125,6 +140,7 @@ spec:
       labels:
         app: zoo3
     spec:
+      hostname: zoo3
       containers:
         - name: zoo3
           image: zookeeper:latest
@@ -133,8 +149,10 @@ spec:
               name: zoo3-2181
             - containerPort: 2888
               name: zoo3-2888
+            - containerPort: 3888
+              name: zoo3-3888
           env:
             - name: ZOO_MY_ID
-              value: 3
+              value: "3"
             - name: ZOO_SERVERS
-              value: server.1=zoo1:2888:3888 server.2=zoo2:2888:3888 server.3=0.0.0.0:2888:3888
+              value: "server.1=zoo1:2888:3888 server.2=zoo2:2888:3888 server.3=0.0.0.0:2888:3888"
