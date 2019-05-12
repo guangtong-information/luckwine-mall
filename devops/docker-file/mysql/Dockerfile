@@ -4,3 +4,4 @@ ENV MYSQL_ROOT_PASSWORD=Aa123456
 RUN cp /etc/mysql/mysql.conf.d/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf.bak
 ADD *.sql /docker-entrypoint-initdb.d/
 ADD mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
+RUN chmod 644 /etc/mysql/mysql.conf.d/mysqld.cnf

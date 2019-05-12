@@ -1,0 +1,11 @@
+version: '3'
+services:
+  luckwine-mysql:
+    image: luckwine-mysql:latest
+    container_name: luckwine-mysql
+    deploy:
+      replicas: 1
+    volumes:
+      - /data/docker/luckwine-db:/var/lib/mysql
+    ports:
+      - 3306:3306
