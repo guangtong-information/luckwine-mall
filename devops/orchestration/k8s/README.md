@@ -1,3 +1,9 @@
+ ### 启动流程
+ * middleware 
+ * dns
+ * apps
+ 
+ 
  ### 启动
  ```
  kubectl  apply -f $PROJECT.yaml
