@@ -58,3 +58,4 @@ spec:
 
 #在宿主机执行：sudo sysctl -w vm.max_map_count=262144
 #docker 命令增加参数：  -e ES_JAVA_OPTS="-Xms1g -Xmx1g"
+#docker run -it -d -p 9300:9300 -p 9200:9200 -e ES_JAVA_OPTS="-Xms1g -Xmx1g" -v /data/docker/elasticsearch/data:/usr/share/elasticsearch/data elasticsearch:6.4.3
