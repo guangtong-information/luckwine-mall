@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kibana
+  namespace: prod
+spec:
+  ports:
+    - name: kibana
+      port: 5601
+      nodePort: 30056
+      targetPort: 5601
+      protocol: TCP
+  selector:
+    app: kibana
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: kibana
+  namespace: test
+spec:
+  selector:
+    matchLabels:
+      app: kibana
+  replicas: 1
+  serviceName: kibana
+  template:
+    metadata:
+      labels:
+        app: kibana
+    spec:
+      containers:
+        - name: kibana
+          image: kibana:6.4.3
+          env:
+            - name: "ELASTICSEARCH_URL"
+              value: "http://es-master:9200"
+          ports:
+            - containerPort: 5601
+              name: kibana
