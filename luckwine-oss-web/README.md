@@ -22,3 +22,9 @@
 ### 二级菜单
 - 前端组件: 在views文件夹下的文件路径比喻“sys/log-manage/logManage”
 - 路径、英文名不能重复
+
+
+### 2019.10.13
+- npm uninstall webpack-dev-server -g      # 卸载全局
+- npm uninstall webpack-dev-server -D     # 卸载局部(本地) 
+- npm i webpack-dev-server@2.9.7 -D   # 本地安装
