@@ -29,8 +29,8 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/portal/': {
-        // target: 'http://127.0.0.1:3333',  // 请求本地 需要clone node-api项目
-        target: 'http://47.106.219.117:8012', // 请求线上 可直接运行
+        target: 'http://127.0.0.1:3333',  // 请求本地 需要clone node-api项目
+        //target: 'http://47.106.219.117:8012', // 请求线上 可直接运行
         changeOrigin: true
       }
     },

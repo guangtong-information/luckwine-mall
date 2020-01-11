@@ -25,7 +25,7 @@ public class CustomerInfoPageController {
     private QueryCustomerInfoPageService queryCustomerInfoPageService;
 
     @RequestMapping(value = "/info/page",method = RequestMethod.POST)
-    @RateLimiter(limit = 1, timeout = 6000)
+    @RateLimiter(limit = 100, timeout = 6000)
     @ApiOperation(value = "客户 info page list")
     public Result<Object> infoPage(@ModelAttribute CommonQueryPageRequest<CustomerServiceReq> request, @ModelAttribute CustomerServiceReq custInfo){
         request.setRequest(custInfo);

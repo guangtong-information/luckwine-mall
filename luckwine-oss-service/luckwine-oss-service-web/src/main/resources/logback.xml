@@ -2,7 +2,7 @@
 <configuration>
 
     <property name="log.name" value="luckwine-oss-service"/>
-    <property name="log.path" value="/data/applog"/>
+    <property name="log.path" value="./data/applog"/>
     <property name="log.level" value="info"/>
 
 

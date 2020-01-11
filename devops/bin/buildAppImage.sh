@@ -36,6 +36,7 @@ function build() {
     mvn clean install -DskipTests;
 }
 
+
 #目录遍历
 function traversing() {
     for file in ./*

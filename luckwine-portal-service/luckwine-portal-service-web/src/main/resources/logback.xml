@@ -2,7 +2,7 @@
 <configuration>
 
     <property name="log.name" value="luckwine-portal-service"/>
-    <property name="log.path" value="/data/applog"/>
+    <property name="log.path" value="./data/applog"/>
     <property name="log.level" value="info"/>
 
 

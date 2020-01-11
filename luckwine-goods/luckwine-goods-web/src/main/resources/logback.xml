@@ -2,7 +2,7 @@
 <configuration>
 
     <property name="log.name" value="luckwine-goods"/>
-    <property name="log.path" value="/data/applog"/>
+    <property name="log.path" value="./data/applog"/>
     <property name="log.level" value="info"/>
 
 
