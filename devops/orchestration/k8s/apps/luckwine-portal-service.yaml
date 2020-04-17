@@ -27,7 +27,7 @@ spec:
             - containerPort: 8030
           env:
             - name: JAVA_OPTIONS
-              value: -Duser.timezone=GMT+8 -Xms128m -Xmx256m -Dspring.profiles.active=prod
+              value: -Duser.timezone=GMT+8 -Xms128m -Xmx256m -Dspring.profiles.active=prod -XX:+UseCompressedOops -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -XX:+AlwaysPreTouch -Xss1m
           volumeMounts:
             - name: luckwine-volume
               mountPath: /data/applog
