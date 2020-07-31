@@ -1,11 +1,11 @@
 package com.luckwine.parent.filter;
 
-import com.alibaba.dubbo.common.Constants;
-import com.alibaba.dubbo.common.utils.ConfigUtils;
-import com.alibaba.dubbo.rpc.*;
-import com.alibaba.dubbo.validation.Validation;
-import com.alibaba.dubbo.validation.Validator;
 import com.luckwine.parent.violation.DubboConstraintViolation;
+import org.apache.dubbo.common.constants.FilterConstants;
+import org.apache.dubbo.common.utils.ConfigUtils;
+import org.apache.dubbo.rpc.*;
+import org.apache.dubbo.validation.Validation;
+import org.apache.dubbo.validation.Validator;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
@@ -26,7 +26,7 @@ public class DubboValidationFilter implements Filter {
     @Override
     public Result invoke(Invoker<?> invoker, Invocation invocation) throws RpcException {
         if (validation != null && !invocation.getMethodName().startsWith("$")
-                && ConfigUtils.isNotEmpty(invoker.getUrl().getMethodParameter(invocation.getMethodName(), Constants.VALIDATION_KEY))) {
+                && ConfigUtils.isNotEmpty(invoker.getUrl().getMethodParameter(invocation.getMethodName(), FilterConstants.VALIDATION_KEY))) {
             try {
                 Validator validator = validation.getValidator(invoker.getUrl());
                 if (validator != null) {
@@ -37,17 +37,17 @@ public class DubboValidationFilter implements Filter {
                 Set<ConstraintViolation<?>> constraintViolations = e.getConstraintViolations();
                 for (ConstraintViolation<?> v : constraintViolations) {
                     if (!v.getClass().getName().equals("org.hibernate.validator.internal.engine.ConstraintViolationImpl")) {
-                        return new RpcResult(e);
+                        return new AppResponse(e);
                     } else {
                         if (set == null) set = new HashSet<>();
                         set.add(new DubboConstraintViolation(v));
                     }
                 }
-                return new RpcResult(new ConstraintViolationException(e.getMessage(), set));
+                return new AppResponse(new ConstraintViolationException(e.getMessage(), set));
             } catch (RpcException e) {
                 throw e;
             } catch (Throwable t) {
-                return new RpcResult(t);
+                return new AppResponse(t);
             }
         }
         return invoker.invoke(invocation);

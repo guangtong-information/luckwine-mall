@@ -1,6 +1,6 @@
 package com.luckwine.parent.template;
 
-import com.alibaba.dubbo.rpc.RpcException;
+import org.apache.dubbo.rpc.RpcException;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.luckwine.parent.entitybase.constant.ResponseCodeConstant;

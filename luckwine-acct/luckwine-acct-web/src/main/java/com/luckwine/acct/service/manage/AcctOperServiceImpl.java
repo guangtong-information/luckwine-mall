@@ -1,7 +1,8 @@
 package com.luckwine.acct.service.manage;
 
-import com.alibaba.dubbo.config.annotation.Service;
-import com.alibaba.dubbo.rpc.RpcException;
+
+import org.apache.dubbo.config.annotation.DubboService;
+import org.apache.dubbo.rpc.RpcException;
 import com.luckwine.acct.handle.local.AcctOperOpenAcctService;
 import com.luckwine.acct.handle.local.AcctOperfreezeAcctService;
 import com.luckwine.acct.handle.local.AcctOperunfreezeAcctService;
@@ -19,7 +20,7 @@ import javax.annotation.Resource;
 /**
  * 账户号管理
  */
-@Service(validation = "true")
+@DubboService(validation = "true")
 public class AcctOperServiceImpl implements AcctOperService {
 
     @Resource

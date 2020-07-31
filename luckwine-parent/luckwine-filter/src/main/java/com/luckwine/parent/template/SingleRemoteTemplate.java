@@ -1,7 +1,6 @@
 package com.luckwine.parent.template;
 
-import com.alibaba.dubbo.common.utils.StringUtils;
-import com.alibaba.dubbo.rpc.RpcException;
+
 import com.luckwine.parent.entitybase.constant.ResponseCodeConstant;
 import com.luckwine.parent.entitybase.exception.CommonException;
 import com.luckwine.parent.entitybase.exception.ParamErrorException;
@@ -11,7 +10,10 @@ import com.luckwine.parent.util.ExceptionUtils;
 import com.luckwine.parent.util.RequestLogUtils;
 import com.luckwine.parent.util.SpringContextUtil;
 import lombok.extern.slf4j.Slf4j;
+
+import org.apache.dubbo.rpc.RpcException;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.util.StringUtils;
 
 import javax.validation.ConstraintViolationException;
 

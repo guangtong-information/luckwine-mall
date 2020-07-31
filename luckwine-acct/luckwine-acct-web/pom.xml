@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>luckwine-acct</artifactId>
+        <artifactId>luckwine-parent</artifactId>
         <groupId>com.luckwine</groupId>
         <version>1.1-SNAPSHOT</version>
     </parent>
@@ -40,23 +40,18 @@
             <artifactId>luckwine-marketing-api</artifactId>
         </dependency>
 
-        <!-- spring 、springboot基本的Jar都会被引入 -->
+        <!--    spring boot start    -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-                </exclusion>
-            </exclusions>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!--   spring boot end     -->
 
-        <!-- Jetty容器，和生产环境保持一致！同步会引入servelt Jar -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jetty</artifactId>
-        </dependency>
 
         <!-- Mysql Connector -->
         <dependency>
@@ -90,7 +85,7 @@
 
         <!--dubbo相关依赖(新的dubbo连接方式，整合了Springboot，也不需要在单独加载zk依赖)-->
         <dependency>
-            <groupId>com.alibaba.boot</groupId>
+            <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-spring-boot-starter</artifactId>
         </dependency>
 
@@ -99,23 +94,6 @@
             <artifactId>fastjson</artifactId>
         </dependency>
 
-        <!-- springboot actuator.提供项目运行时，查看运行中的各种配置及参数 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-
-        <!--<dependency>
-            <groupId>com.alibaba.boot</groupId>
-            <artifactId>dubbo-spring-boot-actuator</artifactId>
-        </dependency>-->
-
-        <!--springboot 单元测试-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
 
         <!--懒人包-->
         <dependency>

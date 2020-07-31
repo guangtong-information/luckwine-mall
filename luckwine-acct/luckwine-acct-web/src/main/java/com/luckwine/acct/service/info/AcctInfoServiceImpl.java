@@ -1,6 +1,6 @@
 package com.luckwine.acct.service.info;
 
-import com.alibaba.dubbo.config.annotation.Service;
+
 import com.luckwine.acct.handle.local.AcctInfoQueryPageService;
 import com.luckwine.acct.model.base.AcctInfo;
 import com.luckwine.acct.model.base.ExpensesDetail;
@@ -8,12 +8,13 @@ import com.luckwine.acct.model.request.AcctExpensesPageRequest;
 import com.luckwine.acct.model.request.AcctInfoPageRequest;
 import com.luckwine.parent.entitybase.request.CommonQueryPageRequest;
 import com.luckwine.parent.entitybase.response.CommonQueryPageResponse;
+import org.apache.dubbo.config.annotation.DubboService;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 
-@Service(validation = "true")
+@DubboService(validation = "true")
 public class AcctInfoServiceImpl implements AcctInfoService {
 
     @Resource

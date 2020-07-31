@@ -83,7 +83,7 @@
 
         <!--dubbo相关依赖(新的dubbo连接方式，整合了Springboot，也不需要在单独加载zk依赖)-->
         <dependency>
-            <groupId>com.alibaba.boot</groupId>
+            <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-spring-boot-starter</artifactId>
         </dependency>
 

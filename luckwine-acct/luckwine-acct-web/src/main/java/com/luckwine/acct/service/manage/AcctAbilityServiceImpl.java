@@ -1,7 +1,8 @@
 package com.luckwine.acct.service.manage;
 
-import com.alibaba.dubbo.config.annotation.Service;
-import com.alibaba.dubbo.rpc.RpcException;
+
+import org.apache.dubbo.config.annotation.DubboService;
+import org.apache.dubbo.rpc.RpcException;
 import com.luckwine.acct.handle.local.AcctAbilityBatchConfigService;
 import com.luckwine.acct.model.request.AcctAbilityBatchRequest;
 import com.luckwine.parent.entitybase.constant.ResponseCodeConstant;
@@ -14,7 +15,7 @@ import org.springframework.dao.DuplicateKeyException;
 import javax.annotation.Resource;
 
 
-@Service(validation = "true")
+@DubboService(validation = "true")
 public class AcctAbilityServiceImpl implements AcctAbilityService {
 
     @Resource

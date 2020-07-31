@@ -1,7 +1,6 @@
 package com.luckwine.parent.template;
 
 
-import com.alibaba.dubbo.common.utils.StringUtils;
 import com.luckwine.parent.entitybase.constant.ResponseCodeConstant;
 import com.luckwine.parent.entitybase.exception.CommonException;
 import com.luckwine.parent.entitybase.request.CommonQueryPageRequest;
@@ -20,6 +19,7 @@ import org.elasticsearch.search.aggregations.Aggregation;
 import org.elasticsearch.search.aggregations.Aggregations;
 import org.elasticsearch.search.aggregations.bucket.terms.ParsedLongTerms;
 import org.elasticsearch.search.aggregations.bucket.terms.Terms;
+import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;

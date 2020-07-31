@@ -1,7 +1,8 @@
 package com.luckwine.acct.service.trans;
 
-import com.alibaba.dubbo.config.annotation.Service;
-import com.alibaba.dubbo.rpc.RpcException;
+
+import org.apache.dubbo.config.annotation.DubboService;
+import org.apache.dubbo.rpc.RpcException;
 import com.luckwine.acct.handle.local.AcctDepositService;
 import com.luckwine.acct.model.request.AcctDepositRequest;
 import com.luckwine.acct.model.response.TransRes;
@@ -17,7 +18,7 @@ import javax.annotation.Resource;
 /**
  * 账户入账
  */
-@Service(validation = "true")
+@DubboService(validation = "true")
 public class AccountDepositServiceImpl implements AccountDepositService {
 
 

@@ -1,7 +1,8 @@
 package com.luckwine.acct.service.trans;
 
-import com.alibaba.dubbo.config.annotation.Service;
-import com.alibaba.dubbo.rpc.RpcException;
+
+import org.apache.dubbo.config.annotation.DubboService;
+import org.apache.dubbo.rpc.RpcException;
 import com.luckwine.acct.enums.AbilityCode;
 import com.luckwine.acct.handle.local.AcctDeductingService;
 import com.luckwine.acct.model.request.AcctDeductingRequest;
@@ -18,7 +19,7 @@ import javax.annotation.Resource;
 /**
  * 账户出账-提现
  */
-@Service(validation = "true")
+@DubboService(validation = "true")
 public class AccountDeductingServiceImpl implements AccountDeductingService {
 
     @Resource

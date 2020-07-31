@@ -1,7 +1,6 @@
 package com.luckwine.parent.template;
 
-import com.alibaba.dubbo.common.utils.StringUtils;
-import com.alibaba.dubbo.rpc.RpcException;
+import org.apache.dubbo.rpc.RpcException;
 import com.luckwine.parent.entitybase.constant.ResponseCodeConstant;
 import com.luckwine.parent.entitybase.exception.CommonException;
 import com.luckwine.parent.entitybase.exception.ParamErrorException;
@@ -15,6 +14,7 @@ import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.util.StringUtils;
 
 import javax.validation.ConstraintViolationException;
 

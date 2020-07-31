@@ -14,7 +14,7 @@
         <module>luckwine-customer</module>
         <module>luckwine-acct</module>
         <module>luckwine-oss-service</module>
-        <module>luckwine-oss-web</module>
+<!--        <module>luckwine-oss-web</module>-->
         <module>luckwine-goods</module>
         <module>luckwine-pgw</module>
         <module>luckwine-synthesize</module>
@@ -22,7 +22,7 @@
         <module>luckwine-trade</module>
         <module>luckwine-bgw</module>
         <module>luckwine-portal-service</module>
-        <module>luckwine-portal-web</module>
+<!--        <module>luckwine-portal-web</module>-->
     </modules>
 
     <properties>
