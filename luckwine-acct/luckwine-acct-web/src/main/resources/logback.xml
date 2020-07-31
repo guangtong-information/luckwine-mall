@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration>
-
-
     <property name="log.name" value="luckwine-acct"/>
-    <property name="log.path" value="/data/applog"/>
+    <property name="log.path" value="./data/applog"/>
     <property name="log.level" value="info"/>
-
-
     <!-- 注意顺序不能乱 -->
     <include resource="com/luckwine/parent/logback/luckwine-base.xml" />
-
-
-
 </configuration>
