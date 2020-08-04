@@ -11,7 +11,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/luckwine-acct?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    url: jdbc:mysql://192.168.85.128:3306/luckwine-acct?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
     username: root
     password: 123456
     # 使用druid数据源
@@ -27,9 +27,9 @@ dubbo:
     port: -1
     name: dubbo
   registry:
-    address: nacos://192.168.1.14:8848
-    parameters:
-      namespace: 5f5afe75-b943-40dc-ae5a-6f3e9ab24cf8
+    address: nacos://192.168.85.128:8848
+#    parameters:
+#      namespace: 5f5afe75-b943-40dc-ae5a-6f3e9ab24cf8
     timeout: 6000
     version: 1.0.0
     check: true
@@ -77,7 +77,7 @@ seata:
     enable-degrade: false # 降级开关
     disable-global-transaction: false # 禁用全局事务（默认false）
     grouplist:
-      default: seata-server:8091
+      default: 192.168.85.128:8091
   transport:
     shutdown:
       wait: 3
@@ -97,13 +97,14 @@ seata:
     enable-client-batch-send-request: true # 客户端事务消息请求是否批量合并发送（默认true）
   registry:
     nacos:
-      server-addr: 192.168.1.14:8848
+      server-addr: 192.168.85.128:8848
       cluster: default
+      group: SEATA_GROUP
     type: nacos
   config:
     type: nacos
     nacos:
-      server-addr: 192.168.1.14:8848
+      server-addr: 192.168.85.128:8848
   enable-auto-data-source-proxy: true
 
 #日志相关
