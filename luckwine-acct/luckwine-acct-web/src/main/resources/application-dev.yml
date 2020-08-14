@@ -3,10 +3,6 @@ jasypt:
   encryptor:
     password: luckwine_acct
 
-#Web服务器本地访问端口
-server:
-  port: 8008
-
 #数据源配置 MyBatisConfig.class
 spring:
   datasource:
