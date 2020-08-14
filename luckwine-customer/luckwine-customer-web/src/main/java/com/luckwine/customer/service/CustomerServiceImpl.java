@@ -1,6 +1,5 @@
 package com.luckwine.customer.service;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.luckwine.customer.handle.local.CustInfoInsertService;
 import com.luckwine.customer.handle.local.CustInfoPageService;
 import com.luckwine.customer.handle.local.CustInfoQueryService;
@@ -17,6 +16,7 @@ import com.luckwine.parent.entitybase.response.CommonQueryPageResponse;
 import com.luckwine.parent.entitybase.response.CommonResponse;
 import com.luckwine.parent.tools.common.ValueUtil;
 import lombok.extern.java.Log;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -25,7 +25,7 @@ import java.util.Date;
 import java.util.List;
 
 @Log
-@Service(version = "1.0.0")
+@DubboService(version = "1.0.0")
 public class CustomerServiceImpl implements CustomerService {
 
 	@Autowired

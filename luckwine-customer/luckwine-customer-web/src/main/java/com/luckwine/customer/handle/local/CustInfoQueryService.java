@@ -8,8 +8,8 @@ import com.luckwine.customer.model.enums.ExceptionCode;
 import com.luckwine.parent.entitybase.exception.CommonException;
 import com.luckwine.parent.entitybase.request.CommonRequest;
 import com.luckwine.parent.template.SingleTemplate;
-import io.micrometer.core.instrument.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

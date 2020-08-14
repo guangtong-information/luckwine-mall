@@ -1,6 +1,5 @@
 package com.luckwine.customer.service;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.luckwine.customer.handle.local.CustGoodsAddrPageService;
 import com.luckwine.customer.handle.local.DeleteCustGoodsAddrService;
 import com.luckwine.customer.handle.local.InsertCustGoodsAddrService;
@@ -12,6 +11,7 @@ import com.luckwine.parent.entitybase.request.CommonRequest;
 import com.luckwine.parent.entitybase.response.CommonQueryPageResponse;
 import com.luckwine.parent.entitybase.response.CommonResponse;
 import lombok.extern.java.Log;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -20,7 +20,7 @@ import java.util.List;
  * @ClassName CustGoodsAddrServiceImpl
  * @Description 客户收货地址 服务实现类
  **/
-@Service(validation = "true")
+@DubboService(validation = "true")
 @Log
 public class CustGoodsAddrServiceImpl implements CustGoodsAddrService {
 

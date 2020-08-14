@@ -13,7 +13,7 @@
 
  Date: 17/02/2019 21:42:42
 */
-CREATE DATABASE `luckwine-pgw` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE `luckwine-pgw` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 use `luckwine-pgw`;
 
 SET NAMES utf8mb4;
@@ -25,28 +25,28 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `pay_order`;
 CREATE TABLE `pay_order`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `pay_order_no` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '支付单号',
-  `order_no` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '主订单号',
+  `pay_order_no` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '支付单号',
+  `order_no` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '主订单号',
   `amount` decimal(12, 2) NOT NULL COMMENT '支付单金额',
-  `cap_seq` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '资金流水-订单',
-  `user_account` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '用户账号',
-  `subject` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '支付单标题',
-  `body` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '支付单描述',
-  `pay_type` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '支付类型: QR_CODE，PC',
-  `supplier_code` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '供应商编码,支付宝alipay,微信wechat,银联unionpay',
-  `supplier_user_account` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '供应商对应用户账号',
-  `supplier_order_no` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '供应商订单号',
-  `supplier_order_status` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '供应商状态',
-  `status` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT 'CREATE' COMMENT '支付单状态： 生成 CREATE,   成功 ：SUCCESS,  关闭 ：CLOSED',
-  `order_sync_status` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT 'SYNC_WAIT' COMMENT '订单同步状态',
+  `cap_seq` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '资金流水-订单',
+  `user_account` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '用户账号',
+  `subject` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '支付单标题',
+  `body` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '支付单描述',
+  `pay_type` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '支付类型: QR_CODE，PC',
+  `supplier_code` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '供应商编码,支付宝alipay,微信wechat,银联unionpay',
+  `supplier_user_account` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '供应商对应用户账号',
+  `supplier_order_no` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '供应商订单号',
+  `supplier_order_status` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '供应商状态',
+  `status` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT 'CREATE' COMMENT '支付单状态： 生成 CREATE,   成功 ：SUCCESS,  关闭 ：CLOSED',
+  `order_sync_status` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT 'SYNC_WAIT' COMMENT '订单同步状态',
   `order_sync_count` int(2) NULL DEFAULT 0 COMMENT '同步订单次数',
-  `remark` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '备注',
+  `remark` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '备注',
   `polling_count` int(2) NULL DEFAULT 0 COMMENT '轮询次数',
   `pay_time` datetime(0) NULL DEFAULT NULL COMMENT '支付时间',
   `create_time` datetime(0) NOT NULL COMMENT '创建时间',
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 80 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '支付单' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 80 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '支付单' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of pay_order
@@ -112,20 +112,20 @@ INSERT INTO `pay_order` VALUES (79, '3001811251729494414369015', '20218112516473
 DROP TABLE IF EXISTS `pay_order_diff`;
 CREATE TABLE `pay_order_diff`  (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `bill_date` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '账单日',
-  `batch_code` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '批次编码',
-  `pay_order_no` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '支付单号',
+  `bill_date` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '账单日',
+  `batch_code` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '批次编码',
+  `pay_order_no` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '支付单号',
   `pay_order_amount` decimal(12, 2) NULL DEFAULT NULL COMMENT '支付单金额',
-  `supplier_order_no` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '供应商订单号',
+  `supplier_order_no` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '供应商订单号',
   `supplier_order_amount` decimal(12, 2) NULL DEFAULT NULL COMMENT '供应商金额',
-  `diff_type` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '差异类型: 长款:EXCESS_MONEY，短款: LACK_MONEY，差额 DIFF_MONEY',
-  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '状态:  待处理：WAIT , 已处理 ：FINISH  , 不处理：NO_NEED，',
+  `diff_type` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '差异类型: 长款:EXCESS_MONEY，短款: LACK_MONEY，差额 DIFF_MONEY',
+  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '状态:  待处理：WAIT , 已处理 ：FINISH  , 不处理：NO_NEED，',
   `create_time` datetime(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
-  `remark` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '备注',
+  `remark` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `uk_batch_no`(`batch_code`, `pay_order_no`, `supplier_order_no`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 49 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '对账差异' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 49 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '对账差异' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of pay_order_diff
@@ -154,20 +154,20 @@ INSERT INTO `pay_order_diff` VALUES (48, '20181011', 'ALIPAY_20181011_112439', '
 DROP TABLE IF EXISTS `pay_order_diff_batch`;
 CREATE TABLE `pay_order_diff_batch`  (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `batch_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '批次号',
-  `bill_date` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '账单日',
-  `supplier_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '供应商编码',
+  `batch_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '批次号',
+  `bill_date` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '账单日',
+  `supplier_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '供应商编码',
   `pay_order_count` int(6) NULL DEFAULT 0 COMMENT '支付单数',
   `suppl_order_count` int(6) NULL DEFAULT 0 COMMENT '供应商数',
   `excess_money_count` int(6) NULL DEFAULT 0 COMMENT '长款数',
   `lack_money_count` int(6) NULL DEFAULT 0 COMMENT '短款数',
   `diff_money_count` int(6) NULL DEFAULT 0 COMMENT '差额数',
-  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '状态  OK 正常 ，  异常 ERROR',
+  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '状态  OK 正常 ，  异常 ERROR',
   `create_time` datetime(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
   `update_time` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `uk_batch_code`(`batch_code`(191)) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '对账批次表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '对账批次表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of pay_order_diff_batch

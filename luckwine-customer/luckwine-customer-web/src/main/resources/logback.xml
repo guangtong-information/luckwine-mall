@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration>
     <property name="log.name" value="luckwine-customer"/>
-    <property name="log.path" value="/data/applog"/>
-    <property name="log.level" value="debug"/>
+    <property name="log.path" value="./data/applog"/>
+    <property name="log.level" value="info"/>
 
 
     <!-- 注意顺序不能乱 -->

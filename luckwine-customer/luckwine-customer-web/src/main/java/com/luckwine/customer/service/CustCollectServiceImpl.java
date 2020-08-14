@@ -1,6 +1,5 @@
 package com.luckwine.customer.service;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.luckwine.customer.handle.local.CustCollectAddService;
 import com.luckwine.customer.handle.local.CustCollectDeleteService;
 import com.luckwine.customer.handle.local.CustCollectPageService;
@@ -10,11 +9,12 @@ import com.luckwine.parent.entitybase.request.CommonRequest;
 import com.luckwine.parent.entitybase.response.CommonQueryPageResponse;
 import com.luckwine.parent.entitybase.response.CommonResponse;
 import lombok.extern.java.Log;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 @Log
-@Service(version = "1.0.0")
+@DubboService(version = "1.0.0")
 public class CustCollectServiceImpl implements CustCollectService {
     @Autowired
     private CustCollectPageService custCollectPageService;

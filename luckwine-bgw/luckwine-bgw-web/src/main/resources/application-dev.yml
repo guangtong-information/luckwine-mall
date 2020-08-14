@@ -19,7 +19,7 @@ dubbo:
     timeout: 6000
     version: 1.0.0
     check: true
-    file: ./.dubbo/luckwine_acct_registry
+    file: ./.dubbo/luckwine_bgw_registry
   scan:
     base-packages: com.luckwine.bgw
   provider:

@@ -1,4 +1,4 @@
-CREATE DATABASE `seata` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE `seata` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 use `seata`;
 -- -------------------------------- The script used when storeMode is 'db' --------------------------------
 -- the table to store GlobalSession data

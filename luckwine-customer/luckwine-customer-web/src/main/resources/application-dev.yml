@@ -1,6 +1,3 @@
-server:
-  port: 8002
-
 spring:
   # 数据源
   datasource:
@@ -27,8 +24,8 @@ spring:
 
   # Redis
   redis:
-    host: 127.0.0.1
-    password:
+    host: 192.168.1.12
+    password: admin123456
     # 数据库索引 默认0
     database: 1
     port: 6379
@@ -36,10 +33,28 @@ spring:
 
 dubbo:
   protocol:
-    port: 28032
-    #charset: GBK   #Telnet测试时使用
+    port: -1
+    name: dubbo
   registry:
-    address: zookeeper://127.0.0.1:2181
+    address: nacos://192.168.1.250:8848
+    #    parameters:
+    #      namespace: 5f5afe75-b943-40dc-ae5a-6f3e9ab24cf8
+    timeout: 6000
+    version: 1.0.0
+    check: true
+    file: ./.dubbo/luckwine_customer_registry
+  scan:
+    base-packages: com.luckwine.customer
+  provider:
+    version: 1.0.0
+    timeout: 6000
+    filter: dubboLogFilter,dubboValidationFilter,-validation
+    validation: true
+    group: dev
+  consumer:
+    check: false
+    version: 1.0.0
+    group: dev
 
 
 

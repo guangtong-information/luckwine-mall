@@ -13,7 +13,7 @@
 
  Date: 17/02/2019 21:43:01
 */
-CREATE DATABASE `luckwine-synthesize` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE `luckwine-synthesize` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 use `luckwine-synthesize`;
 
 SET NAMES utf8mb4;

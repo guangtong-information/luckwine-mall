@@ -13,7 +13,7 @@
 
  Date: 17/02/2019 21:42:17
 */
-CREATE DATABASE `luckwine-marketing` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE `luckwine-marketing` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 use `luckwine-marketing`;
 
 SET NAMES utf8mb4;
@@ -152,12 +152,12 @@ INSERT INTO `marketing_scheme` VALUES ('6', 'TEST6', '', '0', '2018-09-04 21:09:
 DROP TABLE IF EXISTS `marketing_scheme_obj`;
 CREATE TABLE `marketing_scheme_obj`  (
   `id` int(11) NOT NULL COMMENT '主键',
-  `scheme_id` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '方案id',
-  `scheme_obj` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '方案优惠对象：指定商品1（本期不实现）、商品分类2（本期不实现）',
-  `scheme_obj_value` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '方案优惠对象的值(指定商品1，值为skuid；商品分类2，值为分类id，对应category表)',
+  `scheme_id` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '方案id',
+  `scheme_obj` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '方案优惠对象：指定商品1（本期不实现）、商品分类2（本期不实现）',
+  `scheme_obj_value` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '方案优惠对象的值(指定商品1，值为skuid；商品分类2，值为分类id，对应category表)',
   `create_time` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
   `update_time` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '营销方案优惠对象表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '营销方案优惠对象表' ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;

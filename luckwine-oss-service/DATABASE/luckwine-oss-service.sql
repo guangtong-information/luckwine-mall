@@ -13,7 +13,7 @@
 
  Date: 17/02/2019 21:42:30
 */
-CREATE DATABASE `luckwine-oss` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE `luckwine-oss` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 use `luckwine-oss`;
 
 SET NAMES utf8mb4;

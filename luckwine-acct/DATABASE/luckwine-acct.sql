@@ -13,7 +13,7 @@
 
  Date: 17/02/2019 21:41:23
 */
-CREATE DATABASE `luckwine-acct` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE `luckwine-acct` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 use `luckwine-acct`;
 
 SET NAMES utf8mb4;
@@ -97,13 +97,13 @@ INSERT INTO `acct_accttype_dict` VALUES ('0001', '余额账户', '2018-08-17 10:
 DROP TABLE IF EXISTS `acct_asyn_money`;
 CREATE TABLE `acct_asyn_money`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `acct_code` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `acct_code` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `amount` decimal(17, 2) NOT NULL,
   `create_time` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
   `update_time` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
   `stat` int(1) NOT NULL DEFAULT 0 COMMENT '状态：0.金额未写入 1.金额已写入',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '异步计算余额' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '异步计算余额' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for acct_expenses_detail
