@@ -7,9 +7,32 @@ spring:
     password: Aa123456
     type: com.alibaba.druid.pool.DruidDataSource
 
+# dubbo最新配置，整合了注册中心配置
 dubbo:
+  protocol:
+    port: -1
+    name: dubbo
   registry:
     address: nacos://192.168.1.250:8848
+    #    parameters:
+    #      namespace: 5f5afe75-b943-40dc-ae5a-6f3e9ab24cf8
+    timeout: 6000
+    version: 1.0.0
+    check: true
+    file: ./.dubbo/luckwine_acct_registry
+  scan:
+    base-packages: com.luckwine.bgw
+  provider:
+    version: 1.0.0
+    timeout: 6000
+    filter: dubboLogFilter,dubboValidationFilter,-validation
+    validation: true
+    group: dev
+  consumer:
+    check: false
+    version: 1.0.0
+    group: dev
+
 
 #快递鸟接口访问账号和地址
 kdapi:

@@ -3,23 +3,19 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>luckwine-synthesize</artifactId>
+        <artifactId>luckwine-parent</artifactId>
         <groupId>com.luckwine</groupId>
         <version>1.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.luckwine</groupId>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>luckwine-synthesize-api</artifactId>
-    <version>1.1-SNAPSHOT</version>
 
     <dependencies>
-
         <dependency>
             <groupId>com.luckwine</groupId>
             <artifactId>luckwine-entitybase</artifactId>
         </dependency>
-
     </dependencies>
 
 </project>
