@@ -25,29 +25,29 @@ mybatis:
 
 # dubbo最新配置，整合了注册中心配置
 dubbo:
-  scan:
-    base-packages: com.luckwine.trade
-  application:
-    name: luckwine-trade
   protocol:
-    port: 28037
-    status: server
+    port: -1
+    name: dubbo
   registry:
-    address: 127.0.0.1:2181
+    address: nacos://192.168.1.250:8848
+    #    parameters:
+    #      namespace: 5f5afe75-b943-40dc-ae5a-6f3e9ab24cf8
     timeout: 6000
+    version: 1.0.0
     check: true
     file: ./.dubbo/luckwine_trade_registry
-    protocol: zookeeper
+  scan:
+    base-packages: com.luckwine.trade
   provider:
     version: 1.0.0
     timeout: 6000
     filter: dubboLogFilter
-    validation: false
+    validation: true
+    group: dev
   consumer:
-    version: 1.0.0
-    timeout: 6000
-    filter: dubboLogFilter,dubboValidationFilter,-validation
     check: false
+    version: 1.0.0
+    group: dev
 
 #日志相关
 logging:
