@@ -6,7 +6,6 @@
         <groupId>com.luckwine</groupId>
         <artifactId>luckwine-dependencies</artifactId>
         <version>1.1-SNAPSHOT</version>
-        <relativePath>../luckwine-dependencies/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 

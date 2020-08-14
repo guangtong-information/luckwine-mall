@@ -1,6 +1,6 @@
 package com.luckwine.bgw.service;
 
-import com.alibaba.dubbo.config.annotation.Service;
+
 import com.luckwine.bgw.handle.local.EOrderCreateService;
 import com.luckwine.bgw.handle.local.EOrderRemoveService;
 import com.luckwine.bgw.handle.local.EOrderTracesGetService;
@@ -12,9 +12,10 @@ import com.luckwine.bgw.model.response.EOrderRemoveRes;
 import com.luckwine.bgw.model.response.EOrderTracesGetRes;
 import com.luckwine.parent.entitybase.request.CommonRequest;
 import com.luckwine.parent.entitybase.response.CommonResponse;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@Service(validation = "true")
+@DubboService(validation = "true")
 public class EOrderServiceImpl implements EOrderService {
 
     @Autowired

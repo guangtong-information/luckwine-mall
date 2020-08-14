@@ -1,6 +1,6 @@
 package com.luckwine.customer.handle.local;
 
-import com.alibaba.dubbo.common.utils.StringUtils;
+
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.luckwine.customer.dao.CustInfoMapper;
 import com.luckwine.customer.model.base.CustCollect;
@@ -10,6 +10,7 @@ import com.luckwine.parent.entitybase.exception.CommonException;
 import com.luckwine.parent.entitybase.request.CommonRequest;
 import com.luckwine.parent.template.SingleTemplate;
 import lombok.extern.java.Log;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

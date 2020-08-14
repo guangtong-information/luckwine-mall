@@ -33,7 +33,7 @@ public class PageUtil {
             }else {
                 d = Sort.Direction.valueOf(order.toUpperCase());
             }
-            Sort s = new Sort(d,sort);
+            Sort s = Sort.by(d,sort);
             pageable = PageRequest.of(pageNumber-1, pageSize,s);
         }else {
             pageable = PageRequest.of(pageNumber-1, pageSize);

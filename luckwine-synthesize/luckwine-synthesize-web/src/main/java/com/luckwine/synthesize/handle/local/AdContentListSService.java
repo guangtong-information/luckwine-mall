@@ -1,12 +1,12 @@
 package com.luckwine.synthesize.handle.local;
 
-import com.alibaba.dubbo.common.utils.StringUtils;
 import com.luckwine.parent.entitybase.request.CommonRequest;
 import com.luckwine.parent.template.SingleTemplate;
 import com.luckwine.synthesize.dao.AdContentMapper;
 import com.luckwine.synthesize.model.base.AdContent;
 import com.luckwine.synthesize.model.request.AdContentSReq;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;

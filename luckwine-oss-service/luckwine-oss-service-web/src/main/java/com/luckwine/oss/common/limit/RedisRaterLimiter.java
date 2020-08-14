@@ -37,7 +37,7 @@ public class RedisRaterLimiter {
             transaction.zremrangeByScore((BUCKET_MONITOR + point).getBytes(), "-inf".getBytes(), String.valueOf(now - timeout).getBytes());
             //为每个有序集分别指定一个乘法因子(默认设置为 1) 每个成员的score值在传递给聚合函数之前都要先乘以该因子
             ZParams params = new ZParams();
-            params.weightsByDouble(1.0, 0.0);
+            params.weights(1.0, 0.0);
             //计算给定的一个或多个有序集的交集
             transaction.zinterstore(BUCKET + point, params, BUCKET + point, BUCKET_MONITOR + point);
 

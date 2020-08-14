@@ -1,7 +1,7 @@
 package com.luckwine.oss.module.oss.controller.common;
 
 
-import com.alibaba.dubbo.common.utils.StringUtils;
+
 import com.luckwine.oss.common.limit.RedisRaterLimiter;
 import com.luckwine.oss.common.utils.ResultUtil;
 import com.luckwine.oss.common.vo.Result;
@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
