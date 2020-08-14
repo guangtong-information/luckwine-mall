@@ -7,6 +7,7 @@ import com.luckwine.trade.integration.carrier.TradeCarrier;
 import com.luckwine.trade.integration.constant.IntegrationChannel;
 import com.luckwine.trade.integration.gateway.TradeGateWay;
 import com.luckwine.trade.model.request.PayBackRequest;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
@@ -14,7 +15,7 @@ import org.springframework.messaging.support.MessageBuilder;
 /**
  * 支付回调
  */
-@Service(validation = "false")
+@DubboService(validation = "false")
 public class PayBackServiceServiceImpl implements PayBackService {
 
     @Autowired

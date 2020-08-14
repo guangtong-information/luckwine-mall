@@ -1,12 +1,12 @@
 package com.luckwine.trade.handle.remote.acct;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.luckwine.acct.model.base.AcctInfo;
 import com.luckwine.acct.model.request.AcctInfoPageRequest;
 import com.luckwine.acct.service.info.AcctInfoService;
 import com.luckwine.parent.entitybase.request.CommonQueryPageRequest;
 import com.luckwine.parent.entitybase.response.CommonQueryPageResponse;
 import com.luckwine.parent.template.QueryPageRemoteTemplate;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +17,7 @@ import java.util.List;
 @Service
 public class AccountInfoRemoteService extends QueryPageRemoteTemplate<AcctInfoPageRequest, List<AcctInfo>> {
 
-    @Reference(version = "1.0.0", timeout = 25000)
+    @DubboReference(version = "1.0.0", timeout = 25000)
     private AcctInfoService acctInfoService;
 
     @Override

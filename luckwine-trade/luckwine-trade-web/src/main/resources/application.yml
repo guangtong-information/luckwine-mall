@@ -3,12 +3,12 @@ jasypt:
   encryptor:
     password: luckwine_trade
 
-#Web服务器本地访问端口
-server:
-  port: 8007
+
 
 #数据源配置 MyBatisConfig.class
 spring:
+  application:
+    name: luckwine-trade
   profiles:
     active: dev
   datasource:

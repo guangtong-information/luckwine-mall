@@ -9,6 +9,7 @@ import com.luckwine.trade.model.request.QueryCartRequest;
 import com.luckwine.trade.model.request.RemoveCartRequest;
 import com.luckwine.trade.model.response.ShopCartRes;
 import com.luckwine.trade.model.response.ShopCartSumRes;
+import org.apache.dubbo.config.annotation.DubboService;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ import java.util.List;
  * 购物车服务
  * Created by Winlone on 2018/10/20.
  */
-@Service(validation = "true")
+@DubboService(validation = "true")
 public class CartServiceImpl implements CartService {
 
     public CommonResponse<Boolean> addSkuFromCart(CommonRequest<AddCartRequest> request) {

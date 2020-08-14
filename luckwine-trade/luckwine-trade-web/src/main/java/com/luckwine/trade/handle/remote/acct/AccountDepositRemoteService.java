@@ -1,12 +1,12 @@
 package com.luckwine.trade.handle.remote.acct;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.luckwine.acct.model.request.AcctDepositRequest;
 import com.luckwine.acct.model.response.TransRes;
 import com.luckwine.acct.service.trans.AccountDepositService;
 import com.luckwine.parent.entitybase.request.CommonRequest;
 import com.luckwine.parent.entitybase.response.CommonResponse;
 import com.luckwine.parent.template.SingleRemoteTemplate;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class AccountDepositRemoteService extends SingleRemoteTemplate<AcctDepositRequest, TransRes> {
 
-    @Reference(version = "1.0.0", timeout = 25000)
+    @DubboReference(version = "1.0.0", timeout = 25000)
     private AccountDepositService accountDepositService;
 
     @Override

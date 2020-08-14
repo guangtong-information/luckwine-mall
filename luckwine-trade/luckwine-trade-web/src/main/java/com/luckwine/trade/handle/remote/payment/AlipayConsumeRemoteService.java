@@ -7,6 +7,7 @@ import com.luckwine.parent.template.SingleRemoteTemplate;
 import com.luckwine.pgw.model.request.PayOrderCreateRequest;
 import com.luckwine.pgw.model.response.AsyncPayInfo;
 import com.luckwine.pgw.model.service.PayOrderService;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class AlipayConsumeRemoteService extends SingleRemoteTemplate<PayOrderCreateRequest, AsyncPayInfo> {
 
-    @Reference(version = "1.0.0", timeout = 25000)
+    @DubboReference(version = "1.0.0", timeout = 25000)
     private PayOrderService payOrderService;
 
     @Override

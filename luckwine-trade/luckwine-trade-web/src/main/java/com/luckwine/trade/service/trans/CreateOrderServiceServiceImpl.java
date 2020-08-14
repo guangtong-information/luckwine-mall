@@ -9,6 +9,7 @@ import com.luckwine.trade.integration.gateway.TradeGateWay;
 import com.luckwine.trade.model.request.ConsumeOrderRequest;
 import com.luckwine.trade.model.request.RechargeOrderRequest;
 import com.luckwine.trade.model.response.CreateOrderRes;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
@@ -16,7 +17,7 @@ import org.springframework.messaging.support.MessageBuilder;
 /**
  * 下单服务
  */
-@Service(validation = "false")
+@DubboService(validation = "false")
 public class CreateOrderServiceServiceImpl implements CreateOrderService {
 
     @Autowired

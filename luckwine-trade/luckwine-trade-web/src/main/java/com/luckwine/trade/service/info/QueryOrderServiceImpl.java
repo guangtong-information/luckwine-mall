@@ -10,12 +10,13 @@ import com.luckwine.trade.model.request.QueryMainOrderRequest;
 import com.luckwine.trade.model.request.QueryOrderInfoRequest;
 import com.luckwine.trade.model.response.MainOrderRes;
 import com.luckwine.trade.model.response.OrderInfoRes;
+import org.apache.dubbo.config.annotation.DubboService;
 
 /**
  * 订单查询
  * Created by Winlone on 2018/10/20.
  */
-@Service(validation = "true")
+@DubboService(validation = "true")
 public class QueryOrderServiceImpl implements QueryOrderService {
 
     public CommonQueryPageResponse<MainOrderRes> queryMainOrderList(CommonQueryPageRequest<QueryMainOrderRequest> request) {

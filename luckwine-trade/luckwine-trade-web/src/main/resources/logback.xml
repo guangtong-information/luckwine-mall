@@ -3,7 +3,7 @@
 
 
     <property name="log.name" value="luckwine-trade"/>
-    <property name="log.path" value="/data/applog"/>
+    <property name="log.path" value="./data/applog"/>
     <property name="log.level" value="info"/>
 
 

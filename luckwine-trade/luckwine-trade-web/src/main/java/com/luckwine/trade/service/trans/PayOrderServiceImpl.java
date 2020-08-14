@@ -9,6 +9,7 @@ import com.luckwine.trade.integration.gateway.TradeGateWay;
 import com.luckwine.trade.model.request.PayOrderRequest;
 import com.luckwine.trade.model.response.CreateOrderRes;
 import com.luckwine.trade.model.response.PayOrderRes;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
@@ -17,7 +18,7 @@ import org.springframework.messaging.support.MessageBuilder;
  * 支付订单服务（收银台服务）
  * Created by Winlone on 2018/9/20.
  */
-@Service(validation = "false")
+@DubboService(validation = "false")
 public class PayOrderServiceImpl implements PayOrderService {
 
     @Autowired
