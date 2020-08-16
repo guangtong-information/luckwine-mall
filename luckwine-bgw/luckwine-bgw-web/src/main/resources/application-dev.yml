@@ -2,7 +2,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/luckwine-bgw?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    url: jdbc:mysql://192.168.85.128:3306/luckwine-bgw?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
     username: root
     password: Aa123456
     type: com.alibaba.druid.pool.DruidDataSource
@@ -13,7 +13,7 @@ dubbo:
     port: -1
     name: dubbo
   registry:
-    address: nacos://192.168.1.250:8848
+    address: nacos://192.168.85.128:8848
     #    parameters:
     #      namespace: 5f5afe75-b943-40dc-ae5a-6f3e9ab24cf8
     timeout: 6000

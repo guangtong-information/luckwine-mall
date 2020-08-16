@@ -6,7 +6,6 @@ import com.luckwine.marketing.model.base.MarketingScheme;
 import com.luckwine.marketing.model.request.enums.MarketingCouponEnum;
 import com.luckwine.parent.entitybase.request.CommonRequest;
 import com.luckwine.parent.template.DataBaseTemplate;
-import org.eclipse.jetty.util.StringUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
