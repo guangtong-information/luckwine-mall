@@ -30,6 +30,12 @@ public class PayController {
     @Autowired
     private PayOrderService payOrderService;
 
+    /**
+     * 访问地址：http://127.0.0.1:8007/pay/payorder?mainOrderCode=2022008212139180847041004&payChannle=PCPay&buyLoginAccount=15918837235&note=支付宝PC支付
+     * @param payOrderRequest
+     * @return
+     * @throws IOException
+     */
     @RequestMapping(value = "payorder",method = RequestMethod.GET)
     public ResponseEntity index(@ModelAttribute PayOrderRequest payOrderRequest) throws IOException {
         CommonRequest request = new CommonRequest();
