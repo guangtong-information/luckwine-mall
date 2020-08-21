@@ -129,7 +129,7 @@ public class MockResHelp {
         skuDetail.setQuantity(1000L);
 
         skuDetail.setSaleCount(1L);
-        skuDetail.setPrice(new BigDecimal("4000.00"));
+        skuDetail.setPrice(new BigDecimal("20.63"));
         skuDetail.setSkuStatus(SkuStatus.ON_SALE.name());
 
         skuDetailList.add(skuDetail);
@@ -157,7 +157,7 @@ public class MockResHelp {
         skuDetail.setQuantity(1000L);
 
         skuDetail.setSaleCount(1L);
-        skuDetail.setPrice(new BigDecimal("2000.00"));
+        skuDetail.setPrice(new BigDecimal("44.23"));
         skuDetail.setSkuStatus(SkuStatus.ON_SALE.name());
         skuDetailList.add(skuDetail);
 

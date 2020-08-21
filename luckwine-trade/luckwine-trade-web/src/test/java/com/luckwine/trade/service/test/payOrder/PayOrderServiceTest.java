@@ -69,7 +69,7 @@ public class PayOrderServiceTest extends BaseTest {
 
         //========= 请求对象 =========
         PayOrderRequest request = new PayOrderRequest();
-        request.setMainOrderCode("2021811250933594868321004");
+        request.setMainOrderCode("2022008212118345341361004");
         request.setPayChannle(PayChannel.PCPay);
         request.setBuyLoginAccount("15918837235");
         request.setNote("支付宝PC支付");

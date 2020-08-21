@@ -11,12 +11,34 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/luckwine-acct?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    url: jdbc:mysql://192.168.50.131:3306/luckwine-acct?useSSL=false&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
     username: root
-    password: Aa123456
+    password: worm010304124
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
-
+    druid:
+      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      filters: stat,wall
+      # 初始化大小，最小，最大
+      initial-size: 5
+      min-idle: 1
+      max-active: 20
+      # 配置获取连接等待超时的时间
+      max-wait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      # 打开PSCache，并且指定每个连接上PSCache的大小
+      pool-prepared-statements: true
+      max-open-prepared-statements: 20
+      connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      # 合并多个DruidDataSource的监控数据
+      use-global-data-source-stat: true
 mybatis:
   mapper-locations: classpath:/mapper/*.xml
   config-location: classpath:/mybatis-config.xml
@@ -30,7 +52,7 @@ dubbo:
     port: 28038
     status: server
   registry:
-    address: zookeeper://127.0.0.1:2181
+    address: zookeeper://192.168.50.131:2181
     timeout: 6000
     version: 1.0.0
     check: true

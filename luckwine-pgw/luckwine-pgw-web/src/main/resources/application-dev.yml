@@ -11,19 +11,19 @@ jasypt:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/luckwine-pgw?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    url: jdbc:mysql://192.168.50.131:3306/luckwine-pgw?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
     username: root
-    password: Aa123456
+    password: worm010304124
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
 
   redis:
-    host: 127.0.0.1
+    host: 192.168.50.131
 
 
 dubbo:
   registry:
-    address: 127.0.0.1:2181
+    address: 192.168.50.131:2181
   protocol:
     port: 28039
   provider:
@@ -31,15 +31,15 @@ dubbo:
 
 
 alipay:
-  appId:
-  serverUrl:
+  appId: 2021000117697185
+  serverUrl: https://openapi.alipaydev.com/gateway.do
   ## 应用私钥
-  privateKey:
+  privateKey: MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCl2CHyMpzSxxwlQlnrCtLLZUM4kuVGEtkZBHwHMf7oPfukEt8jaZHkRTbg7xU11+TFcBGPyURa+xg4IP6r8npKAeroNbJS5z9FLUapxb81TG00OsXF9rWtrjbT6oIyG9a6VqfBylErSDgY6mOWi2x2FZzJvY9A56tYdouDEye4dc90MH7ppv6OuE9Rr9fT6dsSw658Y2po0cxlBcWfURWn/4aZNX1ISi3oa88ruaLhk+mL+2DH0d0MBUv02bJrsEC8SzhrmgjE3FzYn1+rg8gDpYk8Eg+b9mlU/alazy0vdqeHjxWQS++23sxKCdTAjyORsKAnPmPjTCvHTI4iN0ffAgMBAAECggEAQzqdcDgyOIO8liISn2Rw1UEEgf+Sb9ieJzUZLjWHNxBBXV7FE+7s1FN2jrJ8r6oIND1c8SPO0O7u/3nooz2Vc0DZwC5cTp0tmdZjydi+zVVhA4Y7vCdpuLFhyoBLLRL59enA8Z8ZTmllTDxgCJwWaLwUJffxBYekfyT3Izh1pqF8QCHfb5RPqX6PHmHOhr3xyd5LsYH+qX1f1+tXIsJmMLHSVx6FUow6EAjfEdNt8jD2cVuofTJgCBWFPXIBVtiAiZrPtRh5dUDQ14tPxHRJNqqdrI9SAygLC89SXSfGj/sIMOaHEyzb9s2F/bZtLkSp5/t5SAhjb8cacnM/aPl3QQKBgQDVo6cAksmVoNP9fAisBvs/1A9efGM6qcaG7GX/E8OeNNdRgQjuH4uaJWb/W5NxLTvQc0aIATwjYzQQJWu7mkrEhvG3KiZivHj87Qqr2mI50mjNjGGl2eZvYbJRc7Ampzsx4bgoEm6/g2RPknBN/rqWpHQM4HCuWRKPgaTom6SAoQKBgQDGumbnhY3GiQ747utbPjLpOKvgJaRaiP7KHiPiggR2VMZLpyUbN8zcjLrpg+d8NENa77HQGs4Ql1UPklgwVjYNk4dXJa3TUxzi5ixwDwhGE6zzbc7Hwy39mB1jNf2Z1KPfruP3KNEzIjmtZWQOozVhkWvHk3ObnhHtWpPdfVB4fwKBgQCD2n033WCM+LXdvK+dfLGUs0zJA/w6OI5Ot5g71fblrbc2lmzsiouel3b6I4rcTw6bmInvZtO3A4Mec/oJzzBWGvMUGO+YALqrX6E2b5IwHayRMBMUSWfvVly36K7PLGdcYfNGyBmSGYXPlpG5kX2Xe+gkCmGBOXg7Gcitx2HAAQKBgQCoQnEYfCLTQ36y1I/f3GT8xKf6C8UBhta7yRM3GECw9AxFR8sKJY/F+T3Us4MOza1t1F7oRZnNwGQb4BvdKVFw40WHSvbHY6qkjqB3bLLjqosYPRQEXUSWX/IZ6z/CvKDXpluMDDo8ojDVmHBEWHm9F4R7IWSUER06qyNhOFYm/wKBgBCx7rhJRTxm+jfB9JFxXaic2H4hS+7xB46ljc9wx3eNv6aGN51vFU7JSDiX3jBAmHdAT8CFL7qjRl3pCGJkC2A3WdRVPUZGgorzmdSeTpEDORiuUG3s5MFkXktHxplqjNX58P3YnGANrRT8qakYf00JymqUflya3AwNv9uQEkBn
   ## 支付宝的公钥
-  publicKey:
+  publicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwWtaX9OoQTn+EkOFumIiI7pIVLZL1FmZtZrvrjLKnKw51ObRr0UhoFPBX39CCqqcGPb5gl7rwghNt/dIx7b5IxaIcxibKoGHp9jwQV7+700XROj4HfrLfmaH09Ml6rD4/gEWCwmaTpVyo92iROIbVG6PW97LFrT7AYngXPD40PwYDtSmFyPJCJMJOtaEFIC+A67moSr1jZsrsf6GobUl0pqjSiuaLe+Rwdn60AVmwbrFcDzA1fGSLvv53mtiCvtOcCRxo/9fqgbIaP05wjKYLtlOH+48MTriwa3WMSljllTdFwNhmNR7XIyGJXgqlhTrcxi+GHf0oUS1jD2g0xQEOwIDAQAB
   charset: utf-8
   signType: RSA2
   format: json
-  returnUrl:
-  notifyUrl:
+  returnUrl: http://worm128.vicp.net:58475/demo/ok
+  notifyUrl: http://worm128.vicp.net:58475/callback/alipay
   timeoutExpress : 15m

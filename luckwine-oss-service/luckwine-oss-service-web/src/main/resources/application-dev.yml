@@ -4,26 +4,26 @@ server:
 spring:
   # 数据源
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/luckwine-oss?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    url: jdbc:mysql://192.168.50.131:3306/luckwine-oss?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
     username: root
     # ·加密 可到common-utils中找到JasyptUtil加解密工具类生成加密结果 格式为ENC(加密结果)
-    password: 123456
+    password: worm010304124
   # Redis
   redis:
-    host: 127.0.0.1
+    host: 192.168.50.131
   #Elasticsearch
   data:
     elasticsearch:
-      cluster-nodes: 127.0.0.1:9300
+      cluster-nodes: 192.168.50.131:9300
 
 oss:
   # ES
   elasticsearch:
-    nodeClient: 127.0.0.1:9200
+    nodeClient: 192.168.50.131:9200
   # 日志记录方式 true使用Elasticsearch记录 false记录至数据库中
   logRecord:
     es: true
 
 dubbo:
   registry:
-    address: zookeeper://127.0.0.1:2181
+    address: zookeeper://192.168.50.131:2181

@@ -63,6 +63,7 @@ ignored:
   - /oss/smslog/**
   - /oss/admodule/**
   - /oss/adcontent/**
+  - /oss/acct/**
 
 # Mybatis-plus
 mybatis-plus:

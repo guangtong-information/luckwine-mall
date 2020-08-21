@@ -154,5 +154,10 @@ public class Sequence {
         return SystemClock.now();
     }
 
+    public static void main(String[] args) {
+        Sequence sequence=new Sequence();
+        long x = sequence.nextId();
+        System.out.println(x);
+    }
 
 }

@@ -11,9 +11,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/luckwine-acct?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    url: jdbc:mysql://192.168.1.59:3306/luckwine-acct?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
     username: root
-    password: Aa123456
+    password: 010304124
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
 

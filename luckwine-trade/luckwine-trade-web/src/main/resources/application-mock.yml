@@ -1,12 +1,12 @@
 dubbo:
   registry:
-   address: 127.0.0.1:2181
+   address: 192.168.50.131:2181
 
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/luckwine-trade?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    url: jdbc:mysql://192.168.50.131:3306/luckwine-trade?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
     username: root
-    password: Aa123456
+    password: worm010304124
 
 #酒缘网自营店铺
 store: 88888888
