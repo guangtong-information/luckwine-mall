@@ -25,10 +25,10 @@ public class AcctInfoQueryPageService extends QueryPageTemplate<AcctInfoPageRequ
         //========= 搜索条件 =========
         Example example = new Example(AcctInfo.class);
         Example.Criteria criteria = example.createCriteria();
-        //账户号
+        //账户号  and acctCode='222220'
         if (request.getRequest().getAcctCode() != null)
             criteria.andEqualTo("acctCode", request.getRequest().getAcctCode());
-        //账户名称
+        //账户名称 and acctCode like '%222220%'
         if (request.getRequest().getAcctName() != null)
             criteria.andLike("acctName", "%" + request.getRequest().getAcctName() + "%");
         //客户登录账号

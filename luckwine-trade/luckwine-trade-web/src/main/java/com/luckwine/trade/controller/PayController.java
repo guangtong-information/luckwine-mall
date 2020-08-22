@@ -37,7 +37,7 @@ public class PayController {
      * @throws IOException
      */
     @RequestMapping(value = "payorder",method = RequestMethod.GET)
-    public ResponseEntity index(@ModelAttribute PayOrderRequest payOrderRequest) throws IOException {
+    public ResponseEntity payorder(@ModelAttribute PayOrderRequest payOrderRequest) throws IOException {
         CommonRequest request = new CommonRequest();
         request.setAppName(AppName.TRADE.getCode());
         request.setChannelCode(ChannelCode.PORTALWEB.getCode());

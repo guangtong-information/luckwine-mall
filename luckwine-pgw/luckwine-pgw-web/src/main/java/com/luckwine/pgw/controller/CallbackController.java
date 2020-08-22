@@ -37,7 +37,7 @@ public class CallbackController {
 
 
     @RequestMapping(value = "/alipay", method = RequestMethod.POST)
-    public ResponseEntity callback(HttpServletRequest request) throws AlipayApiException {
+    public ResponseEntity alipay(HttpServletRequest request) throws AlipayApiException {
         Map<String, String[]> params = request.getParameterMap();
 
         Map<String, String> paramsMap = new HashMap<>();
