@@ -60,7 +60,7 @@
         <lombok.version>1.18.2</lombok.version>
         <hutool-all.version>4.1.12</hutool-all.version>
         <jasypt-spring-boot-starter.version>1.18</jasypt-spring-boot-starter.version>
-        <hibernate-validator.version>5.1.0.Final</hibernate-validator.version>
+        <hibernate-validator.version>6.1.5.Final</hibernate-validator.version>
         <commons-lang3.version>3.8</commons-lang3.version>
         <log4j-api.version>2.8.2</log4j-api.version>
         <log4j-core.version>2.8.2</log4j-core.version>
@@ -342,6 +342,18 @@
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-validator</artifactId>
                 <version>${hibernate-validator.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.el</groupId>
+                <artifactId>javax.el-api</artifactId>
+                <version>3.0.0</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.glassfish/javax.el -->
+            <dependency>
+                <groupId>org.glassfish</groupId>
+                <artifactId>javax.el</artifactId>
+                <version>3.0.0</version>
             </dependency>
 
             <!-- Hutool工具包 -->

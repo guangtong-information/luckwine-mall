@@ -5,7 +5,7 @@ dubbo:
     port: -1
     name: dubbo
   registry:
-    address: nacos://192.168.1.250:8848
+    address: nacos://192.168.85.128:8848
     #    parameters:
     #      namespace: 5f5afe75-b943-40dc-ae5a-6f3e9ab24cf8
     timeout: 6000
@@ -27,9 +27,15 @@ dubbo:
 
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/luckwine-trade?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    url: jdbc:mysql://192.168.85.128:3306/luckwine-trade?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
     username: root
-    password: Aa123456
+    password: 123456
+
+
+elastic:
+  server:
+    lists: 192.168.85.128:2181
+
 
 #酒缘网自营店铺
 store: 88888888

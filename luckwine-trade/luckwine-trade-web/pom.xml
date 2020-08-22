@@ -93,10 +93,22 @@
         </dependency>
         <!--   dubbo end     -->
 
+        <!-- 配置nacos中心 -->
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>nacos-config-spring-boot-starter</artifactId>
+        </dependency>
+        <!-- 配置nacos中心 -->
+
         <!-- Mysql Connector -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.el</artifactId>
         </dependency>
 
         <!-- 数据库连接池 -->
@@ -167,23 +179,6 @@
                 <configuration>
                     <verbose>false</verbose>
                     <overwrite>false</overwrite>
-                </configuration>
-            </plugin>
-
-            <!--自动添加git commit id插件,配合springboot actuator使用-->
-            <plugin>
-                <groupId>pl.project13.maven</groupId>
-                <artifactId>git-commit-id-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>revision</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <verbose>true</verbose>
-                    <generateGitPropertiesFile>true</generateGitPropertiesFile>
                 </configuration>
             </plugin>
 

@@ -26,6 +26,12 @@
             <artifactId>validation-api</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>javax.el-api</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
         <!--Bean操作工具类-->
         <dependency>
             <groupId>commons-beanutils</groupId>
