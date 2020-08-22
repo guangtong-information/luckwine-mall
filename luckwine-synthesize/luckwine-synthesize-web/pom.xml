@@ -40,23 +40,6 @@
             <artifactId>luckwine-goods-api</artifactId>
         </dependency>
 
-        <!-- spring 、springboot基本的Jar都会被引入 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <!-- Jetty容器，和生产环境保持一致！同步会引入servelt Jar -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jetty</artifactId>
-        </dependency>
 
         <!-- Mysql Connector -->
         <dependency>
@@ -88,34 +71,50 @@
             <artifactId>pagehelper-spring-boot-starter</artifactId>
         </dependency>
 
-        <!--dubbo相关依赖(新的dubbo连接方式，整合了Springboot，也不需要在单独加载zk依赖)-->
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-        </dependency>
-
-        <!-- springboot actuator.提供项目运行时，查看运行中的各种配置及参数 -->
+        <!--    spring boot start    -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
-
-        <!--<dependency>
-            <groupId>com.alibaba.boot</groupId>
-            <artifactId>dubbo-spring-boot-actuator</artifactId>
-        </dependency>-->
-
-        <!--springboot 单元测试-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--   spring boot end     -->
+
+        <!--   dubbo start     -->
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-registry-nacos</artifactId>
+            <version>2.7.7</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>dubbo-common</artifactId>
+                    <groupId>org.apache.dubbo</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>dubbo-remoting-api</artifactId>
+                    <groupId>org.apache.dubbo</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+        <!--   dubbo end     -->
+
+        <!-- 配置nacos中心 -->
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>nacos-config-spring-boot-starter</artifactId>
+        </dependency>
+        <!-- 配置nacos中心 -->
 
         <!--懒人包-->
         <dependency>
@@ -204,23 +203,6 @@
                 <configuration>
                     <verbose>false</verbose>
                     <overwrite>false</overwrite>
-                </configuration>
-            </plugin>
-
-            <!--自动添加git commit id插件,配合springboot actuator使用-->
-            <plugin>
-                <groupId>pl.project13.maven</groupId>
-                <artifactId>git-commit-id-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>revision</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <verbose>true</verbose>
-                    <generateGitPropertiesFile>true</generateGitPropertiesFile>
                 </configuration>
             </plugin>
 

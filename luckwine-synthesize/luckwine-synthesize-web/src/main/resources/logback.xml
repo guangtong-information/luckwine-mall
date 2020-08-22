@@ -2,7 +2,7 @@
 <configuration>
     <property name="log.name" value="luckwine-synthesize"/>
     <property name="log.path" value="/data/applog"/>
-    <property name="log.level" value="debug"/>
+    <property name="log.level" value="info"/>
 
     <!-- 注意顺序不能乱 -->
     <include resource="com/luckwine/parent/logback/luckwine-base.xml" />

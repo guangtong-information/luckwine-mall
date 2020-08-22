@@ -1,6 +1,5 @@
 package com.luckwine.synthesize.service;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.luckwine.parent.entitybase.request.CommonQueryPageRequest;
 import com.luckwine.parent.entitybase.request.CommonRequest;
 import com.luckwine.parent.entitybase.response.CommonQueryPageResponse;
@@ -10,6 +9,7 @@ import com.luckwine.synthesize.handle.remote.SmsSendRemoteService;
 import com.luckwine.synthesize.model.base.SmsLog;
 import com.luckwine.synthesize.model.request.SmsLogReq;
 import com.luckwine.synthesize.model.request.SmsReq;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.List;
  * validation = "true"，开启服务端参数校验(默认关闭)
  */
 //@Service
-@Service(validation = "true")
+@DubboService(validation = "true")
 public class SmsLogServiceImpl implements SmsLogService {
 
     @Autowired

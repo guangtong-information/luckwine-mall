@@ -11,7 +11,7 @@
                         http://www.dangdang.com/schema/ddframe/job/job.xsd
                         ">
     <!--配置作业注册中心 -->
-    <reg:zookeeper id="regCenter" server-lists="${dubbo.registry.address}"
+    <reg:zookeeper id="regCenter" server-lists="${elastic.server.lists}"
                    namespace="synthesize-adcontent-job"
                    base-sleep-time-milliseconds="1000"
                    max-sleep-time-milliseconds="3000"

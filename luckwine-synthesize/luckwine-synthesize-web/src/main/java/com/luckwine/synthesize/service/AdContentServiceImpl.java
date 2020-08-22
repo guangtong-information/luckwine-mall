@@ -1,6 +1,5 @@
 package com.luckwine.synthesize.service;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.luckwine.parent.entitybase.request.CommonQueryPageRequest;
 import com.luckwine.parent.entitybase.request.CommonRequest;
 import com.luckwine.parent.entitybase.response.CommonQueryPageResponse;
@@ -9,12 +8,13 @@ import com.luckwine.synthesize.handle.local.*;
 import com.luckwine.synthesize.model.base.AdContent;
 import com.luckwine.synthesize.model.request.AdContentImportReq;
 import com.luckwine.synthesize.model.request.AdContentSReq;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Map;
 
-@Service(validation = "true")
+@DubboService(validation = "true")
 public class AdContentServiceImpl implements AdContentService {
 
     @Autowired

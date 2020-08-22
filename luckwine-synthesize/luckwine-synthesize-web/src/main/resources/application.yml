@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: luckwine-synthesize
   profiles:
     active: dev
 
@@ -9,18 +11,14 @@ jasypt:
 
 # dubbo最新配置，整合了注册中心配置
 dubbo:
-  application:
-    name: luckwine-synthesize
-    version: 1.0.0
-    qos-enable: false
   protocol:
-    port: 28036
+    port: -1
+    name: dubbo
   registry:
-    address: zookeeper://127.0.0.1:2181
+    address: nacos://192.168.85.128:8848
     timeout: 6000
     version: 1.0.0
     check: true
-    protocol: zookeeper
     file: ./.dubbo/luckwine_synthesize_registry
   scan:
     base-packages: com.luckwine.synthesize
@@ -29,11 +27,13 @@ dubbo:
     timeout: 6000
     filter: dubboLogFilter,dubboValidationFilter,-validation
     check: false
+    group: dev
   provider:
     version: 1.0.0
     timeout: 6000
     #    加载dubbo日志打印过滤器
     filter: dubboLogFilter,dubboValidationFilter,-validation
+    group: dev
 
 mybatis:
   mapper-locations: classpath:/mapper/*.xml

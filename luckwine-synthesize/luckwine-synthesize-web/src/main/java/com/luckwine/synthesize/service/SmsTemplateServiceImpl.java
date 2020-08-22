@@ -1,6 +1,5 @@
 package com.luckwine.synthesize.service;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.luckwine.parent.entitybase.request.CommonQueryPageRequest;
 import com.luckwine.parent.entitybase.request.CommonRequest;
 import com.luckwine.parent.entitybase.response.CommonQueryPageResponse;
@@ -10,11 +9,12 @@ import com.luckwine.synthesize.handle.local.SmsTemplatePageService;
 import com.luckwine.synthesize.handle.local.SmsTemplateUpdateService;
 import com.luckwine.synthesize.model.base.SmsTemplate;
 import com.luckwine.synthesize.model.request.SmsTemplateReq;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-@Service(validation = "true")
+@DubboService(validation = "true")
 public class SmsTemplateServiceImpl implements SmsTemplateService {
 
     @Autowired
