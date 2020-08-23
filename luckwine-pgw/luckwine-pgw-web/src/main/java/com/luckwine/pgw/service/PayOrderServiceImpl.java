@@ -1,6 +1,5 @@
 package com.luckwine.pgw.service;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.luckwine.parent.entitybase.constant.ResponseCodeConstant;
 import com.luckwine.parent.entitybase.request.CommonQueryPageRequest;
 import com.luckwine.parent.entitybase.request.CommonRequest;
@@ -13,11 +12,12 @@ import com.luckwine.pgw.model.request.PayOrderCreateRequest;
 import com.luckwine.pgw.model.request.PayOrderPageRequest;
 import com.luckwine.pgw.model.response.AsyncPayInfo;
 import com.luckwine.pgw.model.service.PayOrderService;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-@Service
+@DubboService
 public class PayOrderServiceImpl implements PayOrderService {
 
     @Autowired

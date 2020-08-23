@@ -28,22 +28,50 @@
             <artifactId>luckwine-filter</artifactId>
         </dependency>
 
+        <!--    spring boot start    -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!--   spring boot end     -->
+
+        <!--   dubbo start     -->
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-registry-nacos</artifactId>
+            <version>2.7.7</version>
             <exclusions>
                 <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                    <artifactId>dubbo-common</artifactId>
+                    <groupId>org.apache.dubbo</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>dubbo-remoting-api</artifactId>
+                    <groupId>org.apache.dubbo</groupId>
                 </exclusion>
             </exclusions>
         </dependency>
-
-        <!-- Jetty容器，和生产环境保持一致！同步会引入servelt Jar -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jetty</artifactId>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
         </dependency>
+        <!--   dubbo end     -->
+
+        <!-- 配置nacos中心 -->
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>nacos-config-spring-boot-starter</artifactId>
+        </dependency>
+        <!-- 配置nacos中心 -->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -71,20 +99,6 @@
             <artifactId>pagehelper-spring-boot-starter</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>com.alipay.sdk</groupId>
@@ -102,22 +116,15 @@
             <artifactId>elastic-job-lite-spring</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>net.sourceforge.javacsv</groupId>
-            <artifactId>javacsv</artifactId>
-            <version>2.0</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>net.sourceforge.javacsv</groupId>-->
+<!--            <artifactId>javacsv</artifactId>-->
+<!--            <version>2.0</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
-            <!--<version>4.1.19</version>-->
         </dependency>
 
     </dependencies>
@@ -126,28 +133,5 @@
         <finalName>root</finalName>
         <!--主要war包输出的目录为../target文件夹-->
         <directory>${project.basedir}/../target</directory>
-
-        <plugins>
-            <!--自动添加git commit id插件,配合springboot actuator使用-->
-            <plugin>
-                <groupId>pl.project13.maven</groupId>
-                <artifactId>git-commit-id-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>revision</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <verbose>true</verbose>
-                    <generateGitPropertiesFile>true</generateGitPropertiesFile>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
     </build>
 </project>

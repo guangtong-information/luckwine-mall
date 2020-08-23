@@ -1,8 +1,6 @@
 
 orderEnv: 1
 
-server:
-  port: 8009
 
 jasypt:
   encryptor:
@@ -11,24 +9,23 @@ jasypt:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/luckwine-pgw?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    url: jdbc:mysql://192.168.85.128:3306/luckwine-pgw?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
     username: root
-    password: Aa123456
+    password: 123456
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
 
   redis:
-    host: 127.0.0.1
+    host: 192.168.85.128
 
 
 dubbo:
   registry:
-    address: 127.0.0.1:2181
-  protocol:
-    port: 28039
-  provider:
-    version: 1.0.0
+    address: nacos://192.168.85.128:8848
 
+elastic:
+  server:
+    lists: 192.168.85.128:2181
 
 alipay:
   appId:
