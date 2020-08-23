@@ -1,6 +1,5 @@
 package com.luckwine.goods.service;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.luckwine.goods.handle.local.brand.BrandPageService;
 import com.luckwine.goods.handle.local.brand.BrandSaveService;
 import com.luckwine.goods.model.base.Brand;
@@ -13,6 +12,7 @@ import com.luckwine.parent.entitybase.request.CommonQueryPageRequest;
 import com.luckwine.parent.entitybase.request.CommonRequest;
 import com.luckwine.parent.entitybase.response.CommonQueryPageResponse;
 import com.luckwine.parent.entitybase.response.CommonResponse;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -22,7 +22,7 @@ import java.util.List;
  *  invoke BrandService.saveBrand({"class":"com.luckwine.parent.entitybase.request.CommonRequest","request":{"class":"com.luckwine.goods.model.request.brand.BrandSaveRequest","brandName":"aa"}})
  *
  * */
-@Service
+@DubboService
 public class BrandServiceImpl implements BrandService {
 
     @Autowired

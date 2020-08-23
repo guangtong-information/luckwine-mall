@@ -67,9 +67,9 @@ public abstract class EsAggTemplate {
             }
             response.setAggregationInfoMap(aggregationInfoMap);
             response.setResponse(searchResponse.getHits());
-            Long pageCount = (searchResponse.getHits().getTotalHits() + request.getPageSize() - 1) / request.getPageSize();
+            Long pageCount = (searchResponse.getHits().getTotalHits().value + request.getPageSize() - 1) / request.getPageSize();
             response.setTotalPage(pageCount.intValue());
-            response.setTotalCount(searchResponse.getHits().getTotalHits());
+            response.setTotalCount(searchResponse.getHits().getTotalHits().value);
             response.setCode(ResponseCodeConstant.SUCCESS.getResponseCode());
             response.setContent(ResponseCodeConstant.SUCCESS.getResponseDesc());
             return response;

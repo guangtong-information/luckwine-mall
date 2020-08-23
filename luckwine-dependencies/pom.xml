@@ -65,7 +65,7 @@
         <log4j-api.version>2.8.2</log4j-api.version>
         <log4j-core.version>2.8.2</log4j-core.version>
 
-        <elasticsearch.version>6.4.0</elasticsearch.version>
+        <elasticsearch.version>7.6.2</elasticsearch.version>
 
         <alipay.version>3.3.87.ALL</alipay.version>
         <elastic-job.version>2.1.5</elastic-job.version>

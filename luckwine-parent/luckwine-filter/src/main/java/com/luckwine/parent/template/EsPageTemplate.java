@@ -41,9 +41,9 @@ public abstract class EsPageTemplate  {
             request.setOperLevel(RequestLogUtils.getCurOperLevel(request));
             //请求remote
             SearchHits result = callInner(request);
-            Long pageCount = (result.getTotalHits() + request.getPageSize() -1) / request.getPageSize();
+            Long pageCount = (result.getTotalHits().value + request.getPageSize() -1) / request.getPageSize();
             response.setTotalPage(pageCount.intValue());
-            response.setTotalCount(result.getTotalHits());
+            response.setTotalCount(result.getTotalHits().value);
             response.setResponse(result.getHits());
             response.setCode(ResponseCodeConstant.SUCCESS.getResponseCode());
             response.setContent(ResponseCodeConstant.SUCCESS.getResponseDesc());

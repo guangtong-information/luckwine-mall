@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: luckwine-goods
   profiles:
     active: dev
   cache:
@@ -17,10 +19,9 @@ logging:
 dubbo:
   scan:
     base-packages: com.luckwine.goods.service
-  application:
-    name: luckwine-goods
   protocol:
-    status: server
+    port: -1
+    name: dubbo
   registry:
     check: true
     file: .dubbo/luckwine_goods_registry

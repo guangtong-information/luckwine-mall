@@ -1,6 +1,5 @@
 package com.luckwine.goods.service;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.luckwine.goods.handle.local.category.CategoryDeleteService;
 import com.luckwine.goods.handle.local.category.CategoryModifyService;
 import com.luckwine.goods.handle.local.category.CategoryPageService;
@@ -15,11 +14,12 @@ import com.luckwine.parent.entitybase.request.CommonQueryPageRequest;
 import com.luckwine.parent.entitybase.request.CommonRequest;
 import com.luckwine.parent.entitybase.response.CommonQueryPageResponse;
 import com.luckwine.parent.entitybase.response.CommonResponse;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-@Service
+@DubboService
 public class CategoryServiceImpl implements CategoryService {
 
     @Autowired

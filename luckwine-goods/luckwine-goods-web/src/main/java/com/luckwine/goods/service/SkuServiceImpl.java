@@ -1,6 +1,5 @@
 package com.luckwine.goods.service;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.luckwine.goods.handle.local.sku.SkuDetailGetByIdsService;
 import com.luckwine.goods.handle.local.sku.SkuSearchAggService;
 import com.luckwine.goods.handle.local.sku.SkuSearchService;
@@ -14,11 +13,12 @@ import com.luckwine.parent.entitybase.request.CommonRequest;
 import com.luckwine.parent.entitybase.response.CommonQueryPageResponse;
 import com.luckwine.parent.entitybase.response.CommonResponse;
 import com.luckwine.parent.entitybase.response.EalsticsearchPageResponse;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-@Service
+@DubboService
 public class SkuServiceImpl implements SkuService {
 
     @Autowired

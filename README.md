@@ -3,7 +3,7 @@
 ### 1、技术栈
 * Dubbo 2.7.7
 * Redis 6.0
-* Elasticsearch 7.7.0
+* Elasticsearch 7.6.2
 * Seata 1.3.0
 
 ### 2. 开发环境
@@ -12,8 +12,8 @@
 * Mysql 5.7 
 * Redis
 * Zookeeper
-* Elasticsearch 7.7.0
-* nacos 1.1.4
+* Elasticsearch 7.6.2
+* nacos 1.3.2
 * seata 1.3.0
 
 ```

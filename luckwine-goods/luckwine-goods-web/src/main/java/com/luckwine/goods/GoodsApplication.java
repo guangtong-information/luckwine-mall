@@ -1,16 +1,15 @@
 package com.luckwine.goods;
 
-import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
 import lombok.extern.slf4j.Slf4j;
-import org.elasticsearch.action.main.MainResponse;
+import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.client.core.MainResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
@@ -26,7 +25,7 @@ import java.util.Properties;
 @EnableDubbo
 @EnableCaching
 @Slf4j
-public class GoodsApplication extends SpringBootServletInitializer implements CommandLineRunner {
+public class GoodsApplication implements CommandLineRunner {
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
@@ -34,14 +33,10 @@ public class GoodsApplication extends SpringBootServletInitializer implements Co
     @Autowired
     private RestHighLevelClient restHighLevelClient;
 
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(GoodsApplication.class);
-    }
-
     public static void main(String[] args) {
-        SpringApplication.run(GoodsApplication.class, args);
+        new SpringApplicationBuilder(GoodsApplication.class).
+                web(WebApplicationType.NONE).
+                run(args);
     }
 
     @Override
