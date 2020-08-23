@@ -7,6 +7,7 @@ import com.luckwine.marketing.service.MarketingSchemeService;
 import com.luckwine.parent.entitybase.request.CommonQueryPageRequest;
 import com.luckwine.parent.entitybase.response.CommonQueryPageResponse;
 import com.luckwine.parent.template.QueryPageRemoteTemplate;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
 @Service
 public class MarketingQuerySchemeRemoteService  extends QueryPageRemoteTemplate<CouponCenterPageListReq, List<CouponCenterPageListResp>> {
 
-    @Reference(validation = "true")
+    @DubboReference(validation = "true")
     private MarketingSchemeService marketingSchemeService;
 
 

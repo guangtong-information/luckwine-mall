@@ -6,6 +6,7 @@ import com.luckwine.parent.entitybase.response.CommonResponse;
 import com.luckwine.parent.template.SingleRemoteTemplate;
 import com.luckwine.synthesize.model.base.AdContent;
 import com.luckwine.synthesize.service.AdContentService;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
 
 @Service
 public class AdContentShelvesRemoteService extends SingleRemoteTemplate<List<AdContent>, Boolean>{
-    @Reference(version = "1.0.0")
+    @DubboReference(version = "1.0.0")
     private AdContentService adContentService;
 
     @Override

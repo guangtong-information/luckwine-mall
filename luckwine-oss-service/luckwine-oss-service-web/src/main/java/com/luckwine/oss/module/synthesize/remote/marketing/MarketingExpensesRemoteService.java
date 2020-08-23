@@ -7,13 +7,14 @@ import com.luckwine.marketing.service.MarketingExpensesService;
 import com.luckwine.parent.entitybase.request.CommonQueryPageRequest;
 import com.luckwine.parent.entitybase.response.CommonQueryPageResponse;
 import com.luckwine.parent.template.QueryPageRemoteTemplate;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public class MarketingExpensesRemoteService extends QueryPageRemoteTemplate <MarketingExpensesReq,List<MarketingExpenses>> {
 
-    @Reference(validation = "true")
+    @DubboReference(validation = "true")
     private MarketingExpensesService marketingExpensesService;
 
     @Override

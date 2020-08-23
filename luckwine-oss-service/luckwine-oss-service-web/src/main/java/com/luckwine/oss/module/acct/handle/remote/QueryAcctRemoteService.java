@@ -9,6 +9,7 @@ import com.luckwine.oss.acct.model.response.AcctInfoOssResponse;
 import com.luckwine.parent.entitybase.request.CommonQueryPageRequest;
 import com.luckwine.parent.entitybase.response.CommonQueryPageResponse;
 import com.luckwine.parent.template.QueryPageRemoteTemplate;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ import java.util.List;
 @Service
 public class QueryAcctRemoteService extends QueryPageRemoteTemplate<AcctInfoPageOssRequest, List<AcctInfoOssResponse>> {
 
-    @Reference(version = "1.0.0",timeout = 6000)
+    @DubboReference(version = "1.0.0",timeout = 6000)
     private AcctInfoService acctInfoService;
 
     @Override

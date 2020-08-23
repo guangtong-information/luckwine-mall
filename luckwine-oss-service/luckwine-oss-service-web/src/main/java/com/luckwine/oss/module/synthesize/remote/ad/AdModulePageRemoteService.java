@@ -9,6 +9,7 @@ import com.luckwine.synthesize.model.base.SmsLog;
 import com.luckwine.synthesize.model.request.SmsLogReq;
 import com.luckwine.synthesize.service.AdModuleService;
 import com.luckwine.synthesize.service.SmsLogService;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.List;
 @Service
 public class AdModulePageRemoteService extends QueryPageRemoteTemplate<AdModule, List<AdModule>> {
 
-    @Reference(validation = "true")
+    @DubboReference(validation = "true")
     private AdModuleService adModuleService;
 
     @Override

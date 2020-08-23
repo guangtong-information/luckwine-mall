@@ -6,12 +6,13 @@ import com.luckwine.goods.model.service.CategoryService;
 import com.luckwine.parent.entitybase.request.CommonRequest;
 import com.luckwine.parent.entitybase.response.CommonResponse;
 import com.luckwine.parent.template.SingleRemoteTemplate;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CategorySaveRemoteService extends SingleRemoteTemplate<CategorySaveRequest, Boolean> {
 
-    @Reference(version = "1.0.0")
+    @DubboReference(version = "1.0.0")
     private CategoryService categoryService;
 
     @Override

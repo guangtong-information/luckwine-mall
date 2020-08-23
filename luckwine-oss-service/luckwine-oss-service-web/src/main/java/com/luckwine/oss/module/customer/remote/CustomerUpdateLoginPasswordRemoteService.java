@@ -7,12 +7,13 @@ import com.luckwine.customer.service.CustomerService;
 import com.luckwine.parent.entitybase.request.CommonRequest;
 import com.luckwine.parent.entitybase.response.CommonResponse;
 import com.luckwine.parent.template.SingleRemoteTemplate;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CustomerUpdateLoginPasswordRemoteService extends SingleRemoteTemplate<CustInfo, Boolean> {
 
-	@Reference(validation = "true")
+	@DubboReference(validation = "true")
 	private CustomerService customerService;
 
 	@Override

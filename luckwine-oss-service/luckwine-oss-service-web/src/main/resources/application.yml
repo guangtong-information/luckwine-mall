@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: luckwine-oss-service
   profiles:
     active: dev
   # 数据源
@@ -18,16 +20,22 @@ spring:
       ddl-auto: none
   # Redis
   redis:
-    host: 127.0.0.1
+    host: 192.168.85.128
     password:
     # 数据库索引 默认0
     database: 2
     port: 6379
     timeout: 3000
   #Elasticsearch
+  elasticsearch:
+    rest:
+      uris: http://192.168.85.128:9200
   data:
     elasticsearch:
-      cluster-nodes: 127.0.0.1:9300
+      client:
+        reactive:
+          endpoints:
+            - 192.168.85.128:9200
       repositories:
         # 仓库中数据存储
         enabled: true
@@ -127,7 +135,7 @@ oss:
   ossUrlPath:
   # ES
   elasticsearch:
-    nodeClient: 127.0.0.1:9200
+    nodeClient: 192.168.85.128:9200
   # 日志记录方式 true使用Elasticsearch记录 false记录至数据库中
   logRecord:
     es: true
@@ -161,10 +169,6 @@ management:
       enabled: true
 
 dubbo:
-  application:
-    name: luckwine-oss-service
-    version: 1.0.0
-    qos-enable: false
   registry:
     address: zookeeper://127.0.0.1:2181
     timeout: 6000

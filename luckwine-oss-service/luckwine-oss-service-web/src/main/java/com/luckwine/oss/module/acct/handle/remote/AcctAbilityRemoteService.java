@@ -1,19 +1,19 @@
 package com.luckwine.oss.module.acct.handle.remote;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.luckwine.acct.model.request.AcctAbilityBatchRequest;
 import com.luckwine.acct.service.manage.AcctAbilityService;
 import com.luckwine.oss.acct.model.request.AcctAbilityBatchOssRequest;
 import com.luckwine.parent.entitybase.request.CommonRequest;
 import com.luckwine.parent.entitybase.response.CommonResponse;
 import com.luckwine.parent.template.SingleRemoteTemplate;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AcctAbilityRemoteService extends SingleRemoteTemplate<AcctAbilityBatchOssRequest, Integer> {
 
-    @Reference(version = "1.0.0", timeout = 2000)
+    @DubboReference(version = "1.0.0", timeout = 2000)
     private AcctAbilityService acctAbilityService;
 
     @Override

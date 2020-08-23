@@ -11,13 +11,14 @@ import com.luckwine.synthesize.model.request.SmsReq;
 import com.luckwine.synthesize.model.request.SmsTemplateReq;
 import com.luckwine.synthesize.service.SmsLogService;
 import com.luckwine.synthesize.service.SmsTemplateService;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public class SmsTemplatePageRomoteService extends QueryPageRemoteTemplate<SmsTemplateReq, List<SmsTemplate>> {
 
-    @Reference(validation = "true")
+    @DubboReference(validation = "true")
     private SmsTemplateService smsTemplateService;
 
 

@@ -8,6 +8,7 @@ import com.luckwine.synthesize.model.base.AdContent;
 import com.luckwine.synthesize.model.base.AdModule;
 import com.luckwine.synthesize.service.AdContentService;
 import com.luckwine.synthesize.service.AdModuleService;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.List;
 @Service
 public class AdContentPageRemoteService extends QueryPageRemoteTemplate<AdContent, List<AdContent>> {
 
-    @Reference(validation = "true")
+    @DubboReference(validation = "true")
     private AdContentService adContentService;
 
     @Override

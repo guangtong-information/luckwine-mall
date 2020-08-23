@@ -6,11 +6,12 @@ import com.luckwine.parent.entitybase.response.CommonResponse;
 import com.luckwine.parent.template.SingleRemoteTemplate;
 import com.luckwine.synthesize.model.base.AdContent;
 import com.luckwine.synthesize.service.AdContentService;
+import org.apache.dubbo.config.annotation.DubboReference;
 
 
 public class AdContentDetailRemoteService extends SingleRemoteTemplate<AdContent, AdContent> {
 
-    @Reference(validation = "true")
+    @DubboReference(validation = "true")
     private AdContentService adContentService;
 
     @Override
