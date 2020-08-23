@@ -1,6 +1,5 @@
 package com.luckwine.marketing.service;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.luckwine.marketing.handle.local.marketing.MarketingQuerySchemePageService;
 import com.luckwine.marketing.handle.local.marketing.MarketingSchemeSaveService;
 import com.luckwine.marketing.handle.local.marketing.MarketingSchemeUpdateService;
@@ -13,12 +12,12 @@ import com.luckwine.parent.entitybase.request.CommonQueryPageRequest;
 import com.luckwine.parent.entitybase.request.CommonRequest;
 import com.luckwine.parent.entitybase.response.CommonQueryPageResponse;
 import com.luckwine.parent.entitybase.response.CommonResponse;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.dubbo.config.annotation.DubboService;
 
 import javax.annotation.Resource;
 import java.util.List;
 
-@Service(validation = "true")
+@DubboService(validation = "true")
 public class MarketingSchemeServiceImpl implements MarketingSchemeService {
 
     @Resource

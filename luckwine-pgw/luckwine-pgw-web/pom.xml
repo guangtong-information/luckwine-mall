@@ -133,5 +133,12 @@
         <finalName>root</finalName>
         <!--主要war包输出的目录为../target文件夹-->
         <directory>${project.basedir}/../target</directory>
+        <plugins>
+            <!--Spring Boot的Maven插件，构建的时候，会将依赖全部打入war中，否则，构建出来的war是不能直接运行的-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
     </build>
 </project>

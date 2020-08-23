@@ -1,17 +1,16 @@
 package com.luckwine.customer.service.dubbo;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.luckwine.customer.CustomerApplicationTest;
 import com.luckwine.customer.model.base.CustGoodsAddr;
 import com.luckwine.customer.service.CustGoodsAddrService;
-import com.luckwine.parent.entitybase.request.CommonQueryPageRequest;
 
 import com.luckwine.parent.entitybase.request.CommonRequest;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.junit.Test;
 
 public class CustGoodsAddrServiceTest extends CustomerApplicationTest {
 
-    @Reference
+    @DubboReference
     private CustGoodsAddrService custGoodsAddrService;
     @Test
     public void testInsertCustGoodsAddr(){
