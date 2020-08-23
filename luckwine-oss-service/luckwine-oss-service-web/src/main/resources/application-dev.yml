@@ -30,3 +30,7 @@ oss:
 dubbo:
   registry:
     address: nacos://192.168.85.128:8848
+  consumer:
+    group: dev
+  provider:
+    group: dev

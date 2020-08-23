@@ -26,3 +26,6 @@ dubbo:
     name: dubbo
   provider:
     version: 1.0.0
+    group: dev
+  consumer:
+    group: dev

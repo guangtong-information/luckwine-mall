@@ -20,3 +20,7 @@ dubbo:
     port: -1
   registry:
     address: nacos://192.168.85.128:8848
+  provider:
+    group: dev
+  consumer:
+    group: dev
