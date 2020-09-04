@@ -14,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.Map;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = GoodsApplication.class)
 @Slf4j
@@ -34,6 +36,9 @@ public class SearchServiceTest {
         request.setPageSize(2);
         request.setRequest(searchRequest);
         CommonQueryPageResponse<SearchHit[]> response = searchService.call(request);
-        log.info("{}", response);
+        for (SearchHit hit : response.getResponse()) {
+            Map<String, Object> sourceAsMap = hit.getSourceAsMap();
+            System.out.println(sourceAsMap);
+        }
     }
 }

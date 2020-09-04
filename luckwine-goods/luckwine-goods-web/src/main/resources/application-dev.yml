@@ -8,22 +8,22 @@ jasypt:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/luckwine-goods?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    url: jdbc:mysql://192.168.50.131:3306/luckwine-goods?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
     username: root
-    password: 123456
+    password: worm010304124
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
 
   redis:
-    host: 127.0.0.1
+    host: 192.168.50.131
 
   elasticsearch:
     rest:
-      uris: http://127.0.0.1:9200
+      uris: http://192.168.50.131:9200,http://192.168.50.131:9201,http://192.168.50.131:9202
 
 dubbo:
   registry:
-    address: zookeeper://127.0.0.1:2181
+    address: zookeeper://192.168.50.131:2181
   protocol:
     port: 28031
   provider:

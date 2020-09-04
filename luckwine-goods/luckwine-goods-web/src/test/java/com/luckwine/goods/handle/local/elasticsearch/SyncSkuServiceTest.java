@@ -24,7 +24,7 @@ public class SyncSkuServiceTest {
     public void callInner() throws Exception {
         CommonRequest<SyncSkuBySpuIdRequest> commonRequest = new CommonRequest<>();
         SyncSkuBySpuIdRequest request = new SyncSkuBySpuIdRequest();
-        request.setSpuId("1537352081358");
+        request.setSpuId("1052030295420731393");
         commonRequest.setRequest(request);
         CommonResponse<Boolean> commonResponse =  skuSyncBySpuIdService.callInner(commonRequest);
         log.info("{}", commonResponse);

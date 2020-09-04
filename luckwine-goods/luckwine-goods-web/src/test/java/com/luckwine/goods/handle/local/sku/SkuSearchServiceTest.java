@@ -30,10 +30,10 @@ public class SkuSearchServiceTest {
         req.setPageNo(1);
 
         SearchSkuRequest skuRequest = new SearchSkuRequest();
-         skuRequest.setText("拉菲");
+        //skuRequest.setText("拉菲");
 
         req.setRequest(skuRequest);
-        CommonQueryPageResponse<List<SkuDetail>> response =  skuSearchService.callInner(req);
+        CommonQueryPageResponse<List<SkuDetail>> response = skuSearchService.callInner(req);
         log.info("{}", response);
     }
 }
