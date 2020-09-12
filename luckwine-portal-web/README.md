@@ -27,6 +27,7 @@
 │   │       │   ├── information                 // 个人信息
 │   │       │   └── order                       // 订单列表
 │   │   └── index.vue                           // 主页
+|   ├── router                                  // 路由
 │   ├── store                                   // vuex的状态管理
 │   │   ├── action.js                           // 配置actions
 │   │   ├── index.js                            // 引用vuex，创建store
