@@ -4,20 +4,27 @@ server:
 spring:
   # Redis
   redis:
-    host: 127.0.0.1
+    host: 192.168.85.128
   #Elasticsearch
   data:
     elasticsearch:
-      cluster-nodes: 127.0.0.1:9300
+      client:
+        reactive:
+          endpoints:
+            - 192.168.85.128:9200
 
 portal:
   # ES
   elasticsearch:
-    nodeClient: 127.0.0.1:9200
+    nodeClient: 192.168.85.128:9200
   # 日志记录方式 true使用Elasticsearch记录 false记录至数据库中
   logRecord:
     es: true
 
 dubbo:
   registry:
-    address: zookeeper://127.0.0.1:2181
+    address: nacos://192.168.85.128:8848
+  consumer:
+    group: dev
+  provider:
+    group: dev

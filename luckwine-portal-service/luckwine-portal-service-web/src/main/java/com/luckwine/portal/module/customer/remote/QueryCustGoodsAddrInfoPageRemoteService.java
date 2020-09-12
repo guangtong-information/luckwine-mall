@@ -6,6 +6,7 @@ import com.luckwine.customer.service.CustGoodsAddrService;
 import com.luckwine.parent.entitybase.request.CommonQueryPageRequest;
 import com.luckwine.parent.entitybase.response.CommonQueryPageResponse;
 import com.luckwine.parent.template.QueryPageRemoteTemplate;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
 @Service
 public class QueryCustGoodsAddrInfoPageRemoteService  extends QueryPageRemoteTemplate<CustGoodsAddr, List<CustGoodsAddr>> {
 
-    @Reference(validation = "true")
+    @DubboReference(validation = "true")
     private CustGoodsAddrService custGoodsAddrService;
 
     @Override

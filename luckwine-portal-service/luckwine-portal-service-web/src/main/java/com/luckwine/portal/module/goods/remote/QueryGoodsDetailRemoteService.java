@@ -7,11 +7,12 @@ import com.luckwine.goods.model.service.SpuService;
 import com.luckwine.parent.entitybase.request.CommonRequest;
 import com.luckwine.parent.entitybase.response.CommonResponse;
 import com.luckwine.parent.template.SingleRemoteTemplate;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
 
 @Service
 public class QueryGoodsDetailRemoteService extends SingleRemoteTemplate<SpuDetailRequest, SpuDetail> {
-    @Reference(version = "1.0.0")
+    @DubboReference(version = "1.0.0")
     private SpuService spuService;
 
     @Override

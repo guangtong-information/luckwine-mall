@@ -3,19 +3,13 @@ spring:
     active: dev
   # Redis
   redis:
-    host: 127.0.0.1
+    host: 192.168.85.128
     password:
     # 数据库索引 默认0
     database: 0
     port: 6379
     timeout: 3000
   #Elasticsearch
-  data:
-    elasticsearch:
-      cluster-nodes: 127.0.0.1:9300
-      repositories:
-        # 仓库中数据存储
-        enabled: true
   # 文件大小上传配置
   servlet:
     multipart:
@@ -79,36 +73,10 @@ portal:
   ossUrlPath:
   # ES
   elasticsearch:
-    nodeClient: 127.0.0.1:9200
+    nodeClient: 192.168.85.128:9200
   # 日志记录方式 true使用Elasticsearch记录 false记录至数据库中
   logRecord:
     es: true
-
-management:
-  info:
-    git:
-      mode: full
-    build:
-      enabled: true
-    env:
-      enabled: true
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  health:
-    redis:
-      enabled: true
-    diskspace:
-      enabled: true
-  endpoint:
-    shutdown:
-      enabled: true
-    health:
-      enabled: true
-      show-details: always
-    info:
-      enabled: true
 
 dubbo:
   application:

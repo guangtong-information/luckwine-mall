@@ -7,6 +7,7 @@ import com.luckwine.parent.template.SingleRemoteTemplate;
 import com.luckwine.synthesize.model.base.AdContent;
 import com.luckwine.synthesize.model.request.AdContentSReq;
 import com.luckwine.synthesize.service.AdContentService;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.Map;
 @Service
 public class QueryAdContentSRemoteService extends SingleRemoteTemplate<AdContentSReq, Map<String,List<AdContent>>> {
 
-    @Reference(version = "1.0.0")
+    @DubboReference(version = "1.0.0")
     private AdContentService adContentService;
 
     @Override
